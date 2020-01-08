@@ -20,7 +20,7 @@ all:
 	$(g) States/State.cpp -o target/State.o
 	$(g) Game.cpp -o target/Game.o
 	$(g) main2.cpp -o target/Main2.o
-	g++ $(link) -o mainp $(sfmlFlags)
+	g++ $(link) -o $(exeName) $(sfmlFlags)
 
 
 
