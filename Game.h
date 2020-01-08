@@ -2,7 +2,7 @@
 #define GAME_H
 
 
-#include "ActiveState.h"
+#include "States/ActiveState.h"
 
 
 class Game {
