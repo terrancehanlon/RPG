@@ -3,7 +3,7 @@
 Entity::Entity(){
     // this->ani = *new AnimatedSprite();
     this->movementSpeed = 0.005f;
-    text.loadFromFile("/home/terrance/desktop/games2/rpg/src/Assets/pixel.png");
+    text.loadFromFile("Assets/pixel.png");
     anim.setSpriteSheet(text);
     anim.addFrame(sf::IntRect(0, 0, 24, 24));
     anim.addFrame(sf::IntRect(24, 0, 24, 24));
