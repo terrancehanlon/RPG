@@ -1,24 +1,18 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#include "SFML/Graphics.hpp"
-#include "SFML/Window.hpp"
-#include "SFML/System.hpp"
-#include "SFML/Audio.hpp"
-#include "SFML/Network.hpp"
 
-#include "../Lib/AnimatedSprite.hpp"
-#include "../Lib/Animation.hpp"
-
+#include "../Lib/Imports.h"
 #include "../States/State.h"
 
 
 // #include <vector>
 #include <stack>
-
+#include "Movement.h"
 class Entity
 {
     private:
+        Movement *movementComp;
 
 
 

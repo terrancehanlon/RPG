@@ -1,7 +1,7 @@
 #ifndef STATE_H
 #define STATE_H
 
-#include "../Entities/Entity.h"
+#include "../Lib/Imports.h"
 
 class State
 {

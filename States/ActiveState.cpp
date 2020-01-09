@@ -14,12 +14,10 @@ void ActiveState::initState(){
 
 void ActiveState::update(sf::Time dt){
     //zone.update(dt)
-    printf("updating\n");
     this->player->update(dt);
 };
 
 void ActiveState::render(){
-    printf("Rendering\n");
     this->player->render(this->window);
 };
 
