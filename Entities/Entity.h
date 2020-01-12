@@ -31,6 +31,7 @@ class Entity
         void moveUp(sf::Time deltaTime);
         void moveDown(sf::Time deltaTime);
         void render(sf::RenderWindow *window);
+        void resetMovement();
 
 };
 

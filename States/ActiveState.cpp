@@ -15,8 +15,7 @@ void ActiveState::initState(){
 void ActiveState::update(sf::Time dt){
     //zone.update(dt)
     this->player->update(dt);
-    //have to reset movement vector
-    this->player->movement = sf::Vector2f(0.f, 0.f);
+    this->player->resetMovement();
 };
 
 void ActiveState::render(){

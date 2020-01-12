@@ -72,6 +72,11 @@ void Entity::move(sf::Time deltaTime, float x, float y){
     this->ani.move( (this->movement * deltaTime.asSeconds()) * 5.f);
 }
 
+void Entity::resetMovement(){
+    this->movement.x = 0;
+    this->movement.y = 0;
+}
+
 void Entity::render(sf::RenderWindow *window){
     window->draw(this->ani);
 }
