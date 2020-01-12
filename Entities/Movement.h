@@ -9,10 +9,11 @@ class Movement {
         float movementSpeed;
 
     public:
+        bool isMoving;
         Movement(float movementSpeed);
         ~Movement();
 
-        bool move(sf::Time deltaTime,sf::Vector2f *movement);
+        bool move(sf::Time deltaTime,sf::Vector2f *movement, AnimatedSprite *ani);
         void setMove(sf::Vector2f *movement);
 
 
