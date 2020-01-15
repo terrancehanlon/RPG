@@ -2,7 +2,7 @@
 
 Entity::Entity(){
     // this->ani = *new AnimatedSprite();
-    this->movementSpeed = 100.0f;
+    this->movementSpeed = 0.10f;
     this->movementComp = new Movement(this->movementSpeed);
     text.loadFromFile("Assets/pixel.png");
     anim.setSpriteSheet(text);
@@ -21,18 +21,7 @@ Entity::Entity(){
 };
 
 void Entity::update(sf::Time deltaTime){
-    this->ani.update(deltaTime);
-    // if(this->movementComp->move(deltaTime, &this->movement, &this->ani)){
-    //     //printf("Moving\n");
-    //     this->ani.move(this->movement * deltaTime.asSeconds());
-    //     this->movement.x = 0.f;
-    //     this->movement.y = 0.f;
-    // }
-    // else{
-    //     // printf("Not moving\n");
-    //     this->ani.stop();
-    // }
-    
+    this->ani.update(deltaTime);    
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
         this->moveLeft(deltaTime);
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
@@ -41,6 +30,9 @@ void Entity::update(sf::Time deltaTime){
         this->moveUp(deltaTime);   
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
         this->moveDown(deltaTime);   
+
+    // this->movementComp->move(deltaTime, &this->ani);
+    // this->ani.move(*this->movementComp->getMovementVector() * deltaTime.asSeconds());
 }
 
 void Entity::moveRight(sf::Time deltaTime){
@@ -73,8 +65,10 @@ void Entity::move(sf::Time deltaTime, float x, float y){
 }
 
 void Entity::resetMovement(){
-    this->movement.x = 0;
-    this->movement.y = 0;
+    // this->movement.x = 0;
+    // this->movement.y = 0;
+    // this->movementComp->resetMovement();
+    // this->ani.stop();
 }
 
 void Entity::render(sf::RenderWindow *window){
