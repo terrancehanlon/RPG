@@ -10,7 +10,7 @@ Game::~Game(){}
 
 void Game::init(){
     printf("Creating Window and initializing Game object\n");
-    this->window = new sf::RenderWindow(sf::VideoMode(800, 600), "RPG");
+    this->window = new sf::RenderWindow(sf::VideoMode(1920, 1080), "RPG", sf::Style::Fullscreen);
 };
 
 
