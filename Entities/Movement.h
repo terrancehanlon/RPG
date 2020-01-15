@@ -7,15 +7,17 @@ class Movement {
 
     private:
         float movementSpeed;
+        sf::Vector2f movement;
 
     public:
         bool isMoving;
         Movement(float movementSpeed);
         ~Movement();
 
-        bool move(sf::Time deltaTime,sf::Vector2f *movement, AnimatedSprite *ani);
+        void move(sf::Time deltaTime, AnimatedSprite *ani);
         void setMove(sf::Vector2f *movement);
-
+        sf::Vector2f *getMovementVector();
+        void resetMovement();
 
 };
 
