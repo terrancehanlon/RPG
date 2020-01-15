@@ -8,6 +8,7 @@ link = target/Imports.o \
 target/Animation.o \
 target/AnimatedSprite.o \
 target/Movement.o \
+target/Zone.o \
 target/Entity.o \
 target/ActiveState.o \
 target/State.o \
@@ -19,6 +20,7 @@ all:
 	$(g) Lib/Animation.cpp -o target/Animation.o
 	$(g) Lib/AnimatedSprite.cpp -o target/AnimatedSprite.o
 	$(g) Entities/Movement.cpp -o target/Movement.o
+	$(g) Zones/Zone.cpp -o target/Zone.o
 	$(g) Entities/Entity.cpp -o target/Entity.o
 	$(g) States/ActiveState.cpp -o target/ActiveState.o
 	$(g) States/State.cpp -o target/State.o
