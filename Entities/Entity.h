@@ -17,6 +17,7 @@ class Entity
 
 
     public:
+        sf::View *view;
         sf::Vector2f movement;
         float movementSpeed;
         Entity();

@@ -16,6 +16,8 @@ class ActiveState : public State {
         std::stack<Zone*> zones;
         ActiveState(sf::RenderWindow *window);
 
+        sf::View *view;
+
         void initState();
 
         void update(sf::Time dt);

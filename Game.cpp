@@ -10,7 +10,8 @@ Game::~Game(){}
 
 void Game::init(){
     printf("Creating Window and initializing Game object\n");
-    this->window = new sf::RenderWindow(sf::VideoMode(1920, 1080), "RPG", sf::Style::Fullscreen);
+    this->window = new sf::RenderWindow(sf::VideoMode(512, 512), "RPG", sf::Style::Close | sf::Style::Resize);
+    this->view = new sf::View(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(512.0f, 512.0f));
 };
 
 
@@ -28,6 +29,13 @@ void Game::run(){
     sf::Clock frameClock;
     sf::Time frameTime;
     while(this->window->isOpen()){
+        sf::Event event;
+        while(window->pollEvent(event)){
+            // switch(event.type){
+                // case sf::Event::Resized:
+                    // 
+            // }
+        }
         frameTime = frameClock.restart();
         // this->update();
         // this->render();

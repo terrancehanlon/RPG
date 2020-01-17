@@ -16,11 +16,16 @@ Zone::~Zone(){
 
 void Zone::draw(sf::RenderWindow *window){
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::G)){
-        this->sprite.setPosition(this->sprite.getPosition().x - 0.5f, this->sprite.getPosition().y);
+        // this->sprite.setPosition(this->sprite.getPosition().x - 0.5f, this->sprite.getPosition().y);
     }
     window->draw(this->sprite);
 }
 
-void Zone::update(sf::Time deltaTime, float x, float y){
-    
+void Zone::update(sf::Time deltaTime, float x, float y, sf::RenderWindow *window){
+    if( (window->getSize().y) < y){
+        // printf("Player below screen\n");
+        //this->sprite.setPosition(this->sprite.getPosition().x, this->sprite.getPosition().y - 1);
+        // this->
+    }
+    // sf::Style::Fullscreen-
 }

@@ -13,7 +13,7 @@ class Zone {
     public:
         Zone();
         ~Zone();
-        void update(sf::Time deltaTime, float x, float y);
+        void update(sf::Time deltaTime, float x, float y, sf::RenderWindow *window);
         void draw(sf::RenderWindow *window);
 
 };

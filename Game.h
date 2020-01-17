@@ -13,6 +13,8 @@ class Game {
         sf::RenderWindow *window;
         std::stack<State*> states;
 
+        sf::View *view;
+
         Game();
         ~Game();
         

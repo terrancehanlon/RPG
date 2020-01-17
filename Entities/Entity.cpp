@@ -2,7 +2,7 @@
 
 Entity::Entity(){
     // this->ani = *new AnimatedSprite();
-    this->movementSpeed = 0.10f;
+    this->movementSpeed = 1.0f;
     this->movementComp = new Movement(this->movementSpeed);
     text.loadFromFile("Assets/pixel.png");
     anim.setSpriteSheet(text);
@@ -14,22 +14,33 @@ Entity::Entity(){
     anim.addFrame(sf::IntRect(120, 0, 24, 24));
     anim.addFrame(sf::IntRect(144, 0, 24, 24));
 
-//    ani.setScale(5, 5);
+    // this->ani.setOrigin(this->ani.getPosition()/2.0f);
+    // this->ani.getGlobalBounds
+    // this->ani.setOrigin(sf::Vector2f(this->ani.getGlobalBounds())
+    // this->view = new sf::View(sf::Vector2f(250.0f, 250.0f), sf::Vector2f(512.0f, 512.0f));
+    // ani.setScale(5, 5);
+
+    this->ani.setPosition(sf::Vector2f(150.0f, 150.0f));
 
     ani.play(anim);
     
 };
 
 void Entity::update(sf::Time deltaTime){
-    this->ani.update(deltaTime);    
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-        this->moveLeft(deltaTime);
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-        this->moveRight(deltaTime);   
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-        this->moveUp(deltaTime);   
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-        this->moveDown(deltaTime);   
+    this->ani.update(deltaTime);  
+    // this->view->setCenter(sf::Vector2f(this->ani.getPosition().x, this->ani.getPosition().y));  
+    // if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+    //     this->moveLeft(deltaTime);
+    // if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
+    //     // this->view->move(this->movementSpeed, 0.0f);
+    //     // this->view->setCenter(250.0f, 250.0f);
+    //     this->view->move(sf::Vector2f(0.05f, 0.0f));
+    // }
+        //this->moveRight(deltaTime);   
+    // if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+    //     this->moveUp(deltaTime);   
+    // if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+    //     this->moveDown(deltaTime);   
 
     // this->movementComp->move(deltaTime, &this->ani);
     // this->ani.move(*this->movementComp->getMovementVector() * deltaTime.asSeconds());
@@ -72,5 +83,6 @@ void Entity::resetMovement(){
 }
 
 void Entity::render(sf::RenderWindow *window){
+    // window->setView(*this->view);
     window->draw(this->ani);
 }
