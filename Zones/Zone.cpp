@@ -4,7 +4,7 @@ Zone::Zone(){
     this->texture.loadFromFile("Assets/rpg-zone1.png");
     // this->image.loadFromFile("Assets/rpg-zone1.png");
     this->sprite.setTexture(this->texture);
-    this->sprite.setScale(5, 5);    
+    // this->sprite.setScale(5, 5);    
 }
 
 

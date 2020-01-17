@@ -10,8 +10,8 @@ Game::~Game(){}
 
 void Game::init(){
     printf("Creating Window and initializing Game object\n");
-    this->window = new sf::RenderWindow(sf::VideoMode(512, 512), "RPG", sf::Style::Close | sf::Style::Resize);
-    this->view = new sf::View(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(512.0f, 512.0f));
+    this->window = new sf::RenderWindow(sf::VideoMode(1024, 1024), "RPG", sf::Style::Close | sf::Style::Resize);
+    // this->view = new sf::View(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(1024.0f, 512.0f));
 };
 
 
