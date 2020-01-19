@@ -2,3 +2,4 @@ testp
 mainp
 target/
 Lib/LuaBridge/
+.vscode/
