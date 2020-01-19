@@ -1,12 +1,9 @@
 -- zone1.lua
 
-local water = {
-    x = 324,
-    y = 150
-}
-local bridge = { 
+bridge = { 
     x = 150,
-    y = 150
+    y = 150,
+    title = "Bridge"
 }
 
-return water, bridge
+return bridge

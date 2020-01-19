@@ -7,7 +7,6 @@ class Zone {
 
     private:
         sf::Texture texture;
-        sf::Image image;
         sf::Sprite sprite;
 
     public:
