@@ -1,5 +1,13 @@
+// #pragma once
 #ifndef IMPORTS_H
 #define IMPORTS_H
+
+// Lua is written in C, so compiler needs to know how to link its libraries
+extern "C" {
+# include "lua.h"
+# include "lauxlib.h"
+# include "lualib.h"
+}
 
 #include "SFML/Graphics.hpp"
 #include "SFML/Window.hpp"
@@ -9,6 +17,10 @@
 
 #include "AnimatedSprite.hpp"
 #include "Animation.hpp"
+
+// #include "LuaBridge/Source/LuaBridge/LuaBridge.h"
+
+// #include "Lib/LuaBridge/Source/LuaBridge/LuaBridge.h"
 
 class Imports {
 
