@@ -18,6 +18,12 @@ float Movement::getPlayerY(AnimatedSprite *ani){
 }
 
 void Movement::move(sf::Time deltaTime,AnimatedSprite *ani, sf::View *view){
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::J)){
+        printf("=====================================\n");
+    }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::U)){
+        printf("x: %f y: %f \n", getPlayerX(ani), getPlayerY(ani));
+    }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
     {
         //left
@@ -47,9 +53,6 @@ void Movement::move(sf::Time deltaTime,AnimatedSprite *ani, sf::View *view){
         view->move(sf::Vector2f(0.00f, 0.05f));
         view->setCenter(this->getPlayerX(ani), this->getPlayerY(ani));
     }
-    // ani->move(movement * deltaTime.asSeconds());
-    // ani->move()
-    // this->isMoving = rtn;
 
 }
 

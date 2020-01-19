@@ -14,9 +14,16 @@ class ActiveState : public State {
 
         //player instance
         Entity *player;
+        lua_State *L;
         std::stack<Zone*> zones;
         ActiveState(sf::RenderWindow *window);
         Movement *movementComp;
+
+        float getPlayerX();
+        float getPlayerY();
+
+        int getIntField(lua_State *L, const char* key);
+        std::string getStringField(lua_State *L, const char* key);
 
         sf::View *view;
 
