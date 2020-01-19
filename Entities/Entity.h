@@ -13,7 +13,6 @@ class Entity
 {
     private:
         Movement *movementComp;
-        bool isMoving;
 
 
     public:

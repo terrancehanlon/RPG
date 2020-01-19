@@ -9,38 +9,43 @@ Movement::~Movement(){
     // this->movementSpeed = NULL;
 };
 
-void Movement::move(sf::Time deltaTime,AnimatedSprite *ani){
+float Movement::getPlayerX(AnimatedSprite *ani){
+    return ani->getPosition().x;
+}
+
+float Movement::getPlayerY(AnimatedSprite *ani){
+    return ani->getPosition().y;
+}
+
+void Movement::move(sf::Time deltaTime,AnimatedSprite *ani, sf::View *view){
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
     {
         //left
         // printf("A\n");
-        this->movement.x -= this->movementSpeed;
-        this->movement.y = 0;
-        //return true;
+        ani->move(sf::Vector2f(-0.05f, 0.0f));
+        view->move(sf::Vector2f(-0.05f, 0.0f));
+        view->setCenter(this->getPlayerX(ani), this->getPlayerY(ani));
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
         //right
-        // printf("D\n");
-        this->movement.x += this->movementSpeed;
-        this->movement.y = 0;
-        //return true;
+        ani->move(sf::Vector2f(0.05f, 0.0f));
+        view->move(sf::Vector2f(0.05f, 0.0f));
+        view->setCenter(this->getPlayerX(ani), this->getPlayerY(ani));
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
     {
         //up
-        // printf("w\n");
-        this->movement.x = 0;
-        this->movement.y -= this->movementSpeed;
-        //return true;
+        ani->move(sf::Vector2f(0.00f, -0.05f));
+        view->move(sf::Vector2f(0.00f, -0.05f));
+        view->setCenter(this->getPlayerX(ani), this->getPlayerY(ani));
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
     {
         // printf("S\n");a
-        //down
-        this->movement.x = 0;
-        this->movement.y += this->movementSpeed;
-        //return true;
+        ani->move(sf::Vector2f(0.00f, 0.05f));
+        view->move(sf::Vector2f(0.00f, 0.05f));
+        view->setCenter(this->getPlayerX(ani), this->getPlayerY(ani));
     }
     // ani->move(movement * deltaTime.asSeconds());
     // ani->move()
