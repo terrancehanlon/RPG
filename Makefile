@@ -1,6 +1,8 @@
 exeName = mainp
 
-sfmlFlags = -lsfml-graphics -lsfml-window -lsfml-system;
+sfmlFlags = -lsfml-graphics -lsfml-window -lsfml-system
+luaFlags =  -llua -ldl
+
 
 g = g++ -std=c++11 -c
 
@@ -26,7 +28,7 @@ all:
 	$(g) States/State.cpp -o target/State.o
 	$(g) Game.cpp -o target/Game.o
 	$(g) main2.cpp -o target/Main2.o
-	g++ $(link) -o $(exeName) $(sfmlFlags)
+	g++ $(link) -o $(exeName) $(sfmlFlags) $(luaFlags) ;
 
 
 
