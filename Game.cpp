@@ -11,6 +11,7 @@ Game::~Game(){}
 void Game::init(){
     printf("Creating Window and initializing Game object\n");
     this->window = new sf::RenderWindow(sf::VideoMode(1024, 1024), "RPG", sf::Style::Close | sf::Style::Resize);
+    // this->window = new sf::RenderWindow(sf::VideoMode(1024, 1024), "RPG", sf::Style::Fullscreen);
     // this->view = new sf::View(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(1024.0f, 512.0f));
 };
 
@@ -28,6 +29,12 @@ void Game::render(){
 void Game::run(){
     sf::Clock frameClock;
     sf::Time frameTime;
+
+    // lua_State* L = luaL_newstate();
+    // luaL_loadfile(L, "Zones/constraints/zone1.lua");
+    // lua_pcall(L, 0, 1, 0);
+    // auto waterRef = luabridge::
+    // lua_getglobal(L, "")
     while(this->window->isOpen()){
         sf::Event event;
         while(window->pollEvent(event)){
