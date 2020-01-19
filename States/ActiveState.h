@@ -7,6 +7,7 @@
 #include <string>
 #include <stack>
 #include "../Zones/Zone.h"
+#include "../Entities/Movement.h"
 class ActiveState : public State {
 
     public:
@@ -15,6 +16,7 @@ class ActiveState : public State {
         Entity *player;
         std::stack<Zone*> zones;
         ActiveState(sf::RenderWindow *window);
+        Movement *movementComp;
 
         sf::View *view;
 
