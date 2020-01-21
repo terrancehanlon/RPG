@@ -3,3 +3,4 @@ mainp
 target/
 Lib/LuaBridge/
 .vscode/
+secrets.txt
