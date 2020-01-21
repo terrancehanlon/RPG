@@ -12,15 +12,18 @@ ActiveState::ActiveState(sf::RenderWindow *window) : State(window){
     this->L = luaL_newstate();
     luaL_loadfile(L, "Zones/constraints/zone1.lua");
     lua_pcall(L, 0, 0, 0);
-    lua_getglobal(L, "bridge");
+    lua_getglobal(L, "zone1");
  
-    int width = getIntField(L, "x");
-    int height = getIntField(L, "y");
-    std::string title = getStringField(L, "title");
- 
+    int width = getIntField(L, "startX");
+    int height = getIntField(L, "startY");
+    // std::string title = getStringField(L, "title");
+    
+    this->player->ani.setPosition(width, height);
+    this->view->setCenter(getPlayerX(), getPlayerY());
+    
     std::cout << "X = " << width << std::endl;
     std::cout << "Y = " << height << std::endl;
-    std::cout << "Title = " << title << std::endl;
+    // std::cout << "Title = " << title << std::endl;
  
     lua_close(L);
 };
@@ -59,9 +62,14 @@ std::string ActiveState::getStringField(lua_State* L, const char* key)
 }
 
 void ActiveState::update(sf::Time dt){
-
-    this->movementComp->move(dt, &this->player->ani, this->view);
+    if(this->zones.top()->checkPlayerConstraint(getPlayerX(), getPlayerY())){
+        printf("Constraint found stop movement \n");
+        this->player->ani.setPosition(getPlayerX() - 50, getPlayerY());
+    }else{
+        this->movementComp->move(dt, &this->player->ani, this->view);   
+    }
     //zone.update(dt)
+    this->zones.top()->update(dt, 0.0f, 0.0f);
     this->player->update(dt);
     this->player->resetMovement();
 };

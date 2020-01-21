@@ -1,0 +1,2 @@
+start = x = 8.39 y = 415.11
+running = x = -3

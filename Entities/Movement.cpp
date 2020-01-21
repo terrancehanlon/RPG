@@ -28,30 +28,52 @@ void Movement::move(sf::Time deltaTime,AnimatedSprite *ani, sf::View *view){
     {
         //left
         // printf("A\n");
-        ani->move(sf::Vector2f(-0.05f, 0.0f));
-        view->move(sf::Vector2f(-0.05f, 0.0f));
-        view->setCenter(this->getPlayerX(ani), this->getPlayerY(ani));
+        if((getPlayerX(ani) - 124) < 0 || (getPlayerY(ani) - 124) < 0){
+            ani->move(sf::Vector2f(-0.05f, 0.0f));
+            
+        }else{
+            ani->move(sf::Vector2f(-0.05f, 0.0f));
+            view->move(sf::Vector2f(-0.05f, 0.0f));
+            view->setCenter(this->getPlayerX(ani), this->getPlayerY(ani));
+        }   
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
         //right
-        ani->move(sf::Vector2f(0.05f, 0.0f));
-        view->move(sf::Vector2f(0.05f, 0.0f));
-        view->setCenter(this->getPlayerX(ani), this->getPlayerY(ani));
+        if((getPlayerX(ani) - 124) < 0 || (getPlayerY(ani) - 124) < 0){
+            ani->move(sf::Vector2f(0.05f, 0.0f));
+
+        }
+        else{
+            ani->move(sf::Vector2f(0.05f, 0.0f));
+            view->move(sf::Vector2f(0.05f, 0.0f));
+            view->setCenter(this->getPlayerX(ani), this->getPlayerY(ani));
+        }
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
     {
         //up
-        ani->move(sf::Vector2f(0.00f, -0.05f));
-        view->move(sf::Vector2f(0.00f, -0.05f));
-        view->setCenter(this->getPlayerX(ani), this->getPlayerY(ani));
+        if((getPlayerX(ani) - 124) < 0 || (getPlayerY(ani) - 124) < 0){
+            ani->move(sf::Vector2f(0.00f, -0.05f));
+        }
+        else{
+            ani->move(sf::Vector2f(0.00f, -0.05f));
+            view->move(sf::Vector2f(0.00f, -0.05f));
+            view->setCenter(this->getPlayerX(ani), this->getPlayerY(ani));
+        }
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
     {
         // printf("S\n");a
-        ani->move(sf::Vector2f(0.00f, 0.05f));
-        view->move(sf::Vector2f(0.00f, 0.05f));
-        view->setCenter(this->getPlayerX(ani), this->getPlayerY(ani));
+        if((getPlayerX(ani) - 124) < 0 || (getPlayerY(ani) - 124) < 0){
+            ani->move(sf::Vector2f(0.00f, 0.05f));
+
+        }
+        else{
+            ani->move(sf::Vector2f(0.00f, 0.05f));
+            view->move(sf::Vector2f(0.00f, 0.05f));
+            view->setCenter(this->getPlayerX(ani), this->getPlayerY(ani));
+        }
     }
 
 }
