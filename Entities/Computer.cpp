@@ -21,7 +21,6 @@ void Computer::update(sf::Time dt){
 }
 
 void Computer::draw(sf::RenderWindow *window){
-    // printf("Drawing comp\n");
     window->draw(this->ani);
 }
 

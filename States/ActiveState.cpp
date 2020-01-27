@@ -73,7 +73,6 @@ void ActiveState::update(sf::Time dt){
     //zone.update(dt)
     this->zones.top()->update(dt, 0.0f, 0.0f);
     this->player->update(dt);
-    this->player->resetMovement();
 };
 
 void ActiveState::render(){

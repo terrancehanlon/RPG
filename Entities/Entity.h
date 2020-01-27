@@ -25,13 +25,7 @@ class Entity
         sf::Texture text;
 
         void update(sf::Time deltaTime);
-        void move(sf::Time deltaTime, float x, float y);
-        void moveLeft(sf::Time deltaTime);
-        void moveRight(sf::Time deltaTime);
-        void moveUp(sf::Time deltaTime);
-        void moveDown(sf::Time deltaTime);
         void render(sf::RenderWindow *window);
-        void resetMovement();
 
 };
 
