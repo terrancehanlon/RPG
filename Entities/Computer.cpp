@@ -24,4 +24,8 @@ void Computer::draw(sf::RenderWindow *window){
     window->draw(this->ani);
 }
 
-Computer::~Computer(){}
+Computer::~Computer(){
+    delete &this->ani;
+    delete &this->anim;
+    delete &this->text;
+}

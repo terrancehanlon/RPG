@@ -14,12 +14,6 @@ Entity::Entity(){
     anim.addFrame(sf::IntRect(120, 0, 24, 24));
     anim.addFrame(sf::IntRect(144, 0, 24, 24));
 
-    // this->ani.setOrigin(this->ani.getPosition()/2.0f);
-    // this->ani.getGlobalBounds
-    // this->ani.setOrigin(sf::Vector2f(this->ani.getGlobalBounds())
-    // this->view = new sf::View(sf::Vector2f(250.0f, 250.0f), sf::Vector2f(512.0f, 512.0f));
-    // ani.setScale(5, 5);
-
     this->ani.setPosition(sf::Vector2f(150.0f, 150.0f));
 
     ani.play(anim);
@@ -36,6 +30,5 @@ void Entity::update(sf::Time deltaTime){
 
 
 void Entity::render(sf::RenderWindow *window){
-    // window->setView(*this->view);
     window->draw(this->ani);
 }

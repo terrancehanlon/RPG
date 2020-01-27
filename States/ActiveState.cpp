@@ -63,8 +63,6 @@ std::string ActiveState::getStringField(lua_State* L, const char* key)
 
 void ActiveState::update(sf::Time dt){
     if(this->zones.top()->checkPlayerConstraint(getPlayerX(), getPlayerY())){
-        printf("Constraint found stop movement \n");
-        // this->player->ani.setPosition(getPlayerX() - 50, getPlayerY());
         this->movementComp->backPeddle(&this->player->ani, this->view);
 
     }else{
