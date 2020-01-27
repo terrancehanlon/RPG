@@ -17,6 +17,10 @@ float Movement::getPlayerY(AnimatedSprite *ani){
     return ani->getPosition().y;
 }
 
+void Movement::backPeddle(AnimatedSprite *ani, sf::View *view){
+    ani->move(sf::Vector2f(-0.05f, 0.0f));
+}
+
 void Movement::move(sf::Time deltaTime,AnimatedSprite *ani, sf::View *view){
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::J)){
         printf("=====================================\n");
@@ -28,6 +32,7 @@ void Movement::move(sf::Time deltaTime,AnimatedSprite *ani, sf::View *view){
     {
         //left
         // printf("A\n");
+        //two if statements so view doesnt follow when near end of map  
         if((getPlayerX(ani) - 124) < 0 || (getPlayerY(ani) - 124) < 0){
             ani->move(sf::Vector2f(-0.05f, 0.0f));
             

@@ -20,6 +20,7 @@ class Movement {
         void setMove(sf::Vector2f *movement);
         sf::Vector2f *getMovementVector();
         void resetMovement();
+        void backPeddle(AnimatedSprite *ani, sf::View *view) ;
 
 };
 
