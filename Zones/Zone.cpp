@@ -40,11 +40,20 @@ bool Zone::checkPlayerConstraint(float x, float y){
     int waterRangeEndY = getIntField(this->L, "waterRangeEndY");
     int waterRangeStartX = getIntField(this->L, "waterRangeStartX");
     int waterRangeEndX = getIntField(this->L, "waterRangeEndX");
+    int bridgeRangeStartX = getIntField(this->L, "bridgeStartX");
+    int bridgeRangeStartY = getIntField(this->L, "bridgeStartY");
+    int bridgeRangeEndY = getIntField(this->L, "bridgeEndY");
 
 
     bool result = false;
 
     //first constraint check
+    if (x > (bridgeRangeStartX - 5)){
+        if(y < bridgeRangeEndY && y > bridgeRangeStartY){
+            return false;
+        }
+    }
+
     //restrict player from going into water
     if( (x < (waterRangeEndX) ) && x > (waterRangeStartX - 5)){
         if(y < (waterRangeEndY) && y > (waterRangeStartY - 5)){

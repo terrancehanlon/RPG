@@ -24,6 +24,7 @@ void Movement::backPeddle(AnimatedSprite *ani, sf::View *view){
 void Movement::move(sf::Time deltaTime,AnimatedSprite *ani, sf::View *view){
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::J)){
         printf("=====================================\n");
+        printf("x: %f y: %f", ani->getPosition().x, ani->getPosition().y);
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::U)){
         printf("x: %f y: %f \n", getPlayerX(ani), getPlayerY(ani));
