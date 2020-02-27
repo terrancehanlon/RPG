@@ -4,12 +4,14 @@ zone1 = {
     
     startX = 8,
     startY = 415,
-    waterRangeStartY = 36,
-    waterRangeStartX =  317,
+
+    waterRangeStartY = 0,
     waterRangeEndY = 488,
+    
+    waterRangeStartX =  317,
     waterRangeEndX = 348,
+
     brideStartX = 311,
-    -- bridgeEndX
     brideStartY = 160,
     bridgeEndY = 178,
     

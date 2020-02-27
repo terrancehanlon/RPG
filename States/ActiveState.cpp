@@ -69,7 +69,7 @@ void ActiveState::update(sf::Time dt){
         this->movementComp->move(dt, &this->player->ani, this->view);   
     }
     //zone.update(dt)
-    this->zones.top()->update(dt, 0.0f, 0.0f);
+    this->zones.top()->update(dt, this->player->ani.getPosition().x, this->player->ani.getPosition().y);
     this->player->update(dt);
 };
 

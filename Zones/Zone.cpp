@@ -38,9 +38,13 @@ void Zone::draw(sf::RenderWindow *window){
 bool Zone::checkPlayerConstraint(float x, float y){
     int waterRangeStartY = getIntField(this->L, "waterRangeStartY");
     int waterRangeEndY = getIntField(this->L, "waterRangeEndY");
+    
     int waterRangeStartX = getIntField(this->L, "waterRangeStartX");
     int waterRangeEndX = getIntField(this->L, "waterRangeEndX");
+    
     int bridgeRangeStartX = getIntField(this->L, "bridgeStartX");
+    //int bridgeRangeEndX = getIntField(this-L, "bridgeEndX");
+
     int bridgeRangeStartY = getIntField(this->L, "bridgeStartY");
     int bridgeRangeEndY = getIntField(this->L, "bridgeEndY");
 
@@ -48,6 +52,7 @@ bool Zone::checkPlayerConstraint(float x, float y){
     bool result = false;
 
     //first constraint check
+    //check if on bridge
     if (x > (bridgeRangeStartX - 5)){
         if(y < bridgeRangeEndY && y > bridgeRangeStartY){
             return false;
@@ -55,7 +60,7 @@ bool Zone::checkPlayerConstraint(float x, float y){
     }
 
     //restrict player from going into water
-    if( (x < (waterRangeEndX) ) && x > (waterRangeStartX - 5)){
+    if( x > (waterRangeStartX - 5)&& (x < (waterRangeEndX) )){
         if(y < (waterRangeEndY) && y > (waterRangeStartY - 5)){
             result = true;
         }
@@ -74,4 +79,8 @@ void Zone::update(sf::Time deltaTime, float x, float y){
     //     // this->
     // }
     // sf::Style::Fullscreen-
+
+    if(this->comp->ani.getGlobalBounds().contains(sf::Vector2f(x,y))){
+        printf("Crossing over computer\n");
+    }
 }
