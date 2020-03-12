@@ -1,7 +1,7 @@
 #ifndef COMPUTER_H
 #define COMPUTER_H
 
-#include "../Lib/Imports.h"
+#include "./ComputerScreen.h"
 
 class Computer {
     
@@ -10,14 +10,20 @@ class Computer {
         AnimatedSprite ani;
         Animation anim;
         sf::Texture text;
+        ComputerScreen* screen;
+        
         
         Computer();
         ~Computer();
 
         void initGraphics();
 
-        void update(sf::Time dt);
-        void draw(sf::RenderWindow *window);
+        void update(sf::Time dt, bool onScreen);
+        void draw(sf::RenderWindow *window, bool onScreen);
+
+        void displayerscreen(sf::RenderWindow *window);
+
+
 
 
 

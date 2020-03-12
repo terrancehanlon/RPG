@@ -69,12 +69,13 @@ void ActiveState::update(sf::Time dt){
         this->movementComp->move(dt, &this->player->ani, this->view);   
     }
     //zone.update(dt)
-    this->zones.top()->update(dt, this->player->ani.getPosition().x, this->player->ani.getPosition().y);
+    this->zones.top()->update(dt, this->player->ani.getPosition().x, this->player->ani.getPosition().y, this->window);
     this->player->update(dt);
 };
 
 void ActiveState::render(){
-    this->window->setView(*this->view); 
+    this->window->setView(*this->view);
+    //TODO rename draw to render
     this->zones.top()->draw(this->window);
     this->player->render(this->window);
 };
