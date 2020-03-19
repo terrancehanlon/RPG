@@ -2,14 +2,15 @@
 
 Game::Game(){
     this->init();
-    this->states.push(new ActiveState(this->window));
+    // this->states.push(new ActiveState(this->window));
+    this->states.push(new ActiveState());
 };
 
 Game::~Game(){}
 
 
 void Game::init(){
-    printf("Creating Window and initializing Game object\n");
+    printf("Creating Window and initializing Game object now\n");
     this->window = new sf::RenderWindow(sf::VideoMode(1024, 1024), "RPG", sf::Style::Close | sf::Style::Resize);
     // this->window = new sf::RenderWindow(sf::VideoMode(1024, 1024), "RPG", sf::Style::Fullscreen);
     // this->view = new sf::View(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(1024.0f, 512.0f));
@@ -22,11 +23,12 @@ void Game::update(){
 
 void Game::render(){
     this->window->clear();
-    this->states.top()->render();
+    this->states.top()->render(this->window);
     this->window->display();
 };
 
 void Game::run(){
+    printf("Game running \n");
     sf::Clock frameClock;
     sf::Time frameTime;
 
