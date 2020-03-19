@@ -9,7 +9,7 @@ ComputerScreen::ComputerScreen(){
 
 
 void ComputerScreen::update(sf::Time dt){
-    printf("Updating screen \n");
+    // printf("Updating screen \n");
     this->ani.update(dt);
 };
 
