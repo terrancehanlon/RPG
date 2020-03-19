@@ -1,11 +1,11 @@
 #include "ActiveState.h"
 #include <iostream>
 
-ActiveState::ActiveState(sf::RenderWindow *window) : State(window){
+ActiveState::ActiveState(){
     printf("Creating active state\n");
     this->zones.push(new Zone());
     this->player = new Entity();
-    this->initState();
+    this->resources = new Blood();
     this->view = new sf::View(sf::Vector2f(1024.0f, 1024.0f), sf::Vector2f(124.0f, 124.0f));
     this->movementComp = new Movement(0.055f);
 
@@ -14,24 +14,15 @@ ActiveState::ActiveState(sf::RenderWindow *window) : State(window){
     lua_pcall(L, 0, 0, 0);
     lua_getglobal(L, "zone1");
  
+    printf("Lua loading\n");
     int width = getIntField(L, "startX");
     int height = getIntField(L, "startY");
-    // std::string title = getStringField(L, "title");
     
-    this->player->ani.setPosition(width, height);
+    this->player->ani.setPosition(50, 100.0);
+    this->resources->ani.setPosition(getPlayerX(), getPlayerY() - 60);
     this->view->setCenter(getPlayerX(), getPlayerY());
     
-    std::cout << "X = " << width << std::endl;
-    std::cout << "Y = " << height << std::endl;
-    // std::cout << "Title = " << title << std::endl;
- 
     lua_close(L);
-};
-
-void ActiveState::initState(){
-    printf("Initilaizing ActiveState\n");
-    //draw state (zone)
-    this->window->clear(sf::Color::Magenta);    
 };
 
 float ActiveState::getPlayerX(){
@@ -63,20 +54,22 @@ std::string ActiveState::getStringField(lua_State* L, const char* key)
 
 void ActiveState::update(sf::Time dt){
     if(this->zones.top()->checkPlayerConstraint(getPlayerX(), getPlayerY())){
-        this->movementComp->backPeddle(&this->player->ani, this->view);
+        this->movementComp->backPeddle(&this->player->ani, &this->resources->ani, this->view);
 
     }else{
-        this->movementComp->move(dt, &this->player->ani, this->view);   
+        this->movementComp->move(dt, &this->player->ani, &this->resources->ani, this->view);   
     }
-    //zone.update(dt)
-    this->zones.top()->update(dt, this->player->ani.getPosition().x, this->player->ani.getPosition().y, this->window);
+    this->zones.top()->update(dt, this->player->ani.getPosition().x, this->player->ani.getPosition().y);
+    this->resources->update(dt);
     this->player->update(dt);
-};
 
-void ActiveState::render(){
-    this->window->setView(*this->view);
+};
+//change function names to match draw to render or render to draw
+void ActiveState::render(sf::RenderWindow *win){
+    win->setView(*this->view);
     //TODO rename draw to render
-    this->zones.top()->draw(this->window);
-    this->player->render(this->window);
+    this->zones.top()->draw(win);
+    this->player->render(win);
+    this->resources->render(win);
 };
 

@@ -16,7 +16,7 @@ class Zone {
         Zone();
         ~Zone();
         int getIntField(lua_State *L, const char* key);
-        void update(sf::Time deltaTime, float x, float y, sf::RenderWindow* win);
+        void update(sf::Time deltaTime, float x, float y);
         void draw(sf::RenderWindow *window);
 
         //checks if player is walking over restricted coords given from lua file

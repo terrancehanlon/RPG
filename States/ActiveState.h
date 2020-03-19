@@ -2,13 +2,12 @@
 #define ACTIVE_STATE
 
 // #include "State.h"
-#include "../Lib/Imports.h"
 #include "../Entities/Entity.h"
 #include <string>
 #include <stack>
 #include "../Zones/Zone.h"
 #include "../Entities/Movement.h"
-class ActiveState : public State {
+class ActiveState {
 
     public:
 
@@ -16,8 +15,10 @@ class ActiveState : public State {
         Entity *player;
         lua_State *L;
         std::stack<Zone*> zones;
-        ActiveState(sf::RenderWindow *window);
+        ActiveState();
         Movement *movementComp;
+
+        Blood *resources;
 
         float getPlayerX();
         float getPlayerY();
@@ -26,11 +27,11 @@ class ActiveState : public State {
         std::string getStringField(lua_State *L, const char* key);
 
         sf::View *view;
+        sf::View *resource_view;
 
-        void initState();
 
         void update(sf::Time dt);
-        void render();
+        void render(sf::RenderWindow *win);
 
 };
 

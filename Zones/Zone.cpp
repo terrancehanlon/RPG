@@ -10,8 +10,8 @@ Zone::Zone(){
     lua_pcall(L, 0, 0, 0);
     lua_getglobal(L, "zone1");
  
-    // int width = getIntField(L, "startX");
-    // int height = getIntField(L, "startY");
+    int width = getIntField(L, "startX");
+    int height = getIntField(L, "startY");
     // std::string title = getStringField(L, "title");
 }
 
@@ -32,7 +32,9 @@ int Zone::getIntField(lua_State *L, const char* key){
 
 void Zone::draw(sf::RenderWindow *window){
     if(this->onScreen){
+        // window->getDefaultView();
         window->draw(comp->screen->ani);
+
         // this->comp->displayerscreen(window);
     }else{
         window->draw(this->sprite);
@@ -76,14 +78,7 @@ bool Zone::checkPlayerConstraint(float x, float y){
 
 }
 
-void Zone::update(sf::Time deltaTime, float x, float y, sf::RenderWindow* window){
-    // if( (window->getSize().y) < y){
-    //     // printf("Player below screen\n");
-    //     //this->sprite.setPosition(this->sprite.getPosition().x, this->sprite.getPosition().y - 1);
-    //     // this->
-    // }
-    // sf::Style::Fullscreen-
-
+void Zone::update(sf::Time deltaTime, float x, float y){
     if(this->comp->ani.getGlobalBounds().contains(sf::Vector2f(x,y))){
         printf("Crossing over computer\n");
         this->onScreen = true;
