@@ -51,6 +51,9 @@ states:
 	$(g) States/State.cpp -o target/State.o
 	g++ $(link) -o $(exeName) $(sfmlFlags) $(luaFlags) ;
 
+game:
+	$(g) Game.cpp -o target/Game.o
+	g++ $(link) -o $(exeName) $(sfmlFlags) $(luaFlags) ;
 
 
 
