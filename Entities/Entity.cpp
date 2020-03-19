@@ -14,7 +14,7 @@ Entity::Entity(){
     anim.addFrame(sf::IntRect(120, 0, 24, 24));
     anim.addFrame(sf::IntRect(144, 0, 24, 24));
 
-    this->ani.setPosition(sf::Vector2f(150.0f, 150.0f));
+    // this->ani.setPosition(sf::Vector2f(160.0f, 150.0f));
 
     ani.play(anim);
     

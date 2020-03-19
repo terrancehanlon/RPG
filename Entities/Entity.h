@@ -1,14 +1,13 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-
-#include "../Lib/Imports.h"
 #include "../States/State.h"
 
 
 // #include <vector>
 #include <stack>
 #include "Movement.h"
+#include "./resources/Resource.h"
 class Entity
 {
     private:

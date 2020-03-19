@@ -17,11 +17,12 @@ float Movement::getPlayerY(AnimatedSprite *ani){
     return ani->getPosition().y;
 }
 
-void Movement::backPeddle(AnimatedSprite *ani, sf::View *view){
+void Movement::backPeddle(AnimatedSprite *ani, AnimatedSprite *blood, sf::View *view){
     ani->move(sf::Vector2f(-0.05f, 0.0f));
+    blood->move(sf::Vector2f(-0.05f, 0.0f));
 }
 
-void Movement::move(sf::Time deltaTime,AnimatedSprite *ani, sf::View *view){
+void Movement::move(sf::Time deltaTime,AnimatedSprite *ani, AnimatedSprite *blood, sf::View *view){
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::J)){
         printf("=====================================\n");
         printf("x: %f y: %f", ani->getPosition().x, ani->getPosition().y);
@@ -36,9 +37,11 @@ void Movement::move(sf::Time deltaTime,AnimatedSprite *ani, sf::View *view){
         //two if statements so view doesnt follow when near end of map  
         if((getPlayerX(ani) - 124) < 0 || (getPlayerY(ani) - 124) < 0){
             ani->move(sf::Vector2f(-0.05f, 0.0f));
+            blood->move(sf::Vector2f(-0.05f, 0.0f));
             
         }else{
             ani->move(sf::Vector2f(-0.05f, 0.0f));
+            blood->move(sf::Vector2f(-0.05f, 0.0f));
             view->move(sf::Vector2f(-0.05f, 0.0f));
             view->setCenter(this->getPlayerX(ani), this->getPlayerY(ani));
         }   
@@ -48,10 +51,11 @@ void Movement::move(sf::Time deltaTime,AnimatedSprite *ani, sf::View *view){
         //right
         if((getPlayerX(ani) - 124) < 0 || (getPlayerY(ani) - 124) < 0){
             ani->move(sf::Vector2f(0.05f, 0.0f));
-
+            blood->move(sf::Vector2f(0.05f, 0.0f));
         }
         else{
             ani->move(sf::Vector2f(0.05f, 0.0f));
+            blood->move(sf::Vector2f(0.05f, 0.0f));
             view->move(sf::Vector2f(0.05f, 0.0f));
             view->setCenter(this->getPlayerX(ani), this->getPlayerY(ani));
         }
@@ -61,9 +65,11 @@ void Movement::move(sf::Time deltaTime,AnimatedSprite *ani, sf::View *view){
         //up
         if((getPlayerX(ani) - 124) < 0 || (getPlayerY(ani) - 124) < 0){
             ani->move(sf::Vector2f(0.00f, -0.05f));
+            blood->move(sf::Vector2f(0.00f, -0.05f));
         }
         else{
             ani->move(sf::Vector2f(0.00f, -0.05f));
+            blood->move(sf::Vector2f(0.00f, -0.05f));
             view->move(sf::Vector2f(0.00f, -0.05f));
             view->setCenter(this->getPlayerX(ani), this->getPlayerY(ani));
         }
@@ -73,10 +79,11 @@ void Movement::move(sf::Time deltaTime,AnimatedSprite *ani, sf::View *view){
         // printf("S\n");a
         if((getPlayerX(ani) - 124) < 0 || (getPlayerY(ani) - 124) < 0){
             ani->move(sf::Vector2f(0.00f, 0.05f));
-
+            blood->move(sf::Vector2f(0.00f, 0.05f));
         }
         else{
             ani->move(sf::Vector2f(0.00f, 0.05f));
+            blood->move(sf::Vector2f(0.00f, 0.05f));
             view->move(sf::Vector2f(0.00f, 0.05f));
             view->setCenter(this->getPlayerX(ani), this->getPlayerY(ani));
         }

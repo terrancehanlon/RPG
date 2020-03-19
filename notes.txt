@@ -1,1 +1,22 @@
-x: 324
+game.run ->
+    states.top.update ->
+        Active-State.update ->
+                - update movement component
+            zones.top->update->
+                zone1.update ->
+                    - Update computer_obj
+            player.update ->
+                    -updates player animation                         
+    game.render->
+        window.clear
+        states.top.render->
+            activestate.render
+                -sets view
+                zones.top.draw
+                    -draws zone animations
+                    -draws objects in zone
+
+                player.render
+                    -draw player animation
+                resources.render
+                    -draws resources
