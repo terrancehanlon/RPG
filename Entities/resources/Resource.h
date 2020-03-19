@@ -11,10 +11,10 @@
 class Resource {
 
     private:
-        Blood *blood;
 
     public:
 
+        Blood *blood;
         int blood_x = sf::VideoMode::getDesktopMode().width / 4;
         int blood_y = sf::VideoMode::getDesktopMode().height / 4;
 

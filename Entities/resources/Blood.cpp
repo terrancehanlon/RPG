@@ -2,16 +2,28 @@
 
 Blood::Blood(){
     this->current = this->max;
-    this->text.loadFromFile("Assets/blood-levels.png");
-    this->sprite.setTexture(this->text);
+    if(!this->text.loadFromFile("Assets/blood-levels.png")){
+        printf("cant find\n");
+    }else{
+        printf("can find\n");
+    }
+    this->anim.setSpriteSheet(this->text);
+    this->anim.addFrame(sf::IntRect(12, 37, 39, 80));
+    // this->ani.play(this->anim);
+    ani.play(this->anim);
+    this->ani.setScale(0.10, 0.10);
+    // this->ani.setPosition(sf::Vector2f(0.0f, 0.0f));
 };
 
 Blood::~Blood(){}
 
 void Blood::update(sf::Time dt){
-    
+    this->ani.update(dt);
 };
 
 void Blood::render(sf::RenderWindow *window){
-    window->draw(this->sprite);
+    // printf("drawing blood\n");
+    // printf("%lf\n", this->ani.getPosition().x);
+    window->draw(this->ani);
+    // window->display();
 }
