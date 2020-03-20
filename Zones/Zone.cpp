@@ -6,7 +6,7 @@ Zone::Zone(){
     this->comp = new Computer();
     this->comp->ani.setPosition(250, 250);
     this->bloodCase = new BloodCase();
-    this->bloodCase->ani.setPosition(250, 350);
+    this->bloodCase->ani.setPosition(260, 350);
     this->L = luaL_newstate();
     luaL_loadfile(L, "Zones/constraints/zone1.lua");
     lua_pcall(L, 0, 0, 0);
