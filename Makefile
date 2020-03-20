@@ -14,6 +14,7 @@ target/Blood.o \
 target/Resource.o \
 target/Computer.o \
 target/ComputerScreen.o \
+target/BloodCase.o \
 target/Zone.o \
 target/Entity.o \
 target/ActiveState.o \
@@ -30,6 +31,7 @@ all:
 	$(g) Entities/resources/Resource.cpp -o target/Resource.o
 	$(g) Entities/Computer.cpp -o target/Computer.o
 	$(g) Entities/ComputerScreen.cpp -o target/ComputerScreen.o
+	$(g) Entities/BloodCase.cpp -o target/BloodCase.o
 	$(g) Zones/Zone.cpp -o target/Zone.o
 	$(g) Entities/Entity.cpp -o target/Entity.o
 	$(g) States/ActiveState.cpp -o target/ActiveState.o
@@ -44,6 +46,7 @@ ent:
 	$(g) Entities/resources/Resource.cpp -o target/Resource.o
 	$(g) Entities/Computer.cpp -o target/Computer.o
 	$(g) Entities/ComputerScreen.cpp -o target/ComputerScreen.o
+	$(g) Entities/BloodCase.cpp -o target/BloodCase.o
 	g++ $(link) -o $(exeName) $(sfmlFlags) $(luaFlags) ;
 
 states:
