@@ -9,3 +9,8 @@ For Assets, the path is relative to the executable not the cpp file in which the
 Composition over inheritance in object-oriented programming is the principle that classes should achieve polymorphic behavior and code reuse by their composition rather than inheritance from a base or parent class. This is an often-stated principle of OOP, such as in the influential book Design Patterns.
 ```
 
+Install sfml on ubuntu 
+`sudo apt-get install libsfml-dev`
+
+Install lua on ubuntu 
+https://www.tecmint.com/install-lua-in-centos-ubuntu-linux/
