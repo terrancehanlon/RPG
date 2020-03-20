@@ -1,7 +1,7 @@
 #ifndef COMPUTERSCREEN_H
 #define COMPUTERSCREEN_H
 
-#include "../Lib/Imports.h"
+#include "./Movement.h"
 
 //Should be the general container component of the computer screen
 

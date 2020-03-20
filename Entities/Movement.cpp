@@ -38,6 +38,10 @@ void Movement::move(sf::Time deltaTime,AnimatedSprite *ani, AnimatedSprite *bloo
         if((getPlayerX(ani) - 124) < 0 || (getPlayerY(ani) - 124) < 0){
             ani->move(sf::Vector2f(-0.05f, 0.0f));
             blood->move(sf::Vector2f(-0.05f, 0.0f));
+
+            //comment out if want to view to stop
+             view->move(sf::Vector2f(-0.05f, 0.0f));
+            view->setCenter(this->getPlayerX(ani), this->getPlayerY(ani));
             
         }else{
             ani->move(sf::Vector2f(-0.05f, 0.0f));
@@ -52,6 +56,10 @@ void Movement::move(sf::Time deltaTime,AnimatedSprite *ani, AnimatedSprite *bloo
         if((getPlayerX(ani) - 124) < 0 || (getPlayerY(ani) - 124) < 0){
             ani->move(sf::Vector2f(0.05f, 0.0f));
             blood->move(sf::Vector2f(0.05f, 0.0f));
+
+            //comment out if want to view to stop
+             view->move(sf::Vector2f(-0.05f, 0.0f));
+            view->setCenter(this->getPlayerX(ani), this->getPlayerY(ani));
         }
         else{
             ani->move(sf::Vector2f(0.05f, 0.0f));
@@ -66,6 +74,11 @@ void Movement::move(sf::Time deltaTime,AnimatedSprite *ani, AnimatedSprite *bloo
         if((getPlayerX(ani) - 124) < 0 || (getPlayerY(ani) - 124) < 0){
             ani->move(sf::Vector2f(0.00f, -0.05f));
             blood->move(sf::Vector2f(0.00f, -0.05f));
+
+
+            //comment out if want to view to stop
+             view->move(sf::Vector2f(-0.05f, 0.0f));
+            view->setCenter(this->getPlayerX(ani), this->getPlayerY(ani));
         }
         else{
             ani->move(sf::Vector2f(0.00f, -0.05f));
@@ -80,6 +93,11 @@ void Movement::move(sf::Time deltaTime,AnimatedSprite *ani, AnimatedSprite *bloo
         if((getPlayerX(ani) - 124) < 0 || (getPlayerY(ani) - 124) < 0){
             ani->move(sf::Vector2f(0.00f, 0.05f));
             blood->move(sf::Vector2f(0.00f, 0.05f));
+
+
+            //comment out if want to view to stop
+             view->move(sf::Vector2f(-0.05f, 0.0f));
+            view->setCenter(this->getPlayerX(ani), this->getPlayerY(ani));
         }
         else{
             ani->move(sf::Vector2f(0.00f, 0.05f));
