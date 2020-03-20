@@ -9,6 +9,7 @@ class Zone {
         sf::Texture texture;
         sf::Sprite sprite;
         Computer *comp;
+        BloodCase *bloodCase;
         lua_State *L;
         bool onScreen = false;
 

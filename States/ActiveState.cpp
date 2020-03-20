@@ -18,9 +18,9 @@ ActiveState::ActiveState(){
     int width = getIntField(L, "startX");
     int height = getIntField(L, "startY");
     
-    this->player->ani.setPosition(50, 100.0);
-    this->resources->ani.setPosition(getPlayerX(), getPlayerY() - 60);
+    this->player->ani.setPosition(width, height);
     this->view->setCenter(getPlayerX(), getPlayerY());
+    this->resources->ani.setPosition(view->getCenter().x - 60, getPlayerY() - 60);
     
     lua_close(L);
 };
