@@ -10,6 +10,7 @@ link = target/Imports.o \
 target/Animation.o \
 target/AnimatedSprite.o \
 target/Movement.o \
+target/Creator.o \
 target/Blood.o \
 target/Resource.o \
 target/Rock.o \
@@ -30,6 +31,7 @@ all:
 	$(g) Lib/AnimatedSprite.cpp -o target/Animate
 	$(g) Entities/Rock.cpp -o target/Rock.odSprite.o
 	$(g) Entities/Movement.cpp -o target/Movement.o
+	$(g) Entities/Creator.cpp -o target/Creator.o
 	$(g) Entities/resources/Blood.cpp -o target/Blood.o
 	$(g) Entities/resources/Resource.cpp -o target/Resource.o
 	$(g) Entities/Rock.cpp -o target/Rock.o
@@ -47,6 +49,7 @@ all:
 
 ent:	
 	$(g) Entities/Movement.cpp -o target/Movement.o
+	$(g) Entities/Creator.cpp -o target/Creator.o
 	$(g) Entities/resources/Blood.cpp -o target/Blood.o
 	$(g) Entities/resources/Resource.cpp -o target/Resource.o
 	$(g) Entities/Rock.cpp -o target/Rock.o
