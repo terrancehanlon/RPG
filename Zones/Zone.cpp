@@ -7,6 +7,8 @@ Zone::Zone(){
     this->comp->ani.setPosition(250, 250);
     this->bloodCase = new BloodCase();
     this->bloodCase->ani.setPosition(260, 350);
+    this->humanpod = new HumanPod();
+    this->humanpod->ani.setPosition(260, 450);
     this->L = luaL_newstate();
     luaL_loadfile(L, "Zones/constraints/zone1.lua");
     lua_pcall(L, 0, 0, 0);
@@ -35,13 +37,18 @@ int Zone::getIntField(lua_State *L, const char* key){
 void Zone::draw(sf::RenderWindow *window){
     if(this->onScreen){
         // window->getDefaultView();
-        window->draw(comp->screen->ani);
+        // window->draw(comp->screen->ani);
 
         // this->comp->displayerscreen(window);
+        window->draw(this->sprite);
+        // this->comp->draw(window, false);
+        this->bloodCase->render(window);
+        this->humanpod->render(window);
     }else{
         window->draw(this->sprite);
         this->comp->draw(window, false);
         this->bloodCase->render(window);
+        this->humanpod->render(window);
     }
 }
 
@@ -85,11 +92,15 @@ void Zone::update(sf::Time deltaTime, float x, float y){
     if(this->comp->ani.getGlobalBounds().contains(sf::Vector2f(x,y))){
         printf("Crossing over computer\n");
         this->onScreen = true;
-        this->comp->update(deltaTime, true);
+                this->comp->update(deltaTime, false);
+        this->bloodCase->update(deltaTime);
+        this->humanpod->update(deltaTime);
+        // this->comp->update(deltaTime, true);
     }
     else{
         this->onScreen = false;
         this->comp->update(deltaTime, false);
         this->bloodCase->update(deltaTime);
+        this->humanpod->update(deltaTime);
     }
 }

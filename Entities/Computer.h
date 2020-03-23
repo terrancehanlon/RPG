@@ -2,8 +2,8 @@
 #define COMPUTER_H
 
 #include "./ComputerScreen.h"
-
-class Computer {
+#include "./Rock.h"
+class Computer : public Rock{
     
     public:
 

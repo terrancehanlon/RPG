@@ -10,6 +10,7 @@ class Zone {
         sf::Sprite sprite;
         Computer *comp;
         BloodCase *bloodCase;
+        HumanPod *humanpod;
         lua_State *L;
         bool onScreen = false;
 

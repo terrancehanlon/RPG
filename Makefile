@@ -12,9 +12,11 @@ target/AnimatedSprite.o \
 target/Movement.o \
 target/Blood.o \
 target/Resource.o \
+target/Rock.o \
 target/Computer.o \
 target/ComputerScreen.o \
 target/BloodCase.o \
+target/HumanPod.o \
 target/Zone.o \
 target/Entity.o \
 target/ActiveState.o \
@@ -25,13 +27,16 @@ target/Main2.o
 all:
 	$(g) Lib/Imports.cpp -o target/Imports.o
 	$(g) Lib/Animation.cpp -o target/Animation.o
-	$(g) Lib/AnimatedSprite.cpp -o target/AnimatedSprite.o
+	$(g) Lib/AnimatedSprite.cpp -o target/Animate
+	$(g) Entities/Rock.cpp -o target/Rock.odSprite.o
 	$(g) Entities/Movement.cpp -o target/Movement.o
 	$(g) Entities/resources/Blood.cpp -o target/Blood.o
 	$(g) Entities/resources/Resource.cpp -o target/Resource.o
+	$(g) Entities/Rock.cpp -o target/Rock.o
 	$(g) Entities/Computer.cpp -o target/Computer.o
 	$(g) Entities/ComputerScreen.cpp -o target/ComputerScreen.o
 	$(g) Entities/BloodCase.cpp -o target/BloodCase.o
+	$(g) Entities/HumanPod.cpp -o target/HumanPod.o
 	$(g) Zones/Zone.cpp -o target/Zone.o
 	$(g) Entities/Entity.cpp -o target/Entity.o
 	$(g) States/ActiveState.cpp -o target/ActiveState.o
@@ -44,9 +49,11 @@ ent:
 	$(g) Entities/Movement.cpp -o target/Movement.o
 	$(g) Entities/resources/Blood.cpp -o target/Blood.o
 	$(g) Entities/resources/Resource.cpp -o target/Resource.o
+	$(g) Entities/Rock.cpp -o target/Rock.o
 	$(g) Entities/Computer.cpp -o target/Computer.o
 	$(g) Entities/ComputerScreen.cpp -o target/ComputerScreen.o
 	$(g) Entities/BloodCase.cpp -o target/BloodCase.o
+	$(g) Entities/HumanPod.cpp -o target/HumanPod.o
 	g++ $(link) -o $(exeName) $(sfmlFlags) $(luaFlags) ;
 
 states:
@@ -64,4 +71,4 @@ game:
 
 
 clean:
-	rm -rf target/*
+	rm -rf target/*/

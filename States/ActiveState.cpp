@@ -71,5 +71,14 @@ void ActiveState::render(sf::RenderWindow *win){
     this->zones.top()->draw(win);
     this->player->render(win);
     this->resources->render(win);
+    //     sf::Text text;
+    // sf::Font font;
+    // font.loadFromFile("Assets/fonts/OpenSans-Bold.ttf");
+    // text.setFont(font);
+    // text.setCharacterSize(24);
+    // text.setString("Hover");
+    // text.setColor(sf::Color::White);
+    // text.setPosition(250, 250);
+    // win->draw(text);          
 };
 

@@ -5,12 +5,12 @@ BloodCase::BloodCase(){
 
     this->anim.setSpriteSheet(this->texture);
     //NEED TO UPDATE coords based on new animation
-    this->anim.addFrame(sf::IntRect(48, 94, 17, 30));
-    this->anim.addFrame(sf::IntRect(172, 94, 17, 30));
-    this->anim.addFrame(sf::IntRect(296, 94, 17, 30));
-    this->anim.addFrame(sf::IntRect(420, 94, 17, 30));
-    this->anim.addFrame(sf::IntRect(544, 94, 17, 30));
-    this->anim.addFrame(sf::IntRect(668, 94, 17, 30));
+    this->anim.addFrame(sf::IntRect(32, 82, 17, 35));
+    this->anim.addFrame(sf::IntRect(156, 82, 17, 35));
+    this->anim.addFrame(sf::IntRect(280, 82, 17, 35));
+    this->anim.addFrame(sf::IntRect(404, 82, 17, 35));
+    this->anim.addFrame(sf::IntRect(528, 82, 17, 35));
+    this->anim.addFrame(sf::IntRect(652, 82, 17, 35));
     this->ani.play(this->anim);
 };
 

@@ -1,9 +1,10 @@
 #ifndef BLOODCASE_H
 #define BLOODCASE_H
 
-#include "../Lib/Imports.h"
+#include "./HumanPod.h"
+#include "./Rock.h"
 
-class BloodCase {
+class BloodCase : public Rock{
 
   private:
 
