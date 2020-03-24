@@ -4,7 +4,7 @@
 #include "../Lib/Imports.h"
 #include "./Rock.h"
 
-class HumanPod : public Rock {
+class HumanPod {
     private:
 
     public:

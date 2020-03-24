@@ -3,7 +3,7 @@
 
 #include "./ComputerScreen.h"
 #include "./Rock.h"
-class Computer : public Rock{
+class Computer{
     
     public:
 

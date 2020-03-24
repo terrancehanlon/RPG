@@ -4,7 +4,7 @@
 #include "./HumanPod.h"
 #include "./Rock.h"
 
-class BloodCase : public Rock{
+class BloodCase{
 
   private:
 
