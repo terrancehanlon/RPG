@@ -13,7 +13,7 @@ class Movement {
         bool isMoving;
         Movement(float movementSpeed);
         ~Movement();
-
+        bool create = false;
         void move(sf::Time deltaTime, AnimatedSprite *ani, AnimatedSprite *blood, sf::View *view);
         float getPlayerX(AnimatedSprite *ani);
         float getPlayerY(AnimatedSprite *ani);

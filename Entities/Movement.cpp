@@ -25,13 +25,16 @@ void Movement::backPeddle(AnimatedSprite *ani, AnimatedSprite *blood, sf::View *
 void Movement::move(sf::Time deltaTime,AnimatedSprite *ani, AnimatedSprite *blood, sf::View *view){
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::J)){
         printf("=====================================\n");
-        printf("x: %f y: %f", ani->getPosition().x, ani->getPosition().y);
+        // printf("x: %f y: %f", ani->getPosition().x, ani->getPosition().y);
+        this->create = true; 
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::U)){
         printf("x: %f y: %f \n", getPlayerX(ani), getPlayerY(ani));
+
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
     {
+        this->create = false;
         //left
         // printf("A\n");
         //two if statements so view doesnt follow when near end of map  
