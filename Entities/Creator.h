@@ -6,9 +6,12 @@
 class Creator {
 
     public:
-        std::vector<Rock*> rocks;
+        std::vector<HumanPod*> rocks;
         Creator();
         
+        void create(std::string key);
+        void update(sf::Time dt);
+        void render(sf::RenderWindow *win);
 
 
 };

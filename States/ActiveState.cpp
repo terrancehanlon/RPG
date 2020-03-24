@@ -8,6 +8,7 @@ ActiveState::ActiveState(){
     this->resources = new Blood();
     this->view = new sf::View(sf::Vector2f(1024.0f, 1024.0f), sf::Vector2f(124.0f, 124.0f));
     this->movementComp = new Movement(0.055f);
+    this->creatorComp = new Creator();
 
     this->L = luaL_newstate();
     luaL_loadfile(L, "Zones/constraints/zone1.lua");
@@ -53,12 +54,18 @@ std::string ActiveState::getStringField(lua_State* L, const char* key)
 }
 
 void ActiveState::update(sf::Time dt){
+    if(movementComp->create){
+        printf("Adding fp \n");
+        this->creatorComp->create("hp");
+        this->movementComp->create = false;
+    }
     if(this->zones.top()->checkPlayerConstraint(getPlayerX(), getPlayerY())){
         this->movementComp->backPeddle(&this->player->ani, &this->resources->ani, this->view);
 
     }else{
         this->movementComp->move(dt, &this->player->ani, &this->resources->ani, this->view);   
     }
+    this->creatorComp->update(dt);
     this->zones.top()->update(dt, this->player->ani.getPosition().x, this->player->ani.getPosition().y);
     this->resources->update(dt);
     this->player->update(dt);
@@ -69,6 +76,7 @@ void ActiveState::render(sf::RenderWindow *win){
     win->setView(*this->view);
     //TODO rename draw to render
     this->zones.top()->draw(win);
+    this->creatorComp->render(win);
     this->player->render(win);
     this->resources->render(win);
     //     sf::Text text;

@@ -7,6 +7,7 @@
 #include <stack>
 #include "../Zones/Zone.h"
 #include "../Entities/Movement.h"
+#include "../Entities/Creator.h"
 class ActiveState {
 
     public:
@@ -17,6 +18,7 @@ class ActiveState {
         std::stack<Zone*> zones;
         ActiveState();
         Movement *movementComp;
+        Creator *creatorComp;
 
         Blood *resources;
 
