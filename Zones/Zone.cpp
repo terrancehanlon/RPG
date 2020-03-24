@@ -36,6 +36,9 @@ int Zone::getIntField(lua_State *L, const char* key){
 
 void Zone::draw(sf::RenderWindow *window){
     if(this->onScreen){
+        if(!coolDown){
+            
+        }
         // window->getDefaultView();
         // window->draw(comp->screen->ani);
 

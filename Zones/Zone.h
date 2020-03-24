@@ -15,6 +15,7 @@ class Zone {
         bool onScreen = false;
 
     public:
+        bool coolDown = false;
         Zone();
         ~Zone();
         int getIntField(lua_State *L, const char* key);
