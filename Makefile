@@ -29,7 +29,7 @@ all:
 	$(g) Lib/Imports.cpp -o target/Imports.o
 	$(g) Lib/Animation.cpp -o target/Animation.o
 	$(g) Lib/AnimatedSprite.cpp -o target/Animate
-	$(g) Entities/Rock.cpp -o target/Rock.odSprite.o
+	$(g) Entities/Rock.cpp -o target/Rock.o
 	$(g) Entities/Movement.cpp -o target/Movement.o
 	$(g) Entities/Creator.cpp -o target/Creator.o
 	$(g) Entities/resources/Blood.cpp -o target/Blood.o
