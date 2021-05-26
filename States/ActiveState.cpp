@@ -80,6 +80,7 @@ void ActiveState::render(sf::RenderWindow *win){
 
     //rather than hard coded values place this into the lua file and read from there?
     // works good circles the tree
+    // make a lua reader program
     if(this->player->ani.getPosition().x > 60 && this->player->ani.getPosition().x < 120 && this->player->ani.getPosition().y > 525){
         // if(this->player->ani.getPosition().y > 525 && this->player->ani.getPosition().y < 530){
             // printf("1\n");
