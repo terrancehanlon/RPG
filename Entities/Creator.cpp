@@ -19,7 +19,7 @@ void Creator::update(sf::Time dt){
 };
 
 void Creator::render(sf::RenderWindow *win){
-    printf("%d\n", this->rocks.size());
+   // printf("%d\n", this->rocks.size());
     for(int i = 0; i < this->rocks.size(); i++){
         this->rocks.at(i)->render(win);
     }

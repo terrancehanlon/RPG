@@ -16,6 +16,10 @@ Zone::Zone(){
  
     int width = getIntField(L, "startX");
     int height = getIntField(L, "startY");
+
+    Obstacle *o = new Obstacle;
+    o->tree();
+    obstacles.push_back(o);
     // std::string title = getStringField(L, "title");
 }
 
@@ -43,15 +47,19 @@ void Zone::draw(sf::RenderWindow *window){
         // window->draw(comp->screen->ani);
 
         // this->comp->displayerscreen(window);
-        window->draw(this->sprite);
         // this->comp->draw(window, false);
+        window->draw(this->sprite);
+
         this->bloodCase->render(window);
         this->humanpod->render(window);
     }else{
-        window->draw(this->sprite);
         this->comp->draw(window, false);
         this->bloodCase->render(window);
         this->humanpod->render(window);
+        window->draw(this->sprite);
+        // for(int i = 0; i < obstacles.size(); i++){
+        //     obstacles.at(i)->render(window);
+        // }
     }
 }
 
@@ -93,11 +101,14 @@ bool Zone::checkPlayerConstraint(float x, float y){
 
 void Zone::update(sf::Time deltaTime, float x, float y){
     if(this->comp->ani.getGlobalBounds().contains(sf::Vector2f(x,y))){
-        printf("Crossing over computer\n");
+        // printf("Crossing over computer\n");
         this->onScreen = true;
-                this->comp->update(deltaTime, false);
+        this->comp->update(deltaTime, false);
         this->bloodCase->update(deltaTime);
         this->humanpod->update(deltaTime);
+        for(int i = 0; i < this->obstacles.size(); i++){
+           obstacles.at(i)->update(deltaTime);
+        }
         // this->comp->update(deltaTime, true);
     }
     else{
@@ -106,4 +117,10 @@ void Zone::update(sf::Time deltaTime, float x, float y){
         this->bloodCase->update(deltaTime);
         this->humanpod->update(deltaTime);
     }
+}
+
+void Zone::drawObstacles(sf::RenderWindow* window){
+        for(int i = 0; i < obstacles.size(); i++){
+            obstacles.at(i)->render(window);
+        }
 }

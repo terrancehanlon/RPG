@@ -77,9 +77,23 @@ void ActiveState::render(sf::RenderWindow *win){
     //TODO rename draw to render
     this->zones.top()->draw(win);
     this->creatorComp->render(win);
-    this->player->render(win);
+
+    //rather than hard coded values place this into the lua file and read from there?
+    // works good circles the tree
+    if(this->player->ani.getPosition().x > 60 && this->player->ani.getPosition().x < 120 && this->player->ani.getPosition().y > 525){
+        // if(this->player->ani.getPosition().y > 525 && this->player->ani.getPosition().y < 530){
+            // printf("1\n");
+            this->zones.top()->drawObstacles(win);
+            this->player->render(win);
+        // }
+    }
+    else{
+        // printf("2\n");
+        this->player->render(win);
+        this->zones.top()->drawObstacles(win);
+    }
     this->resources->render(win);
-    //     sf::Text text;
+    // sf::Text text;
     // sf::Font font;
     // font.loadFromFile("Assets/fonts/OpenSans-Bold.ttf");
     // text.setFont(font);

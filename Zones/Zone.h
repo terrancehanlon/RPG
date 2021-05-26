@@ -2,6 +2,8 @@
 #define ZONE_H
 
 #include "../Entities/Computer.h"
+#include "../Entities/Obstacle.h"
+#include <vector>
 
 class Zone {
 
@@ -13,6 +15,8 @@ class Zone {
         HumanPod *humanpod;
         lua_State *L;
         bool onScreen = false;
+        std::vector<Obstacle*> obstacles;
+
 
     public:
         bool coolDown = false;
@@ -21,6 +25,7 @@ class Zone {
         int getIntField(lua_State *L, const char* key);
         void update(sf::Time deltaTime, float x, float y);
         void draw(sf::RenderWindow *window);
+        void drawObstacles(sf::RenderWindow *window);
 
         //checks if player is walking over restricted coords given from lua file
         bool checkPlayerConstraint(float x, float y);

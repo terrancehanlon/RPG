@@ -8,6 +8,7 @@ class Movement {
     private:
         float movementSpeed;
         sf::Vector2f movement;
+        const float OFFSET = 1000;
 
     public:
         bool isMoving;
