@@ -1,7 +1,7 @@
 exeName = mainp
 
 sfmlFlags = -lsfml-graphics -lsfml-window -lsfml-system
-luaFlags =  -llua -ldl
+luaFlags =  -llua -ldl -lLib/static/ -lLuaReader 
 
 
 g = g++ -std=c++11 -c

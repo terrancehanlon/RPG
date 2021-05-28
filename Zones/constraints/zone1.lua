@@ -18,6 +18,13 @@ zone1 = {
     
     x = 150,
     y = 150,
+    size = 3,
+    -- -- every block of 3 represents one tree
+    -- -- greater than less than less than
+    -- coords = {60, 120, 525}
+    cord1 = "LX60",
+    cord2 = 120,
+    cord3 = 525,
     title = "Bridge"
 }
 

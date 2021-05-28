@@ -4,6 +4,7 @@
 #include "../Entities/Computer.h"
 #include "../Entities/Obstacle.h"
 #include <vector>
+#include <string>
 
 class Zone {
 
@@ -16,6 +17,7 @@ class Zone {
         lua_State *L;
         bool onScreen = false;
         std::vector<Obstacle*> obstacles;
+        // std::vector<std::vector<int>> coords;
 
 
     public:
@@ -23,9 +25,11 @@ class Zone {
         Zone();
         ~Zone();
         int getIntField(lua_State *L, const char* key);
+        std::string getStringField(lua_State *L, const char* key);
         void update(sf::Time deltaTime, float x, float y);
         void draw(sf::RenderWindow *window);
         void drawObstacles(sf::RenderWindow *window);
+        bool checkObstacles(AnimatedSprite *ani);
 
         //checks if player is walking over restricted coords given from lua file
         bool checkPlayerConstraint(float x, float y);
