@@ -22,9 +22,13 @@ zone1 = {
     -- -- every block of 3 represents one tree
     -- -- greater than less than less than
     -- coords = {60, 120, 525}
-    cord1 = "LX60",
-    cord2 = 120,
-    cord3 = 525,
+    -- 9 - >=
+    -- 8 - >
+    -- 7 - <=
+    -- 6 - <
+    cord1 = "9X60",
+    cord2 = "7X120",
+    cord3 = "7Y525",
     title = "Bridge"
 }
 

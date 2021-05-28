@@ -17,7 +17,7 @@ class Zone {
         lua_State *L;
         bool onScreen = false;
         std::vector<Obstacle*> obstacles;
-        // std::vector<std::vector<int>> coords;
+        std::vector<std::vector<std::string>> coords;
 
 
     public:

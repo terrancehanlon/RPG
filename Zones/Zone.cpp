@@ -20,35 +20,31 @@ Zone::Zone(){
     int height = getIntField(L, "startY");
     printf("%d\n", height);
 
-    // lua_State* _L = luaL_newstate();
-    // lua_pcall(_L, 0, 0, 0);
-    // lua_getglobal(_L, "trees");
-    std::vector<int> x;
+    std::vector<std::string> x;
 
     // lua_pushnil(_L);
     // int index = lua_gettop(_L);
     int len = getIntField(L, "size");
-    printf("%d\n", len);
     // int c = getIntField(cleaL, "coord1")
     
-    // for(int i = 1; i <= len; i++){
-    //     std::string s = "cord" + std::to_string(i);
-    //     std::cout << s << std::endl;
-    //     printf("%s\n", s.c_str());
-    //     x.push_back(getIntField(L,s.c_str()));
-    // }
+    for(int i = 1; i <= len; i++){
+        std::string s = "cord" + std::to_string(i);
+        std::cout << s << std::endl;
+        printf("%s\n", s.c_str());
+        x.push_back(getStringField(L,s.c_str()));
+    }
 
-    std::string cd = getStringField(L, "cord1");
-    std::cout << cd << std::endl;
+    // std::string cd = getStringField(L, "cord1");
+    // std::cout << cd << std::endl;
     
 
-    // for(int i = 0; i < len; i++){
-    //     std::cout << x.at(i) << std::endl;
-    // }
+    for(int i = 0; i < len; i++){
+        std::cout << x.at(i) << std::endl;
+    }
 
     // int counter = 1;
     // int idx = 0;
-    // std::vector<int> _coords;
+    std::vector<int> _coords;
     // for(int i = 0; i < len; i++){
     //     if(counter == 5){
     //         coords.push_back(_coords);
