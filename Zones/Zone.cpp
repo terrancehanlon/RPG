@@ -119,9 +119,9 @@ Zone::Zone(){
     // }
 
     
-    // Obstacle *o = new Obstacle;
-    // o->tree();
-    // obstacles.push_back(o);
+    Obstacle *o = new Obstacle;
+    o->tree();
+    obstacles.push_back(o);
     // std::string title = getStringField(L, "title");
 }
 
@@ -247,9 +247,16 @@ bool Zone::checkObstacles(AnimatedSprite* ani){
 }
 
 bool Zone::renderObjectFirst(float playerX, float playerY){
-    for(int i = 0; i < constraints.size(); i++){
+    // for(int i = 0; i < constraints.size(); i++){
 
-    }
+    // }
 
-    return false;
+    bool result = false;
+
+    if(playerX > 60)
+        if(playerX < 120)
+            if(playerY > 525)
+                result = true;
+    
+    return result;
 }

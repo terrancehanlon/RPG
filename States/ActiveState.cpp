@@ -86,7 +86,7 @@ void ActiveState::render(sf::RenderWindow *win){
         If player should render first that means player is in front of object
         If object should render first it means player is behind the object (obstacle)
     */
-    if(this->player->ani.getPosition().x > 60 && this->player->ani.getPosition().x < 120 && this->player->ani.getPosition().y > 525){
+    if(this->zones.top()->renderObjectFirst(this->player->ani.getPosition().x, this->player->ani.getPosition().y)){
         // if(this->player->ani.getPosition().y > 525 && this->player->ani.getPosition().y < 530){
             // printf("1\n");
             this->zones.top()->drawObstacles(win);
