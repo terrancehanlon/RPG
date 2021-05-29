@@ -21,30 +21,93 @@ Zone::Zone(){
     printf("%d\n", height);
 
     std::vector<std::string> x;
-
-    // lua_pushnil(_L);
-    // int index = lua_gettop(_L);
-    int len = getIntField(L, "size");
-    // int c = getIntField(cleaL, "coord1")
+    int len = getIntField(L, "constraints");
     
     for(int i = 1; i <= len; i++){
-        std::string s = "cord" + std::to_string(i);
+        std::string s = "constraint" + std::to_string(i);
         std::cout << s << std::endl;
         printf("%s\n", s.c_str());
         x.push_back(getStringField(L,s.c_str()));
     }
 
-    // std::string cd = getStringField(L, "cord1");
-    // std::cout << cd << std::endl;
-    
+    for(int i = 0; i < x.size(); i++){
+        Constraint *constraint = new Constraint();
+        int pos;
+        std::string statement = "";
+        while( (pos = x.at(i).find(",")) != std::string::npos){
+            std::string rawConstraint = x.at(i).substr(0,pos);
+            // std::cout << rawConstraint << std::endl;
+            if(rawConstraint.substr(0,1) == "9"){
+                if(rawConstraint.substr(1,1) == "X"){
+                    statement += "X > ";
+                }
+                else if(rawConstraint.substr(1,1) == "Y"){
+                    statement += "Y > ";
+                }
+            }
+            else if(rawConstraint.substr(0,1) == "7"){
+                if(rawConstraint.substr(1,1) == "X"){
+                    statement += "X < ";
+                }
+                else if(rawConstraint.substr(1,1) == "Y"){
+                    statement += "Y < ";
+                }
+            }
 
-    for(int i = 0; i < len; i++){
-        std::cout << x.at(i) << std::endl;
+            statement += rawConstraint.substr(2, rawConstraint.length() - 2);
+            x.at(i).erase(0, pos + 1);
+            if(x.at(i).length() > 0){
+               statement += " && ";
+            } 
+        }
+        std::cout << statement << std::endl;
+        constraint->setConstraintString(statement);
+        constraints.push_back(constraint);
     }
+
+    // while((size_t pos = ))
+    // //when counter is greater than three it means reset
+    // int counter = 0;
+    // Constraint 
+    // for(int i = 0; i < len; i++){
+    //     std::vector<std::string> rawConstraints;
+    //     std::string statement = "";
+    //     rawConstraints.push_back(x.at(i));
+    //     if(x.at(i).substr(0,1) == "9"){
+    //         if(x.at(i).substr(1,1) == "X"){
+    //             statement += "X >= ";
+    //         }
+    //         else if(x.at(i).substr(1,1) == "Y"){
+    //             statement += "Y >= ";
+    //         }
+    //     }
+    //     else if(x.at(i).substr(0,1) == "7"){
+    //         if(x.at(i).substr(1,1) == "X"){
+    //             statement += "X <= ";
+    //         }
+    //         else if(x.at(i).substr(1,1) == "Y"){
+    //             statement += "Y <= ";
+    //         }
+    //     }
+    //     statement += x.at(i).substr(2, x.at(i).length() - 2);
+        
+    //     std::cout << "statement: " <<  statement << std::endl;
+        //equality prefix (< > <= >=)
+        // bool eq = "9" == s.substr(0,1);
+
+        // Constraint* constraint = new Constraint();
+        // for(int j = (i+1); j < (i+4); j++){
+            
+        // }
+
+        // std::cout << x<< std::endl;
+        // Constraint* _c = new Constraint()
+        // std::cout << x.at(i) << std::endl;
+    // }
 
     // int counter = 1;
     // int idx = 0;
-    std::vector<int> _coords;
+    // std::vector<int> _coords;
     // for(int i = 0; i < len; i++){
     //     if(counter == 5){
     //         coords.push_back(_coords);
@@ -56,9 +119,9 @@ Zone::Zone(){
     // }
 
     
-    Obstacle *o = new Obstacle;
-    o->tree();
-    obstacles.push_back(o);
+    // Obstacle *o = new Obstacle;
+    // o->tree();
+    // obstacles.push_back(o);
     // std::string title = getStringField(L, "title");
 }
 
@@ -181,4 +244,12 @@ bool Zone::checkObstacles(AnimatedSprite* ani){
     //     }
     // }
     return true;
+}
+
+bool Zone::renderObjectFirst(float playerX, float playerY){
+    for(int i = 0; i < constraints.size(); i++){
+
+    }
+
+    return false;
 }

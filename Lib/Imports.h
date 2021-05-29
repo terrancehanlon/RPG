@@ -3,10 +3,11 @@
 #define IMPORTS_H
 
 // Lua is written in C, so compiler needs to know how to link its libraries
+///usr/include/lua5.3/
 extern "C" {
-# include "/usr/include/lua5.3/lua.h"
-# include "/usr/include/lua5.3/lauxlib.h"
-# include "/usr/include/lua5.3/lualib.h"
+# include "lua.h"
+# include "lauxlib.h"
+# include "lualib.h"
 }
 
 #include "SFML/Graphics.hpp"

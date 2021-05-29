@@ -18,7 +18,7 @@ zone1 = {
     
     x = 150,
     y = 150,
-    size = 3,
+    constraints = 1,
     -- -- every block of 3 represents one tree
     -- -- greater than less than less than
     -- coords = {60, 120, 525}
@@ -26,9 +26,7 @@ zone1 = {
     -- 8 - >
     -- 7 - <=
     -- 6 - <
-    cord1 = "9X60",
-    cord2 = "7X120",
-    cord3 = "7Y525",
+    constraint1 = "7X120,9X60,7Y525,",
     title = "Bridge"
 }
 

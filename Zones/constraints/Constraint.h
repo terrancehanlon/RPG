@@ -17,9 +17,13 @@ class Constraint {
         bool x = false;
         bool y = false;
         std::vector<float> coords;
+        bool statement;
+        std::string statementstring;
 
     public:
-        Constraint(std::string equality, std::vector<float> coords);
+        Constraint();
+        bool isConstrained(float playerX, float playerY);
+        void setConstraintString(std::string statement);
         
 
 

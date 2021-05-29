@@ -3,6 +3,7 @@
 
 #include "../Entities/Computer.h"
 #include "../Entities/Obstacle.h"
+#include "./constraints/Constraint.h"
 #include <vector>
 #include <string>
 
@@ -18,6 +19,7 @@ class Zone {
         bool onScreen = false;
         std::vector<Obstacle*> obstacles;
         std::vector<std::vector<std::string>> coords;
+        std::vector<Constraint*> constraints;
 
 
     public:
@@ -30,6 +32,8 @@ class Zone {
         void draw(sf::RenderWindow *window);
         void drawObstacles(sf::RenderWindow *window);
         bool checkObstacles(AnimatedSprite *ani);
+        bool renderPlayerFirst(float playerX, float playerY);
+        bool renderObjectFirst(float playerX, float playerY);
 
         //checks if player is walking over restricted coords given from lua file
         bool checkPlayerConstraint(float x, float y);

@@ -1,10 +1,11 @@
 exeName = mainp
 
 sfmlFlags = -lsfml-graphics -lsfml-window -lsfml-system
-luaFlags =  -llua5.3 -ldl -lm -I/usr/include/lua5.3
+# luaFlags =  -llua5.3 -ldl -lm -I/usr/include/lua5.3
+luaFlags = -llua -ldl -lm
 # luaflags = -l-I/usr/include/lua5.3
 
-g = g++ -std=c++11 -c
+g = g++ -std=c++11 -c -g
 
 link = target/Imports.o \
 target/Animation.o \
@@ -18,6 +19,7 @@ target/Computer.o \
 target/ComputerScreen.o \
 target/BloodCase.o \
 target/HumanPod.o \
+target/Constraint.o \
 target/Zone.o \
 target/Obstacle.o \
 target/Entity.o \
@@ -40,6 +42,7 @@ all:
 	$(g) Entities/ComputerScreen.cpp -o target/ComputerScreen.o
 	$(g) Entities/BloodCase.cpp -o target/BloodCase.o
 	$(g) Entities/HumanPod.cpp -o target/HumanPod.o
+	$(g) Zones/constraints/Constraint.cpp -o target/Constraint.o
 	$(g) Zones/Zone.cpp -o target/Zone.o
 	$(g) Entities/Obstacle.cpp -o target/Obstacle.o
 	$(g) Entities/Entity.cpp -o target/Entity.o
@@ -67,6 +70,7 @@ states:
 	$(g) States/State.cpp -o target/State.o
 	g++ $(link) -o $(exeName) $(sfmlFlags) $(luaFlags) ;
 zones:
+	$(g) Zones/constraints/Constraint.cpp -o target/Constraint.o
 	$(g) Zones/Zone.cpp -o target/Zone.o
 	g++ $(link) -o $(exeName) $(sfmlFlags) $(luaFlags) ;
 
