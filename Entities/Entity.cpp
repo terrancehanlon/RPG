@@ -1,11 +1,12 @@
 #include "Entity.h"
 
-Entity::Entity(){
+Entity::Entity(TextureManager *tm){
     // this->ani = *new AnimatedSprite();
     this->movementSpeed = 1.0f;
     this->movementComp = new Movement(this->movementSpeed);
-    text.loadFromFile("Assets/pixel.png");
-    anim.setSpriteSheet(text);
+    // text.loadFromFile("Assets/pixel.png");
+    // sf::Texture text = *(TextureManager::getInstance().getTexture("pixel"));
+    anim.setSpriteSheet(tm->getTexture("pixel"));
     anim.addFrame(sf::IntRect(0, 0, 24, 24));
     anim.addFrame(sf::IntRect(24, 0, 24, 24));
     anim.addFrame(sf::IntRect(48, 0, 24, 24));

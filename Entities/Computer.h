@@ -13,7 +13,7 @@ class Computer{
         ComputerScreen* screen;
         
         
-        Computer();
+        Computer(TextureManager *tm);
         ~Computer();
 
         void initGraphics();

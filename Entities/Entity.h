@@ -18,7 +18,7 @@ class Entity
         sf::View *view;
         sf::Vector2f movement;
         float movementSpeed;
-        Entity();
+        Entity(TextureManager *tm);
         AnimatedSprite ani;
         Animation anim;
         sf::Texture text;

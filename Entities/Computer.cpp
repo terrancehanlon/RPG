@@ -1,12 +1,12 @@
 #include "Computer.h"
 
 
-Computer::Computer(){
+Computer::Computer(TextureManager *tm){
     this->text.loadFromFile("Assets/computer.png");
     this->anim.setSpriteSheet(this->text);
     this->initGraphics();
     this->ani.play(this->anim);
-    this->screen = new ComputerScreen();
+    this->screen = new ComputerScreen(tm);
     // this->~Computer
 }
 

@@ -3,12 +3,27 @@
 
 ActiveState::ActiveState(){
     printf("Creating active state\n");
+    printf("Adding instances\n");
+    
+    tm.addTexture("pixel", "/home/terrance/Desktop/games/RPG/Assets/pixel.png");
+    tm.addTexture("tree", "Assets/obst-tree.png");
+    // TextureManager::getInstance().addTexture("pixel", "/home/terrance/Desktop/games/RPG/Assets/pixel.png");
+    // TextureManager::getInstance().addTexture("tree", "Assets/obst-tree.png");
+    // TextureManager::getInstance().addTexture("stream", "Assets/water.png");
+    // TextureManager::getInstance().addTexture("bridge", "Assets/bridge.png");
+
+    printf("adding zones\n");
     this->zones.push(new Zone());
-    this->player = new Entity();
-    this->resources = new Blood();
-    this->view = new sf::View(sf::Vector2f(1024.0f, 1024.0f), sf::Vector2f(124.0f, 124.0f));
+    this->player = new Entity(&tm);
+    this->resources = new Blood(&tm);
+    this->view = new sf::View(sf::Vector2f(1024.0f, 1024.0f), sf::Vector2f(VIEW_SIZE, VIEW_SIZE)); ///124 x124
     this->movementComp = new Movement(0.055f);
     this->creatorComp = new Creator();
+
+    // TextureManager &tm = TextureManager::getInstance();
+    // std::unique_ptr<sf::Texture> t = TextureManager::getInstance().getTexture("texture1");
+
+    // textureManager = TextureManager::getInstance();
 
     this->L = luaL_newstate();
     luaL_loadfile(L, "Zones/constraints/zone1.lua");
@@ -19,7 +34,7 @@ ActiveState::ActiveState(){
     int width = getIntField(L, "startX");
     int height = getIntField(L, "startY");
     
-    this->player->ani.setPosition(width, height);
+    this->player->ani.setPosition(150, 150);
     this->view->setCenter(getPlayerX(), getPlayerY());
     this->resources->ani.setPosition(view->getCenter().x - 60, getPlayerY() - 60);
     
@@ -59,7 +74,7 @@ void ActiveState::update(sf::Time dt){
         this->creatorComp->create("hp");
         this->movementComp->create = false;
     }
-    if(this->zones.top()->checkPlayerConstraint(getPlayerX(), getPlayerY())){
+    if(this->zones.top()->checkObstacleCollisin(&this->player->ani)){
         this->movementComp->backPeddle(&this->player->ani, &this->resources->ani, this->view);
 
     }else{
@@ -80,33 +95,21 @@ void ActiveState::render(sf::RenderWindow *win){
 
     //rather than hard coded values place this into the lua file and read from there?
     // works good circles the tree
-    // make a lua reader program
+    // make a lua reader program?
     
     /* 
         If player should render first that means player is in front of object
         If object should render first it means player is behind the object (obstacle)
     */
+   this->zones.top()->obstaclesInView(&this->player->ani, VIEW_SIZE, &this->tm);
     if(this->zones.top()->renderObjectFirst(this->player->ani.getPosition().x, this->player->ani.getPosition().y)){
-        // if(this->player->ani.getPosition().y > 525 && this->player->ani.getPosition().y < 530){
-            // printf("1\n");
-            this->zones.top()->drawObstacles(win);
-            this->player->render(win);
-        // }
+        this->zones.top()->drawObstacles(&this->player->ani, win, &this->tm);
+        this->player->render(win);
     }
     else{
-        // printf("2\n");
         this->player->render(win);
-        this->zones.top()->drawObstacles(win);
+        this->zones.top()->drawObstacles(&this->player->ani, win, &this->tm);
     }
-    this->resources->render(win);
-    // sf::Text text;
-    // sf::Font font;
-    // font.loadFromFile("Assets/fonts/OpenSans-Bold.ttf");
-    // text.setFont(font);
-    // text.setCharacterSize(24);
-    // text.setString("Hover");
-    // text.setColor(sf::Color::White);
-    // text.setPosition(250, 250);
-    // win->draw(text);          
+    this->resources->render(win);       
 };
 

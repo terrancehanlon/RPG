@@ -12,8 +12,8 @@ class ComputerScreen {
     public:
         AnimatedSprite ani;
         Animation anim;
-        sf::Texture txt;
-        ComputerScreen();
+        // sf::Texture txt;
+        ComputerScreen(TextureManager *tm);
         ~ComputerScreen();
 
         void initgraphics();

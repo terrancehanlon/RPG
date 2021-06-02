@@ -1,7 +1,8 @@
 #ifndef HUMANPOD_H
 #define HUMANPOD_H
 
-#include "../Lib/Imports.h"
+// #include "../Lib/Imports.h"
+#include "../Lib/TextureManager.h"
 #include "./Rock.h"
 
 class HumanPod {
@@ -13,7 +14,7 @@ class HumanPod {
 
         sf::Texture texture;
 
-        HumanPod();
+        HumanPod(TextureManager *tm);
 
         void update(sf::Time dt);
         void render(sf::RenderWindow *window);

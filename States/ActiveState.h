@@ -8,6 +8,7 @@
 #include "../Zones/Zone.h"
 #include "../Entities/Movement.h"
 #include "../Entities/Creator.h"
+// #include "../"
 class ActiveState {
 
     public:
@@ -15,12 +16,17 @@ class ActiveState {
         //player instance
         Entity *player;
         lua_State *L;
-        std::stack<Zone*> zones;
+        std::stack<ZoneBase*> zones;
         ActiveState();
         Movement *movementComp;
         Creator *creatorComp;
 
         Blood *resources;
+        TextureManager tm;
+
+        float VIEW_SIZE = 124.0f;
+
+        // TextureManager textureManager;
 
         float getPlayerX();
         float getPlayerY();

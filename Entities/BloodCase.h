@@ -3,6 +3,7 @@
 
 #include "./HumanPod.h"
 #include "./Rock.h"
+#include "../Lib/TextureManager.h"
 
 class BloodCase{
 
@@ -12,9 +13,9 @@ class BloodCase{
     AnimatedSprite ani;
     Animation anim;
 
-    sf::Texture texture;
+    // sf::Texture texture;
 
-    BloodCase();
+    BloodCase(TextureManager *tm);
 
     void update(sf::Time dt);
     void render(sf::RenderWindow *window);

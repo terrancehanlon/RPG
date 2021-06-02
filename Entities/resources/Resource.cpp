@@ -3,7 +3,7 @@
 Resource::~Resource(){};
 
 Resource::Resource(){
-    this->blood = new Blood();
+    // this->blood = new Blood();
     // this->blood->ani.setPosition(sf::Vector2f(150.0f, 150.0f));
 };
 

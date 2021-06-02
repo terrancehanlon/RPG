@@ -92,7 +92,6 @@ void Movement::move(sf::Time deltaTime,AnimatedSprite *ani, AnimatedSprite *bloo
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
     {
-        // printf("S\n");a
         if((getPlayerX(ani) - 124) < 0 || (getPlayerY(ani) - 124) < 0){
             ani->move(this->OFFSET * deltaTime.asSeconds() * sf::Vector2f(0.00f, 0.05f));
             blood->move(this->OFFSET * deltaTime.asSeconds() * sf::Vector2f(0.00f, 0.05f));

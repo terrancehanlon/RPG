@@ -1,6 +1,7 @@
 #ifndef ROCK_H
 #define ROCK_H
-#include "../Lib/Imports.h"
+// #include "../Lib/Imports.h"
+#include "../Lib/TextureManager.h"
 
 class Rock{
     public:

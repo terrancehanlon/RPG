@@ -1,13 +1,14 @@
 exeName = mainp
 
 sfmlFlags = -lsfml-graphics -lsfml-window -lsfml-system
-luaFlags =  -llua5.3 -ldl -lm -I/usr/include/lua5.3
-# luaFlags = -llua -ldl -lm
+# luaFlags =  -llua5.3 -ldl -lm -I/usr/include/lua5.3
+luaFlags = -llua -ldl -lm
 # luaflags = -l-I/usr/include/lua5.3
 
-g = g++ -std=c++11 -c -g
+g = g++ -std=c++17 -c -g
 
 link = target/Imports.o \
+target/TextureManager.o \
 target/Animation.o \
 target/AnimatedSprite.o \
 target/Movement.o \
@@ -21,6 +22,7 @@ target/BloodCase.o \
 target/HumanPod.o \
 target/Constraint.o \
 target/Zone.o \
+target/ZoneBase.o \
 target/Obstacle.o \
 target/Entity.o \
 target/ActiveState.o \
@@ -30,6 +32,7 @@ target/Main2.o
 
 all:
 	$(g) Lib/Imports.cpp -o target/Imports.o
+	$(g) Lib/TextureManager.cpp -o target/TextureManager.o
 	$(g) Lib/Animation.cpp -o target/Animation.o
 	$(g) Lib/AnimatedSprite.cpp -o target/AnimatedSprite.o
 	$(g) Entities/Rock.cpp -o target/Rock.o
@@ -44,6 +47,7 @@ all:
 	$(g) Entities/HumanPod.cpp -o target/HumanPod.o
 	$(g) Zones/constraints/Constraint.cpp -o target/Constraint.o
 	$(g) Zones/Zone.cpp -o target/Zone.o
+	$(g) Zones/ZoneBase.cpp -o target/ZoneBase.o
 	$(g) Entities/Obstacle.cpp -o target/Obstacle.o
 	$(g) Entities/Entity.cpp -o target/Entity.o
 	$(g) States/ActiveState.cpp -o target/ActiveState.o
@@ -69,10 +73,16 @@ states:
 	$(g) States/ActiveState.cpp -o target/ActiveState.o
 	$(g) States/State.cpp -o target/State.o
 	g++ $(link) -o $(exeName) $(sfmlFlags) $(luaFlags) ;
+
 zones:
 	$(g) Zones/constraints/Constraint.cpp -o target/Constraint.o
 	$(g) Zones/Zone.cpp -o target/Zone.o
+	$(g) Zones/ZoneBase.cpp -o target/ZoneBase.o
 	g++ $(link) -o $(exeName) $(sfmlFlags) $(luaFlags) ;
+
+lib:
+	$(g) Lib/TextureManager.cpp -o target/TextureManager.o
+	g++ $(link) -o $(execName) $(sfmlFlags) $(luaFlags);
 
 game:
 	$(g) Game.cpp -o target/Game.o

@@ -1,9 +1,9 @@
 #include "./HumanPod.h"
 
 
-HumanPod::HumanPod(){
-    this->texture.loadFromFile("Assets/human-pod.png");
-    this->anim.setSpriteSheet(this->texture);
+HumanPod::HumanPod(TextureManager *tm){
+    // this->texture.loadFromFile("Assets/human-pod.png");
+    this->anim.setSpriteSheet(tm->getTexture("human-pod"));
     this->anim.addFrame(sf::IntRect(246, 281, 29, 49));
     this->anim.addFrame(sf::IntRect(858, 281, 29, 49));
     this->anim.addFrame(sf::IntRect(1470, 281, 29, 49));

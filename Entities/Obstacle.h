@@ -4,8 +4,8 @@
 #pragma once
 
 
-#include "../Lib/Imports.h"
-
+// #include "../Lib/Imports.h"
+#include "../Lib/TextureManager.h"
 class Obstacle {
 
 
@@ -17,11 +17,23 @@ class Obstacle {
         void update(sf::Time dt);
 
         void tree();
-        
-    private:
-        sf::Texture texture;
         AnimatedSprite ani;
+
+        void stream();
+        void bridge();
+
+        void show(TextureManager *tm);
+
+        bool isHard = false;
+
+        void unshow();
+
+        bool visible = false;
+        
+    protected:
         Animation anim;
+
+        std::string name;
 
 
 

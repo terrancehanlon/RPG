@@ -20,3 +20,98 @@ game.run ->
                     -draw player animation
                 resources.render
                     -draws resources
+
+
+
+
+    // this->comp = new Computer();
+    // this->comp->ani.setPosition(250, 250);
+    // this->bloodCase = new BloodCase();
+    // this->bloodCase->ani.setPosition(260, 350);
+    // this->humanpod = new HumanPod();
+    // this->humanpod->ani.setPosition(260, 450);
+    // this->L = luaL_newstate();
+    // luaL_loadfile(L, "Zones/constraints/zone1.lua");
+    // lua_pcall(L, 0, 0, 0);
+    // lua_getglobal(L, "zone1");
+ 
+    // int width = getIntField(L, "startX");
+    // int height = getIntField(L, "startY");
+    // printf("%d\n", height);
+
+    // std::vector<std::string> x;
+    // int len = getIntField(L, "constraints");
+    
+    // for(int i = 1; i <= len; i++){
+    //     std::string s = "constraint" + std::to_string(i);
+    //     std::cout << s << std::endl;
+    //     printf("%s\n", s.c_str());
+    //     x.push_back(getStringField(L,s.c_str()));
+    // }
+
+    // for(int i = 0; i < x.size(); i++){
+    //     Constraint *constraint = new Constraint();
+    //     int pos;
+    //     std::string statement = "";
+    //     while( (pos = x.at(i).find(",")) != std::string::npos){
+    //         std::string rawConstraint = x.at(i).substr(0,pos);
+    //         // std::cout << rawConstraint << std::endl;
+    //         if(rawConstraint.substr(0,1) == "9"){
+    //             if(rawConstraint.substr(1,1) == "X"){
+    //                 statement += "X > ";
+    //             }
+    //             else if(rawConstraint.substr(1,1) == "Y"){
+    //                 statement += "Y > ";
+    //             }
+    //         }
+    //         else if(rawConstraint.substr(0,1) == "7"){
+    //             if(rawConstraint.substr(1,1) == "X"){
+    //                 statement += "X < ";
+    //             }
+    //             else if(rawConstraint.substr(1,1) == "Y"){
+    //                 statement += "Y < ";
+    //             }
+    //         }
+
+    //         statement += rawConstraint.substr(2, rawConstraint.length() - 2);
+    //         x.at(i).erase(0, pos + 1);
+    //         if(x.at(i).length() > 0){
+    //            statement += " && ";
+    //         } 
+    //     }
+        // std::cout << statement << std::endl;
+        // constraint->setConstraintString(statement);
+        // constraints.push_back(constraint);
+    // }
+
+
+
+
+        // int waterRangeStartY = getIntField(this->L, "waterRangeStartY");
+    // int waterRangeEndY = getIntField(this->L, "waterRangeEndY");
+    
+    // int waterRangeStartX = getIntField(this->L, "waterRangeStartX");
+    // int waterRangeEndX = getIntField(this->L, "waterRangeEndX");
+    
+    // int bridgeRangeStartX = getIntField(this->L, "bridgeStartX");
+    // //int bridgeRangeEndX = getIntField(this-L, "bridgeEndX");
+
+    // int bridgeRangeStartY = getIntField(this->L, "bridgeStartY");
+    // int bridgeRangeEndY = getIntField(this->L, "bridgeEndY");
+
+    // bool result = false;
+
+    // //first constraint check
+    // //check if on bridge
+    // if (x > (bridgeRangeStartX - 5)){
+    //     if(y < bridgeRangeEndY && y > bridgeRangeStartY){
+    //         return false;
+    //     }
+    // }
+
+    // //restrict player from going into water
+    // if( x > (waterRangeStartX - 5)&& (x < (waterRangeEndX) )){
+    //     if(y < (waterRangeEndY) && y > (waterRangeStartY - 5)){
+    //         result = true;
+    //     }
+    // }

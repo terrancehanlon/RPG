@@ -1,13 +1,14 @@
 #include "./Blood.h"
 
-Blood::Blood(){
+Blood::Blood(TextureManager *tm){
     this->current = this->max;
-    if(!this->text.loadFromFile("Assets/blood-levels.png")){
-        printf("cant find\n");
-    }else{
-        printf("can find\n");
-    }
-    this->anim.setSpriteSheet(this->text);
+    // if(!this->text.loadFromFile("Assets/blood-levels.png")){
+    //     printf("cant find\n");
+    // }else{
+    //     printf("can find\n");
+    // }
+    // sf::Texture t = *(TextureManager::getInstance().getTexture("blood-levels"));
+    this->anim.setSpriteSheet(tm->getTexture("blood-levels"));
     this->anim.addFrame(sf::IntRect(12, 37, 39, 80));
     // this->ani.play(this->anim);
     ani.play(this->anim);

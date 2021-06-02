@@ -5,10 +5,10 @@ Creator::Creator(){};
 void Creator::create(std::string key){
     if(key == "hp"){
         //human pod
-        printf("IS HP\n");
-        HumanPod *hp = new HumanPod();
-        hp->ani.setPosition(260, 550);
-        this->rocks.push_back(hp);
+        // printf("IS HP\n");
+        // HumanPod *hp = new HumanPod();
+        // hp->ani.setPosition(260, 550);
+        // this->rocks.push_back(hp);
     }
 };
 

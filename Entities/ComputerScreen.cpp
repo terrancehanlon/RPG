@@ -1,8 +1,9 @@
 #include "ComputerScreen.h"
 
-ComputerScreen::ComputerScreen(){
-    this->txt.loadFromFile("Assets/comp-screen.png");
-    this->anim.setSpriteSheet(this->txt);
+ComputerScreen::ComputerScreen(TextureManager *tm){
+    // this->txt.loadFromFile("Assets/comp-screen.png");
+    sf::Texture t = (tm->getTexture("comp-screen"));
+    this->anim.setSpriteSheet(t);
     this->initgraphics();
     this->ani.play(this->anim);
 };
