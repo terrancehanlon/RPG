@@ -7,6 +7,8 @@ ActiveState::ActiveState(){
     
     tm.addTexture("pixel", "/home/terrance/Desktop/games/RPG/Assets/pixel.png");
     tm.addTexture("tree", "Assets/obst-tree.png");
+    tm.addTexture("stream", "Assets/water.png");
+    tm.addTexture("bridge", "Assets/bridge.png");
     // TextureManager::getInstance().addTexture("pixel", "/home/terrance/Desktop/games/RPG/Assets/pixel.png");
     // TextureManager::getInstance().addTexture("tree", "Assets/obst-tree.png");
     // TextureManager::getInstance().addTexture("stream", "Assets/water.png");

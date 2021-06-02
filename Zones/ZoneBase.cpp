@@ -41,9 +41,23 @@ void ZoneBase::drawObstacles(AnimatedSprite *ani, sf::RenderWindow *window, Text
 }
 
 bool ZoneBase::checkObstacleCollisin(AnimatedSprite* ani){
+    //check for water and bridge obstacle
+    bool onBridge = false;
+    bool result = false;
     for(auto o : obstacles){
         if(o->isHard && o->ani.getGlobalBounds().intersects(ani->getGlobalBounds())){
-            return true;
+            if(o->name == "bridge"){
+                printf("on bridge\n");
+                onBridge = true;
+            }
+            if(o->name == "stream" && onBridge){
+                return false;
+            }
+            
+            if(!onBridge){
+                return true;
+            }
+            
         }    
     }
 
@@ -60,7 +74,7 @@ void ZoneBase::obstaclesInView(AnimatedSprite *ani, float size, TextureManager *
             if(std::abs(o->ani.getPosition().y - ani->getPosition().y) < (size + 15) ){
                 o->show(tm);
                 o->visible = true;
-                printf("showiing\n:");
+                // printf("showiing\n:");
             }
         }else{
             o->visible = false;

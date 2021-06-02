@@ -7,7 +7,7 @@ TextureManager::~TextureManager(){}
 
 
 const sf::Texture& TextureManager::getTexture(const std::string& key) const{
-    printf("getting texture\n");
+    // printf("getting texture\n");
     // auto it = this->textureMap.find(key);
 
     // if(it == textureMap.end()){
@@ -19,8 +19,8 @@ const sf::Texture& TextureManager::getTexture(const std::string& key) const{
     // return it.second;
     for(auto& x : textures){
         if(x.key == key){
-            printf("key found\n");
-            std::cout << key << std::endl;
+            // printf("key found\n");
+            // std::cout << key << std::endl;
             return x.texture;
         }
     }

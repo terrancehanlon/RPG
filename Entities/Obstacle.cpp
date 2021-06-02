@@ -42,22 +42,18 @@ void Obstacle::show(TextureManager *tm){
         ani.setAnimation(anim);
         ani.play(anim);
         ani.setScale(sf::Vector2f(0.15,0.15));
-        ani.setPosition(sf::Vector2f(90, 300));
+        ani.setPosition(sf::Vector2f(80, 300));
     }
     if(name == "stream"){
-        printf("Creating stream\n");
-        // if(!texture->loadfromfile("Assets/water.png")){
-        //     printf("Cant find water asset");
-        // }
-        // sf::Texture t = *(TextureManager::getInstance().getTexture("stream"));
+        // printf("Creating stream\n");
         anim.setSpriteSheet(tm->getTexture("stream"));
         anim.addFrame(sf::IntRect(0,0,16,512));
         ani.setAnimation(anim);
         ani.setPosition(sf::Vector2f(95, 0));
-        this->isHard = true;
+        this->isHard = false;
     }
     if(name == "tree"){
-        printf("Creating tree\n");
+        // printf("Creating tree\n");
         // if(!texture->loadfromfile("Assets/obst-tree.png")){
         //     printf("cant find file for tree\n");
         // }

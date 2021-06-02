@@ -29,11 +29,11 @@ class Obstacle {
         void unshow();
 
         bool visible = false;
+        std::string name;
         
     protected:
         Animation anim;
 
-        std::string name;
 
 
 
