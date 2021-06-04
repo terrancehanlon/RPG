@@ -1,4 +1,5 @@
 #include "ZoneBase.h"
+#include <iostream>
 #include <cmath>
 
 ZoneBase::ZoneBase(){}
@@ -45,23 +46,61 @@ bool ZoneBase::checkObstacleCollisin(AnimatedSprite* ani){
     bool onBridge = false;
     bool result = false;
     for(auto o : obstacles){
+        // std::cout << o->name == "bridge" << std::endl;
+        // if(onBridge){
+        //     printf("on bridge\n");
+        //     result = false; 
+        //     // return false;
+        // }
         if(o->isHard && o->ani.getGlobalBounds().intersects(ani->getGlobalBounds())){
-            if(o->name == "bridge"){
-                printf("on bridge\n");
-                onBridge = true;
-            }
-            if(o->name == "stream" && onBridge){
+            if(!o->isHard){
                 return false;
             }
-            
-            if(!onBridge){
-                return true;
+            // std::cout << "collision with " << o->name << std::endl;
+            if(o->name == "bridge"){
+                onBridge = true;
+                result = false;
+                // return false;
+            }else{
+                result = true;
             }
+        }
+            // if(o->name == "stream"){
+            //     if(onBridge){
+            //         return false;
+            //     }
+            // }[]
+            // else{
+            //     onBridge = false;
+            //     return true;
+            // }
+            // onBridge = false;
+            // return true;
+            // return true;
+            // else{
+            //     onBridge = false;
+            //     return true;
+            // }
+            // if(o->name == "stream" && onBridge){
+            //     return false;
+            // }
             
-        }    
-    }
+            // if(!onBridge){
+            //     printf("returning true\n");
+            //     return true;
+            // }
 
-    return false;
+            //not on bridge 
+            // return true;
+            
+        // }
+        // else{
+        //     printf("no collisions\n");
+        //     onBridge = false;
+        // }    
+    }
+    // onBridge = false;
+    return result;
 }
 
 void ZoneBase::obstaclesInView(AnimatedSprite *ani, float size, TextureManager *tm){
@@ -70,8 +109,9 @@ void ZoneBase::obstaclesInView(AnimatedSprite *ani, float size, TextureManager *
         // if(o->ani.getGlobalBounds().intersects(ani->getGlobalBounds())){
 
         // }
-        if(std::abs( o->ani.getPosition().x - ani->getPosition().x) < (size + 15 ) ){
-            if(std::abs(o->ani.getPosition().y - ani->getPosition().y) < (size + 15) ){
+        
+        if(std::abs( o->ani.getPosition().x - ani->getPosition().x) < (size + 125 ) ){
+            if(std::abs(o->ani.getPosition().y - ani->getPosition().y) < (size + 125) ){
                 o->show(tm);
                 o->visible = true;
                 // printf("showiing\n:");

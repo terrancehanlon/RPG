@@ -43,6 +43,7 @@ void Obstacle::show(TextureManager *tm){
         ani.play(anim);
         ani.setScale(sf::Vector2f(0.15,0.15));
         ani.setPosition(sf::Vector2f(80, 300));
+        this->isHard = true;
     }
     if(name == "stream"){
         // printf("Creating stream\n");
@@ -50,14 +51,9 @@ void Obstacle::show(TextureManager *tm){
         anim.addFrame(sf::IntRect(0,0,16,512));
         ani.setAnimation(anim);
         ani.setPosition(sf::Vector2f(95, 0));
-        this->isHard = false;
+        this->isHard = true;
     }
     if(name == "tree"){
-        // printf("Creating tree\n");
-        // if(!texture->loadfromfile("Assets/obst-tree.png")){
-        //     printf("cant find file for tree\n");
-        // }
-        // sf::Texture t = *(TextureManager::getInstance().getTexture("tree"));
         anim.setSpriteSheet(tm->getTexture("tree"));
         anim.addFrame(sf::IntRect(56,21,288,444));
         ani.setAnimation(anim);

@@ -1,4 +1,5 @@
 #include "Movement.h"
+#include <iostream>
 
 Movement::Movement(float movementSpeed){
     this->movementSpeed = movementSpeed;
@@ -18,8 +19,17 @@ float Movement::getPlayerY(AnimatedSprite *ani){
 }
 
 void Movement::backPeddle(AnimatedSprite *ani, AnimatedSprite *blood, sf::View *view){
-    ani->move(sf::Vector2f(-0.05f, 0.0f));
-    blood->move(sf::Vector2f(-0.05f, 0.0f));
+    
+    if(this->direction == 1){
+        // std::cout << "backpeddle, push right" << std::endl;
+        ani->move(sf::Vector2f(1.15f, 0.0f));
+        blood->move(sf::Vector2f(1.15f, 0.0f));    
+    }
+    else if(this->direction == 2){
+        // std::cout << "backpeddle, push left" << std::endl;
+        ani->move(sf::Vector2f(-1.15f, 0.0f));
+        blood->move(sf::Vector2f(-1.15f, 0.0f));
+    }
 }
 
 void Movement::move(sf::Time deltaTime,AnimatedSprite *ani, AnimatedSprite *blood, sf::View *view){
@@ -35,6 +45,7 @@ void Movement::move(sf::Time deltaTime,AnimatedSprite *ani, AnimatedSprite *bloo
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
     {
         this->create = false;
+        this->direction = 1;
         //left
         // printf("A\n");
         //two if statements so view doesnt follow when near end of map  
@@ -55,6 +66,7 @@ void Movement::move(sf::Time deltaTime,AnimatedSprite *ani, AnimatedSprite *bloo
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
+        this->direction = 2;
         //right
         if((getPlayerX(ani) - 124) < 0 || (getPlayerY(ani) - 124) < 0){
             ani->move(sf::Vector2f(0.05f * deltaTime.asSeconds() * this->OFFSET, 0.0f));

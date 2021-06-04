@@ -19,6 +19,7 @@ class ZoneBase {
         lua_State *luaState;
 
         std::vector<Obstacle*> obstacles;
+        // bool onBridge = false;
 
     public:
         ZoneBase();

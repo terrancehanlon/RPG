@@ -24,7 +24,7 @@ class ActiveState {
         Blood *resources;
         TextureManager tm;
 
-        float VIEW_SIZE = 324.0f;
+        float VIEW_SIZE = 124.0f;
 
         // TextureManager textureManager;
 

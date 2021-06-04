@@ -15,6 +15,7 @@ Zone::Zone(){
     o1->ani.setPosition(sf::Vector2f(350, 150));
     obstacles.push_back(o1);
 
+    //ani.setPosition(sf::Vector2f(95, 0));
     Obstacle *o2 = new Obstacle;
     o2->stream();
     obstacles.push_back(o2);
@@ -66,14 +67,14 @@ bool Zone::checkPlayerConstraint(float x, float y){
 
 bool Zone::renderObjectFirst(float playerX, float playerY){
     bool result = false;
-    if(playerX > 60)
-        if(playerX < 120)
-            if(playerY > 525)
+    if(playerX > 355)
+        if(playerX < 402)
+            if(playerY > 227)
                 result = true;
     
-    if(playerX > 156)
-        if(playerX < 203)
-            if(playerY > 532)
+    if(playerX > 65)
+        if(playerX < 116)
+            if(playerY > 290)
                 result = true;
     
     return result;

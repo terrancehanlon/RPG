@@ -77,6 +77,7 @@ void ActiveState::update(sf::Time dt){
         this->movementComp->create = false;
     }
     if(this->zones.top()->checkObstacleCollisin(&this->player->ani)){
+        // printf("trigger the back peddle\n");
         this->movementComp->backPeddle(&this->player->ani, &this->resources->ani, this->view);
 
     }else{
