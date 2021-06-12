@@ -12,6 +12,8 @@ target/TextureManager.o \
 target/Animation.o \
 target/AnimatedSprite.o \
 target/Movement.o \
+target/StorageItem.o \
+target/Storage.o \
 target/Creator.o \
 target/Blood.o \
 target/Resource.o \
@@ -25,6 +27,7 @@ target/Zone.o \
 target/ZoneBase.o \
 target/Obstacle.o \
 target/Entity.o \
+target/Npc.o \
 target/ActiveState.o \
 target/State.o \
 target/Game.o \
@@ -37,6 +40,8 @@ all:
 	$(g) Lib/AnimatedSprite.cpp -o target/AnimatedSprite.o
 	$(g) Entities/Rock.cpp -o target/Rock.o
 	$(g) Entities/Movement.cpp -o target/Movement.o
+	$(g) Entities/StorageItem.cpp -o target/StorageItem.o
+	$(g) Entities/Storage.cpp -o target/Storage.o 
 	$(g) Entities/Creator.cpp -o target/Creator.o
 	$(g) Entities/resources/Blood.cpp -o target/Blood.o
 	$(g) Entities/resources/Resource.cpp -o target/Resource.o
@@ -50,6 +55,7 @@ all:
 	$(g) Zones/ZoneBase.cpp -o target/ZoneBase.o
 	$(g) Entities/Obstacle.cpp -o target/Obstacle.o
 	$(g) Entities/Entity.cpp -o target/Entity.o
+	$(g) Entities/Npc.cpp -o target/Npc.o
 	$(g) States/ActiveState.cpp -o target/ActiveState.o
 	$(g) States/State.cpp -o target/State.o
 	$(g) Game.cpp -o target/Game.o
@@ -58,6 +64,8 @@ all:
 
 ent:	
 	$(g) Entities/Movement.cpp -o target/Movement.o
+	$(g) Entities/StorageItem.cpp -o target/StorageItem.o
+	$(g) Entities/Storage.cpp -o target/Storage.o 
 	$(g) Entities/Creator.cpp -o target/Creator.o
 	$(g) Entities/resources/Blood.cpp -o target/Blood.o
 	$(g) Entities/resources/Resource.cpp -o target/Resource.o
@@ -67,6 +75,8 @@ ent:
 	$(g) Entities/ComputerScreen.cpp -o target/ComputerScreen.o
 	$(g) Entities/BloodCase.cpp -o target/BloodCase.o
 	$(g) Entities/HumanPod.cpp -o target/HumanPod.o
+	$(g) Entities/Entity.cpp -o target/Entity.o 
+	$(g) Entities/Npc.cpp -o target/Npc.o
 	g++ $(link) -o $(exeName) $(sfmlFlags) $(luaFlags) ;
 
 states:

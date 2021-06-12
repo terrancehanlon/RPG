@@ -7,6 +7,7 @@
 // #include <vector>
 #include <stack>
 #include "Movement.h"
+#include "Storage.h"
 #include "./resources/Resource.h"
 class Entity
 {
@@ -23,6 +24,8 @@ class Entity
         Animation anim;
         sf::Texture text;
 
+        Storage inventory;
+        
         void update(sf::Time deltaTime);
         void render(sf::RenderWindow *window);
 

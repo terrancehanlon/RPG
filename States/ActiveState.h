@@ -21,6 +21,9 @@ class ActiveState {
         Movement *movementComp;
         Creator *creatorComp;
 
+        Storage inventory;
+
+
         Blood *resources;
         TextureManager tm;
 

@@ -6,26 +6,24 @@ ActiveState::ActiveState(){
     printf("Adding instances\n");
     
     tm.addTexture("pixel", "/home/terrance/Desktop/games/RPG/Assets/pixel.png");
+    tm.addTexture("new-walk", "Assets/new-walk.png");
+    tm.addTexture("npc1", "Assets/base-walk.png");
     tm.addTexture("tree", "Assets/obst-tree.png");
     tm.addTexture("stream", "Assets/water.png");
     tm.addTexture("bridge", "Assets/bridge.png");
+    tm.addTexture("blood-levels", "Assets/blood-levels.png");
     // TextureManager::getInstance().addTexture("pixel", "/home/terrance/Desktop/games/RPG/Assets/pixel.png");
     // TextureManager::getInstance().addTexture("tree", "Assets/obst-tree.png");
     // TextureManager::getInstance().addTexture("stream", "Assets/water.png");
     // TextureManager::getInstance().addTexture("bridge", "Assets/bridge.png");
 
     printf("adding zones\n");
-    this->zones.push(new Zone());
+    this->zones.push(new Zone(&tm));
     this->player = new Entity(&tm);
     this->resources = new Blood(&tm);
     this->view = new sf::View(sf::Vector2f(1024.0f, 1024.0f), sf::Vector2f(VIEW_SIZE, VIEW_SIZE)); ///124 x124
     this->movementComp = new Movement(0.055f);
     this->creatorComp = new Creator();
-
-    // TextureManager &tm = TextureManager::getInstance();
-    // std::unique_ptr<sf::Texture> t = TextureManager::getInstance().getTexture("texture1");
-
-    // textureManager = TextureManager::getInstance();
 
     this->L = luaL_newstate();
     luaL_loadfile(L, "Zones/constraints/zone1.lua");

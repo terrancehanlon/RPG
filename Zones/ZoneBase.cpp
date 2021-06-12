@@ -2,7 +2,10 @@
 #include <iostream>
 #include <cmath>
 
-ZoneBase::ZoneBase(){}
+ZoneBase::ZoneBase(TextureManager *tm){
+    // this->tm = tm;
+    npc.init(tm);
+}
 ZoneBase::~ZoneBase(){}
 
 void ZoneBase::update(sf::Time dt, float x, float y){
@@ -16,12 +19,15 @@ void ZoneBase::update(sf::Time dt, float x, float y){
     for(auto o : obstacles){
         o->update(dt);
     }
+    npc.update(dt, this->tm);
 }
 
 void ZoneBase::draw(sf::RenderWindow *window){
 
     //draw background
     window->draw(backgroundSprite);
+    // window->draw(npc);
+    npc.render(window, this->tm);
 
     //draw interactable objects
 

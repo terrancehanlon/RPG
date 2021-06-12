@@ -4,8 +4,9 @@
 #pragma once
 
 // #include "../Lib/Imports.h"
-#include "../Lib/TextureManager.h"
+// #include "../Lib/TextureManager.h"
 #include "../Entities/Obstacle.h"
+#include "../Entities/Npc.h"
 
 
 class ZoneBase {
@@ -20,9 +21,10 @@ class ZoneBase {
 
         std::vector<Obstacle*> obstacles;
         // bool onBridge = false;
+        TextureManager *tm;
 
     public:
-        ZoneBase();
+        ZoneBase(TextureManager *tm);
         ~ZoneBase();
 
         void update(sf::Time deltaTime, float x, float y);
@@ -35,6 +37,7 @@ class ZoneBase {
 
         virtual bool renderObjectFirst(float playerX, float playerY) = 0;
         virtual bool checkPlayerConstraint(float x, float y) = 0;
+        Npc npc;
         
 
 
