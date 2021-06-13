@@ -28,6 +28,8 @@ target/ZoneBase.o \
 target/Obstacle.o \
 target/Entity.o \
 target/Npc.o \
+target/BaseState.o \
+target/Menu.o \
 target/ActiveState.o \
 target/State.o \
 target/Game.o \
@@ -56,6 +58,8 @@ all:
 	$(g) Entities/Obstacle.cpp -o target/Obstacle.o
 	$(g) Entities/Entity.cpp -o target/Entity.o
 	$(g) Entities/Npc.cpp -o target/Npc.o
+	$(g) States/BaseState.cpp -o target/BaseState.o
+	$(g) States/Menu.cpp -o target/Menu.o
 	$(g) States/ActiveState.cpp -o target/ActiveState.o
 	$(g) States/State.cpp -o target/State.o
 	$(g) Game.cpp -o target/Game.o
@@ -80,6 +84,8 @@ ent:
 	g++ $(link) -o $(exeName) $(sfmlFlags) $(luaFlags) ;
 
 states:
+	$(g) States/BaseState.cpp -o target/BaseState.o
+	$(g) States/Menu.cpp -o target/Menu.o
 	$(g) States/ActiveState.cpp -o target/ActiveState.o
 	$(g) States/State.cpp -o target/State.o
 	g++ $(link) -o $(exeName) $(sfmlFlags) $(luaFlags) ;

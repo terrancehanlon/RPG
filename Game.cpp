@@ -3,7 +3,15 @@
 Game::Game(){
     this->init();
     // this->states.push(new ActiveState(this->window));
-    this->states.push(new ActiveState());
+    tm.addTexture("pixel", "/home/terrance/Desktop/games/RPG/Assets/pixel.png");
+    tm.addTexture("new-walk", "Assets/new-walk.png");
+    tm.addTexture("npc1", "Assets/base-walk.png");
+    tm.addTexture("tree", "Assets/obst-tree.png");
+    tm.addTexture("stream", "Assets/water.png");
+    tm.addTexture("bridge", "Assets/bridge.png");
+    tm.addTexture("blood-levels", "Assets/blood-levels.png");
+    this->states.push(new ActiveState(&tm));
+    this->states.push(new Menu(&tm));
 };
 
 Game::~Game(){}

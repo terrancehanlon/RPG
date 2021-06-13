@@ -3,7 +3,9 @@
 
 
 #include "States/ActiveState.h"
-#include "Lib/Imports.h"
+#include "States/Menu.h"
+// #include "Lib/Imports.h"
+#include "Lib/TextureManager.h"
 
 
 class Game {
@@ -11,8 +13,8 @@ class Game {
     public:
 
         sf::RenderWindow *window;
-        std::stack<ActiveState*> states;
-
+        std::stack<BaseState*> states;
+        TextureManager tm;
         sf::View *view;
 
         Game();

@@ -3,13 +3,14 @@
 
 // #include "State.h"
 #include "../Entities/Entity.h"
+#include "BaseState.h"
 #include <string>
 #include <stack>
 #include "../Zones/Zone.h"
 #include "../Entities/Movement.h"
 #include "../Entities/Creator.h"
 // #include "../"
-class ActiveState {
+class ActiveState : public BaseState{
 
     public:
 
@@ -17,7 +18,8 @@ class ActiveState {
         Entity *player;
         lua_State *L;
         std::stack<ZoneBase*> zones;
-        ActiveState();
+        ActiveState(TextureManager *tm);
+        TextureManager *tm;
         Movement *movementComp;
         Creator *creatorComp;
 
@@ -25,7 +27,7 @@ class ActiveState {
 
 
         Blood *resources;
-        TextureManager tm;
+        // TextureManager tm;
 
         float VIEW_SIZE = 124.0f;
 

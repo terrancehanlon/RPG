@@ -1,26 +1,28 @@
 #include "ActiveState.h"
 #include <iostream>
 
-ActiveState::ActiveState(){
+ActiveState::ActiveState(TextureManager *tm){
     printf("Creating active state\n");
     printf("Adding instances\n");
+
+    this->tm = tm;
     
-    tm.addTexture("pixel", "/home/terrance/Desktop/games/RPG/Assets/pixel.png");
-    tm.addTexture("new-walk", "Assets/new-walk.png");
-    tm.addTexture("npc1", "Assets/base-walk.png");
-    tm.addTexture("tree", "Assets/obst-tree.png");
-    tm.addTexture("stream", "Assets/water.png");
-    tm.addTexture("bridge", "Assets/bridge.png");
-    tm.addTexture("blood-levels", "Assets/blood-levels.png");
+    // tm.addTexture("pixel", "/home/terrance/Desktop/games/RPG/Assets/pixel.png");
+    // tm.addTexture("new-walk", "Assets/new-walk.png");
+    // tm.addTexture("npc1", "Assets/base-walk.png");
+    // tm.addTexture("tree", "Assets/obst-tree.png");
+    // tm.addTexture("stream", "Assets/water.png");
+    // tm.addTexture("bridge", "Assets/bridge.png");
+    // tm.addTexture("blood-levels", "Assets/blood-levels.png");
     // TextureManager::getInstance().addTexture("pixel", "/home/terrance/Desktop/games/RPG/Assets/pixel.png");
     // TextureManager::getInstance().addTexture("tree", "Assets/obst-tree.png");
     // TextureManager::getInstance().addTexture("stream", "Assets/water.png");
     // TextureManager::getInstance().addTexture("bridge", "Assets/bridge.png");
 
     printf("adding zones\n");
-    this->zones.push(new Zone(&tm));
-    this->player = new Entity(&tm);
-    this->resources = new Blood(&tm);
+    this->zones.push(new Zone(tm));
+    this->player = new Entity(tm);
+    this->resources = new Blood(tm);
     this->view = new sf::View(sf::Vector2f(1024.0f, 1024.0f), sf::Vector2f(VIEW_SIZE, VIEW_SIZE)); ///124 x124
     this->movementComp = new Movement(0.055f);
     this->creatorComp = new Creator();
@@ -102,14 +104,14 @@ void ActiveState::render(sf::RenderWindow *win){
         If player should render first that means player is in front of object
         If object should render first it means player is behind the object (obstacle)
     */
-   this->zones.top()->obstaclesInView(&this->player->ani, VIEW_SIZE, &this->tm);
+   this->zones.top()->obstaclesInView(&this->player->ani, VIEW_SIZE, this->tm);
     if(this->zones.top()->renderObjectFirst(this->player->ani.getPosition().x, this->player->ani.getPosition().y)){
-        this->zones.top()->drawObstacles(&this->player->ani, win, &this->tm);
+        this->zones.top()->drawObstacles(&this->player->ani, win, this->tm);
         this->player->render(win);
     }
     else{
         this->player->render(win);
-        this->zones.top()->drawObstacles(&this->player->ani, win, &this->tm);
+        this->zones.top()->drawObstacles(&this->player->ani, win, this->tm);
     }
     this->resources->render(win);       
 };
