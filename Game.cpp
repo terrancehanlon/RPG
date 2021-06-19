@@ -56,6 +56,9 @@ void Game::run(){
         frameTime = frameClock.restart();
         // this->update();
         // this->render();
+        if(this->states.top()->stateFinished){
+            this->states.pop();
+        }
         this->states.top()->update(frameTime);
         this->render();
     }

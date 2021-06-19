@@ -9,10 +9,10 @@
 class Npc {
 
     protected:
-        AnimatedSprite ani;
         Animation anim;
 
     public:
+        AnimatedSprite ani;
         Npc();
         void init(TextureManager *tm);
         

@@ -26,6 +26,9 @@ Menu::Menu(TextureManager *tm){
 
 void Menu::update(sf::Time dt){
     // background.update(dt);
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)){
+        this->stateFinished = true;
+    }
 };
 
 void Menu::render(sf::RenderWindow *window){

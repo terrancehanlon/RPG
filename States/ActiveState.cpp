@@ -84,7 +84,9 @@ void ActiveState::update(sf::Time dt){
         this->movementComp->move(dt, &this->player->ani, &this->resources->ani, this->view);   
     }
     this->creatorComp->update(dt);
+
     this->zones.top()->update(dt, this->player->ani.getPosition().x, this->player->ani.getPosition().y);
+    this->zones.top()->checkNPCCollision(&this->player->ani);
     this->resources->update(dt);
     this->player->update(dt);
 

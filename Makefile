@@ -9,6 +9,7 @@ g = g++ -std=c++17 -c -g
 
 link = target/Imports.o \
 target/TextureManager.o \
+target/TextManager.o \
 target/Animation.o \
 target/AnimatedSprite.o \
 target/Movement.o \
@@ -38,6 +39,7 @@ target/Main2.o
 all:
 	$(g) Lib/Imports.cpp -o target/Imports.o
 	$(g) Lib/TextureManager.cpp -o target/TextureManager.o
+	$(g) Lib/TextManager.cpp -o target/TextManager.o
 	$(g) Lib/Animation.cpp -o target/Animation.o
 	$(g) Lib/AnimatedSprite.cpp -o target/AnimatedSprite.o
 	$(g) Entities/Rock.cpp -o target/Rock.o
@@ -98,6 +100,7 @@ zones:
 
 lib:
 	$(g) Lib/TextureManager.cpp -o target/TextureManager.o
+	$(g) Lib/TextManager.cpp -o target/TextManager.o
 	g++ $(link) -o $(execName) $(sfmlFlags) $(luaFlags);
 
 game:

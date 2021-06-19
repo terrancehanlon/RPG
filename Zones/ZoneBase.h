@@ -31,6 +31,7 @@ class ZoneBase {
         void draw(sf::RenderWindow *window);
         void drawObstacles(AnimatedSprite *ani, sf::RenderWindow *window, TextureManager *tm);
         bool checkObstacleCollisin(AnimatedSprite *ani);
+        bool checkNPCCollision(AnimatedSprite *ani);
 
         //size is how big the window is (assuming the view is a square)
         void obstaclesInView(AnimatedSprite *ani, float size, TextureManager *tm);
@@ -38,11 +39,6 @@ class ZoneBase {
         virtual bool renderObjectFirst(float playerX, float playerY) = 0;
         virtual bool checkPlayerConstraint(float x, float y) = 0;
         Npc npc;
-        
-
-
-
-
 
 };
 

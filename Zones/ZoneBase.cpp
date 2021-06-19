@@ -47,6 +47,27 @@ void ZoneBase::drawObstacles(AnimatedSprite *ani, sf::RenderWindow *window, Text
     }
 }
 
+bool ZoneBase::checkNPCCollision(AnimatedSprite* ani){
+    float x = ani->getPosition().x;
+    float y = ani->getPosition().y;
+    
+    bool setColor = false;
+     if( std::abs(this->npc.ani.getPosition().x - x) < 15 ){
+        if(std::abs(this->npc.ani.getPosition().y - y) < 15){
+            // npc.ani.setColor(sf::Color::Red);
+            setColor = true;
+        }
+    }
+
+    if(setColor){
+        npc.ani.setColor(sf::Color::Red);
+        return true;
+    }else{
+        return false;
+        npc.ani.setColor(sf::Color::White);
+    }
+}
+
 bool ZoneBase::checkObstacleCollisin(AnimatedSprite* ani){
     //check for water and bridge obstacle
     bool onBridge = false;

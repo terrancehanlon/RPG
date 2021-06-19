@@ -12,6 +12,7 @@ void Npc::init(TextureManager *tm){
     anim.addFrame(sf::IntRect(235,24,11,15));
     ani.play(anim);
     ani.setPosition(sf::Vector2f(190,150));
+    printf("pos set for npc\n");
 }
 
 void Npc::update(sf::Time dt, TextureManager *tm){
