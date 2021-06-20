@@ -10,6 +10,7 @@ g = g++ -std=c++17 -c -g
 link = target/Imports.o \
 target/TextureManager.o \
 target/TextManager.o \
+target/ScreenManager.o \
 target/Animation.o \
 target/AnimatedSprite.o \
 target/Movement.o \
@@ -24,6 +25,8 @@ target/ComputerScreen.o \
 target/BloodCase.o \
 target/HumanPod.o \
 target/Constraint.o \
+target/BaseScreen.o \
+target/InteractionScreen.o \
 target/Zone.o \
 target/ZoneBase.o \
 target/Obstacle.o \
@@ -40,6 +43,7 @@ all:
 	$(g) Lib/Imports.cpp -o target/Imports.o
 	$(g) Lib/TextureManager.cpp -o target/TextureManager.o
 	$(g) Lib/TextManager.cpp -o target/TextManager.o
+	$(g) Lib/ScreenManager.cpp -o target/ScreenManager.o 
 	$(g) Lib/Animation.cpp -o target/Animation.o
 	$(g) Lib/AnimatedSprite.cpp -o target/AnimatedSprite.o
 	$(g) Entities/Rock.cpp -o target/Rock.o
@@ -54,6 +58,8 @@ all:
 	$(g) Entities/ComputerScreen.cpp -o target/ComputerScreen.o
 	$(g) Entities/BloodCase.cpp -o target/BloodCase.o
 	$(g) Entities/HumanPod.cpp -o target/HumanPod.o
+	$(g) Entities/BaseScreen.cpp -o target/BaseScreen.o
+	$(g) Entities/InteractionScreen.cpp -o target/InteractionScreen.o
 	$(g) Zones/constraints/Constraint.cpp -o target/Constraint.o
 	$(g) Zones/Zone.cpp -o target/Zone.o
 	$(g) Zones/ZoneBase.cpp -o target/ZoneBase.o
@@ -81,6 +87,8 @@ ent:
 	$(g) Entities/ComputerScreen.cpp -o target/ComputerScreen.o
 	$(g) Entities/BloodCase.cpp -o target/BloodCase.o
 	$(g) Entities/HumanPod.cpp -o target/HumanPod.o
+	$(g) Entities/BaseScreen.cpp -o target/BaseScreen.o
+	$(g) Entities/InteractionScreen.cpp -o target/InteractionScreen.o
 	$(g) Entities/Entity.cpp -o target/Entity.o 
 	$(g) Entities/Npc.cpp -o target/Npc.o
 	g++ $(link) -o $(exeName) $(sfmlFlags) $(luaFlags) ;
@@ -101,6 +109,7 @@ zones:
 lib:
 	$(g) Lib/TextureManager.cpp -o target/TextureManager.o
 	$(g) Lib/TextManager.cpp -o target/TextManager.o
+	$(g) Lib/ScreenManager.cpp -o target/ScreenManager.o
 	g++ $(link) -o $(execName) $(sfmlFlags) $(luaFlags);
 
 game:

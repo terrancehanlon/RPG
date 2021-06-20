@@ -2,9 +2,11 @@
 #include <iostream>
 #include <cmath>
 
-ZoneBase::ZoneBase(TextureManager *tm){
+ZoneBase::ZoneBase(TextureManager *tm, TextManager* ttm, ScreenManager *sm){
     // this->tm = tm;
     npc.init(tm);
+    this->sm = sm;
+    this->ttm = ttm;
 }
 ZoneBase::~ZoneBase(){}
 
@@ -47,6 +49,10 @@ void ZoneBase::drawObstacles(AnimatedSprite *ani, sf::RenderWindow *window, Text
     }
 }
 
+void ZoneBase::drawScreens(sf::RenderWindow *window){
+    this->sm->render(window);
+}
+
 bool ZoneBase::checkNPCCollision(AnimatedSprite* ani){
     float x = ani->getPosition().x;
     float y = ani->getPosition().y;
@@ -61,6 +67,7 @@ bool ZoneBase::checkNPCCollision(AnimatedSprite* ani){
 
     if(setColor){
         npc.ani.setColor(sf::Color::Red);
+        InteractionScreen *is = new InteractionScreen(this->tm, this->ttm);
         return true;
     }else{
         return false;

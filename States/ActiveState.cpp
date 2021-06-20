@@ -6,7 +6,8 @@ ActiveState::ActiveState(TextureManager *tm){
     printf("Adding instances\n");
 
     this->tm = tm;
-    
+    this->ttm = new TextManager();
+    this->sm = new ScreenManager(tm, ttm);
     // tm.addTexture("pixel", "/home/terrance/Desktop/games/RPG/Assets/pixel.png");
     // tm.addTexture("new-walk", "Assets/new-walk.png");
     // tm.addTexture("npc1", "Assets/base-walk.png");
@@ -20,7 +21,7 @@ ActiveState::ActiveState(TextureManager *tm){
     // TextureManager::getInstance().addTexture("bridge", "Assets/bridge.png");
 
     printf("adding zones\n");
-    this->zones.push(new Zone(tm));
+    this->zones.push(new Zone(tm, ttm, sm));
     this->player = new Entity(tm);
     this->resources = new Blood(tm);
     this->view = new sf::View(sf::Vector2f(1024.0f, 1024.0f), sf::Vector2f(VIEW_SIZE, VIEW_SIZE)); ///124 x124
@@ -72,7 +73,6 @@ std::string ActiveState::getStringField(lua_State* L, const char* key)
 
 void ActiveState::update(sf::Time dt){
     if(movementComp->create){
-        printf("Adding fp \n");
         this->creatorComp->create("hp");
         this->movementComp->create = false;
     }

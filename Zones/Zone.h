@@ -25,7 +25,7 @@ class Zone : public ZoneBase {
 
     public:
         bool coolDown = false;
-        Zone(TextureManager *tm) : ZoneBase(tm){
+        Zone(TextureManager *tm, TextManager *ttm, ScreenManager *sm) : ZoneBase(tm, ttm, sm){
                 this->backgroundTexture.loadFromFile("Assets/16x16p2.png");
     this->backgroundSprite.setTexture(this->backgroundTexture);  
 

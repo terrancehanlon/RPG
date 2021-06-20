@@ -4,6 +4,7 @@
 // #include "State.h"
 #include "../Entities/Entity.h"
 #include "BaseState.h"
+#include "../Lib/ScreenManager.h"
 #include <string>
 #include <stack>
 #include "../Zones/Zone.h"
@@ -20,6 +21,8 @@ class ActiveState : public BaseState{
         std::stack<ZoneBase*> zones;
         ActiveState(TextureManager *tm);
         TextureManager *tm;
+        ScreenManager *sm;
+        TextManager *ttm;
         Movement *movementComp;
         Creator *creatorComp;
 
