@@ -6,7 +6,9 @@ Npc::Npc(){
 }
 
 void Npc::init(TextureManager *tm){
+    printf("getting texture\n");
     anim.setSpriteSheet(tm->getTexture("npc1"));
+    printf("Texture got\n");
     anim.addFrame(sf::IntRect(43,24,11,15));
     anim.addFrame(sf::IntRect(139,25,11,14));
     anim.addFrame(sf::IntRect(235,24,11,15));

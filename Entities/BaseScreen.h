@@ -6,6 +6,7 @@
 #include "../Lib/TextureManager.h"
 #include <vector>
 #include <string>
+#include <iostream>
 
 class BaseScreen {
 
@@ -19,7 +20,7 @@ class BaseScreen {
         sf::Text txt;
 
     public:
-        BaseScreen();
+        BaseScreen(TextureManager *tm, TextManager *ttm);
 
         void update(sf::Time dt);
         void render(sf::RenderWindow *window);

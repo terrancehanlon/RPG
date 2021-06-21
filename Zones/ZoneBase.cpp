@@ -3,7 +3,7 @@
 #include <cmath>
 
 ZoneBase::ZoneBase(TextureManager *tm, TextManager* ttm, ScreenManager *sm){
-    // this->tm = tm;
+    this->tm = tm;
     npc.init(tm);
     this->sm = sm;
     this->ttm = ttm;
@@ -67,6 +67,8 @@ bool ZoneBase::checkNPCCollision(AnimatedSprite* ani){
 
     if(setColor){
         npc.ani.setColor(sf::Color::Red);
+        printf("before interaction screen init\n");
+        this->tm->getSize();
         InteractionScreen *is = new InteractionScreen(this->tm, this->ttm);
         return true;
     }else{

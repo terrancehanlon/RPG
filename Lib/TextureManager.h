@@ -20,6 +20,8 @@ class TextureManager {
 
         const sf::Texture& getTexture(const std::string& key) const;
 
+        void getSize();
+
         TextureManager();   
         ~TextureManager();
     private:

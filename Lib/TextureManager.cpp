@@ -6,6 +6,10 @@ TextureManager::TextureManager(){}
 TextureManager::~TextureManager(){}
 
 
+void TextureManager::getSize(){
+    std::cout << "size: " << this->textures.size() << std::endl;
+}
+
 const sf::Texture& TextureManager::getTexture(const std::string& key) const{
     // printf("getting texture\n");
     // auto it = this->textureMap.find(key);

@@ -93,6 +93,11 @@ ent:
 	$(g) Entities/Npc.cpp -o target/Npc.o
 	g++ $(link) -o $(exeName) $(sfmlFlags) $(luaFlags) ;
 
+screens:
+	$(g) Entities/BaseScreen.cpp -o target/BaseScreen.o
+	$(g) Entities/InteractionScreen.cpp -o target/InteractionScreen.o
+	g++ $(link) -o $(exeName) $(sfmlFlags) $(luaFlags) ;
+
 states:
 	$(g) States/BaseState.cpp -o target/BaseState.o
 	$(g) States/Menu.cpp -o target/Menu.o

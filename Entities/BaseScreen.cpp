@@ -1,6 +1,7 @@
 #include "BaseScreen.h"
 
-BaseScreen::BaseScreen(){
+BaseScreen::BaseScreen(TextureManager *tm, TextManager *ttm){
+    printf("Creating base screen\n");
     // this->key = key;
     //std::string key, TextureManager *texturem, TextManager *textm
     // baseImage.setTexture(texturem->getTexture(key));
@@ -22,13 +23,18 @@ void BaseScreen::update(sf::Time dt){
 }
 
 void BaseScreen::init(std::string key, TextureManager *texturem, TextManager *textm){
+    printf("in init\n");
     this->key = key;
+
+    texturem->getSize();
+    std::cout << "key " << key << std::endl;
 
     baseImage.setTexture(texturem->getTexture(key));
 
+    printf("getting texture done \n");
 
-    txt.setString(textm->getText(key));
+    // txt.setString(textm->getText(key));
 
-    texts.push_back(txt);
+    // texts.push_back(txt);
 
 };

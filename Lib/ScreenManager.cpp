@@ -4,6 +4,8 @@
 ScreenManager::ScreenManager(TextureManager* tm, TextManager *ttm){
     this->tm = tm;
     this->ttm = ttm;
+    printf("creating screenamanger\n");
+    this->tm->getSize();
 }
 
 void ScreenManager::render(sf::RenderWindow *window){
