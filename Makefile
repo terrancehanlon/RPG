@@ -112,10 +112,11 @@ zones:
 	g++ $(link) -o $(exeName) $(sfmlFlags) $(luaFlags) ;
 
 lib:
-	$(g) Lib/TextureManager.cpp -o target/TextureManager.o
 	$(g) Lib/TextManager.cpp -o target/TextManager.o
+	$(g) Lib/TextureManager.cpp -o target/TextureManager.o
 	$(g) Lib/ScreenManager.cpp -o target/ScreenManager.o
-	g++ $(link) -o $(execName) $(sfmlFlags) $(luaFlags);
+	g++ $(link) -o $(exeName) $(sfmlFlags) $(luaFlags);
+	
 
 game:
 	$(g) Game.cpp -o target/Game.o

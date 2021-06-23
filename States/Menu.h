@@ -17,6 +17,8 @@ class Menu : public BaseState {
         void update(sf::Time dt);
         void render(sf::RenderWindow *window);
 
+        void init();
+
 
 };
 

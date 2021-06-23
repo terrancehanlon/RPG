@@ -20,6 +20,31 @@ ActiveState::ActiveState(TextureManager *tm){
     // TextureManager::getInstance().addTexture("stream", "Assets/water.png");
     // TextureManager::getInstance().addTexture("bridge", "Assets/bridge.png");
 
+    // printf("adding zones\n");
+    // this->zones.push(new Zone(tm, ttm, sm));
+    // this->player = new Entity(tm);
+    // this->resources = new Blood(tm);
+    // this->view = new sf::View(sf::Vector2f(1024.0f, 1024.0f), sf::Vector2f(VIEW_SIZE, VIEW_SIZE)); ///124 x124
+    // this->movementComp = new Movement(0.055f);
+    // this->creatorComp = new Creator();
+
+    // this->L = luaL_newstate();
+    // luaL_loadfile(L, "Zones/constraints/zone1.lua");
+    // lua_pcall(L, 0, 0, 0);
+    // lua_getglobal(L, "zone1");
+ 
+    // printf("Lua loading\n");
+    // int width = getIntField(L, "startX");
+    // int height = getIntField(L, "startY");
+    
+    // this->player->ani.setPosition(150, 150);
+    // this->view->setCenter(getPlayerX(), getPlayerY());
+    // this->resources->ani.setPosition(view->getCenter().x - 60, getPlayerY() - 60);
+    
+    // lua_close(L);
+};
+
+void ActiveState::init(){
     printf("adding zones\n");
     this->zones.push(new Zone(tm, ttm, sm));
     this->player = new Entity(tm);
@@ -42,7 +67,7 @@ ActiveState::ActiveState(TextureManager *tm){
     this->resources->ani.setPosition(view->getCenter().x - 60, getPlayerY() - 60);
     
     lua_close(L);
-};
+}
 
 float ActiveState::getPlayerX(){
     return this->player->ani.getPosition().x;
@@ -116,5 +141,6 @@ void ActiveState::render(sf::RenderWindow *win){
         this->zones.top()->drawObstacles(&this->player->ani, win, this->tm);
     }
     this->resources->render(win);       
+    this->sm->render(win);
 };
 

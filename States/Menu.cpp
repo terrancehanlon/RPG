@@ -24,6 +24,8 @@ Menu::Menu(TextureManager *tm){
 
 };
 
+void Menu::init(){}; //keep empty for now?
+
 void Menu::update(sf::Time dt){
     // background.update(dt);
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)){

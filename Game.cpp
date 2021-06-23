@@ -6,12 +6,12 @@ Game::Game(){
     tm.addTexture("pixel", "/home/terrance/Desktop/games/RPG/Assets/pixel.png");
     tm.addTexture("new-walk", "Assets/new-walk.png");
     tm.addTexture("npc1", "Assets/base-walk.png");
-    tm.addTexture("interaction-screen", "Assets/base-walk.png");
+    tm.addTexture("interaction-screen", "Assets/small-square.png");
     tm.addTexture("tree", "Assets/obst-tree.png");
     tm.addTexture("stream", "Assets/water.png");
     tm.addTexture("bridge", "Assets/bridge.png");
     tm.addTexture("blood-levels", "Assets/blood-levels.png");
-    tm.getSize();
+    // tm.getSize();
     this->states.push(new ActiveState(&tm));
     this->states.push(new Menu(&tm));
 };
@@ -60,6 +60,7 @@ void Game::run(){
         // this->render();
         if(this->states.top()->stateFinished){
             this->states.pop();
+            this->states.top()->init();
         }
         this->states.top()->update(frameTime);
         this->render();

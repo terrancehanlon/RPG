@@ -14,6 +14,9 @@ BaseScreen::BaseScreen(TextureManager *tm, TextManager *ttm){
 };
 
 void BaseScreen::render(sf::RenderWindow *window){
+    // std::cout << "rendering screen" << std::endl;
+    // baseImage.setPosition(160, 150); 
+    // std::cout << baseImage.getPosition().y << std::endl;
     window->draw(baseImage);
     window->draw(txt);
 }
@@ -30,6 +33,8 @@ void BaseScreen::init(std::string key, TextureManager *texturem, TextManager *te
     std::cout << "key " << key << std::endl;
 
     baseImage.setTexture(texturem->getTexture(key));
+    baseImage.setScale(sf::Vector2f(0.5,0.5));
+    
 
     printf("getting texture done \n");
 
@@ -38,3 +43,7 @@ void BaseScreen::init(std::string key, TextureManager *texturem, TextManager *te
     // texts.push_back(txt);
 
 };
+
+void BaseScreen::setPosition(float x, float y){
+    baseImage.setPosition(sf::Vector2f(x,y));
+}

@@ -16,16 +16,17 @@ class BaseScreen {
         sf::Texture texture;
         std::vector<sf::Text> texts;
         sf::Font font;
-        std::string key;
         sf::Text txt;
 
     public:
+        std::string key;
         BaseScreen(TextureManager *tm, TextManager *ttm);
 
         void update(sf::Time dt);
         void render(sf::RenderWindow *window);
 
         void init(std::string key, TextureManager *texturem, TextManager *textm);
+        void setPosition(float x, float y);
 
 
 

@@ -67,13 +67,14 @@ bool ZoneBase::checkNPCCollision(AnimatedSprite* ani){
 
     if(setColor){
         npc.ani.setColor(sf::Color::Red);
-        printf("before interaction screen init\n");
-        this->tm->getSize();
         InteractionScreen *is = new InteractionScreen(this->tm, this->ttm);
+        is->setPosition(npc.ani.getPosition().x - 8, npc.ani.getPosition().y - 3);
+        sm->addScreen(*is);
         return true;
     }else{
-        return false;
         npc.ani.setColor(sf::Color::White);
+        sm->removeScreen("interaction-screen");
+        return false;
     }
 }
 

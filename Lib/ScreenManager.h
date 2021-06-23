@@ -6,7 +6,14 @@
 #include "../Entities/InteractionScreen.h"
 // #include "./TextureManager.h"
 // #include "./TextManager.h"
+#include <string>
 #include <vector>
+
+struct screenItem
+{
+    std::string key;
+    BaseScreen screen;
+};
 
 
 class ScreenManager {
@@ -14,7 +21,7 @@ class ScreenManager {
     protected:
         TextureManager *tm;
         TextManager *ttm;
-        std::vector<BaseScreen> activeScreens;
+        std::vector<screenItem> activeScreens;
 
 
     public:
@@ -25,6 +32,8 @@ class ScreenManager {
         void addScreen(BaseScreen screen);
 
         void createScreen(std::string key);
+
+        void removeScreen(std::string key);
         
 };
 

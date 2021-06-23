@@ -49,6 +49,8 @@ class ActiveState : public BaseState{
         void update(sf::Time dt);
         void render(sf::RenderWindow *win);
 
+        void init();
+
 };
 
 #endif
