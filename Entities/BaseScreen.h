@@ -21,8 +21,9 @@ class BaseScreen {
     public:
         std::string key;
         BaseScreen(TextureManager *tm, TextManager *ttm);
+        BaseScreen();
 
-        void update(sf::Time dt);
+        virtual void update(TextureManager *tm);
         void render(sf::RenderWindow *window);
 
         void init(std::string key, TextureManager *texturem, TextManager *textm);

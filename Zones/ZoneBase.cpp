@@ -69,7 +69,7 @@ bool ZoneBase::checkNPCCollision(AnimatedSprite* ani){
         npc.ani.setColor(sf::Color::Red);
         InteractionScreen *is = new InteractionScreen(this->tm, this->ttm);
         is->setPosition(npc.ani.getPosition().x - 8, npc.ani.getPosition().y - 3);
-        sm->addScreen(*is);
+        sm->addScreen(is);
         return true;
     }else{
         npc.ani.setColor(sf::Color::White);
@@ -83,12 +83,6 @@ bool ZoneBase::checkObstacleCollisin(AnimatedSprite* ani){
     bool onBridge = false;
     bool result = false;
     for(auto o : obstacles){
-        // std::cout << o->name == "bridge" << std::endl;
-        // if(onBridge){
-        //     printf("on bridge\n");
-        //     result = false; 
-        //     // return false;
-        // }
         if(o->isHard && o->ani.getGlobalBounds().intersects(ani->getGlobalBounds())){
             if(!o->isHard){
                 return false;
@@ -102,39 +96,6 @@ bool ZoneBase::checkObstacleCollisin(AnimatedSprite* ani){
                 result = true;
             }
         }
-            // if(o->name == "stream"){
-            //     if(onBridge){
-            //         return false;
-            //     }
-            // }[]
-            // else{
-            //     onBridge = false;
-            //     return true;
-            // }
-            // onBridge = false;
-            // return true;
-            // return true;
-            // else{
-            //     onBridge = false;
-            //     return true;
-            // }
-            // if(o->name == "stream" && onBridge){
-            //     return false;
-            // }
-            
-            // if(!onBridge){
-            //     printf("returning true\n");
-            //     return true;
-            // }
-
-            //not on bridge 
-            // return true;
-            
-        // }
-        // else{
-        //     printf("no collisions\n");
-        //     onBridge = false;
-        // }    
     }
     // onBridge = false;
     return result;
@@ -142,22 +103,14 @@ bool ZoneBase::checkObstacleCollisin(AnimatedSprite* ani){
 
 void ZoneBase::obstaclesInView(AnimatedSprite *ani, float size, TextureManager *tm){
     for(auto o : obstacles){
-            // o->show();
-        // if(o->ani.getGlobalBounds().intersects(ani->getGlobalBounds())){
-
-        // }
         
         if(std::abs( o->ani.getPosition().x - ani->getPosition().x) < (size + 125 ) ){
             if(std::abs(o->ani.getPosition().y - ani->getPosition().y) < (size + 125) ){
                 o->show(tm);
                 o->visible = true;
-                // printf("showiing\n:");
             }
         }else{
             o->visible = false;
-            // printf("unshowing\n");
-            // o->unshow();
-            // o->texture.clear()
         }
     }
 

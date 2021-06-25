@@ -9,31 +9,31 @@
 #include <string>
 #include <vector>
 
-struct screenItem
-{
-    std::string key;
-    BaseScreen screen;
-};
-
+#include<unordered_map>
+#include<map>
+#include "ScreenItem.h"
 
 class ScreenManager {
 
     protected:
         TextureManager *tm;
         TextManager *ttm;
-        std::vector<screenItem> activeScreens;
+        std::vector<ScreenItem*> activeScreens;
+        std::unordered_map<std::string, int> activeScreens_map;
 
 
     public:
         ScreenManager(TextureManager* tm, TextManager *ttm);
         void render(sf::RenderWindow *window);
-        void update(sf::Time dt);
+        void update(TextureManager *tm);
 
-        void addScreen(BaseScreen screen);
+        void addScreen(BaseScreen *screen);
 
         void createScreen(std::string key);
 
         void removeScreen(std::string key);
+
+        void getSize();
         
 };
 

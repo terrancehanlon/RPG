@@ -112,6 +112,7 @@ void ActiveState::update(sf::Time dt){
 
     this->zones.top()->update(dt, this->player->ani.getPosition().x, this->player->ani.getPosition().y);
     this->zones.top()->checkNPCCollision(&this->player->ani);
+    this->sm->update(tm);
     this->resources->update(dt);
     this->player->update(dt);
 

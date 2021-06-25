@@ -1,7 +1,6 @@
 #include "BaseScreen.h"
 
 BaseScreen::BaseScreen(TextureManager *tm, TextManager *ttm){
-    printf("Creating base screen\n");
     // this->key = key;
     //std::string key, TextureManager *texturem, TextManager *textm
     // baseImage.setTexture(texturem->getTexture(key));
@@ -21,23 +20,15 @@ void BaseScreen::render(sf::RenderWindow *window){
     window->draw(txt);
 }
 
-void BaseScreen::update(sf::Time dt){
-    //
+void BaseScreen::update(TextureManager *tm){
+    printf("update in base\n");
 }
 
 void BaseScreen::init(std::string key, TextureManager *texturem, TextManager *textm){
-    printf("in init\n");
     this->key = key;
-
-    texturem->getSize();
-    std::cout << "key " << key << std::endl;
-
     baseImage.setTexture(texturem->getTexture(key));
-    baseImage.setScale(sf::Vector2f(0.5,0.5));
+    baseImage.setScale(sf::Vector2f(0.5f,0.5f));
     
-
-    printf("getting texture done \n");
-
     // txt.setString(textm->getText(key));
 
     // texts.push_back(txt);
@@ -47,3 +38,5 @@ void BaseScreen::init(std::string key, TextureManager *texturem, TextManager *te
 void BaseScreen::setPosition(float x, float y){
     baseImage.setPosition(sf::Vector2f(x,y));
 }
+
+BaseScreen::BaseScreen(){}

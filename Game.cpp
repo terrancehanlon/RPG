@@ -6,7 +6,8 @@ Game::Game(){
     tm.addTexture("pixel", "/home/terrance/Desktop/games/RPG/Assets/pixel.png");
     tm.addTexture("new-walk", "Assets/new-walk.png");
     tm.addTexture("npc1", "Assets/base-walk.png");
-    tm.addTexture("interaction-screen", "Assets/small-square.png");
+    tm.addTexture("interaction-screen", "Assets/small-square-text.png");
+    tm.addTexture("interaction-screen-select-1", "Assets/small-sqaure-text-select.png");
     tm.addTexture("tree", "Assets/obst-tree.png");
     tm.addTexture("stream", "Assets/water.png");
     tm.addTexture("bridge", "Assets/bridge.png");

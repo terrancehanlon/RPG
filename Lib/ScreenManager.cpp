@@ -7,32 +7,31 @@ ScreenManager::ScreenManager(TextureManager* tm, TextManager *ttm){
     this->tm = tm;
     this->ttm = ttm;
     printf("creating screenamanger\n");
-    this->tm->getSize();
 }
 
 void ScreenManager::render(sf::RenderWindow *window){
     // std::cout << activeScreens.size() << std::endl;
     for(auto& s : activeScreens){
-        s.screen.render(window);
+        s->screen->render(window);
     }
 };
 
-void ScreenManager::update(sf::Time dt){
+void ScreenManager::update(TextureManager *tm){
     for(auto& s : activeScreens){
-        s.screen.update(dt);
+        s->screen->update(tm);
     }
 };
 
-void ScreenManager::addScreen(BaseScreen screen){
-    std::cout << "Adding screen" << std::endl;
-    struct screenItem st = {screen.key, screen};
-    // if(screen.key.empty()){
-    //     st.key = "key";
-    // }else{
-    //     st.key = screen.key;
-    // }
-    // st.screen = screen;
-    activeScreens.push_back(st);
+void ScreenManager::addScreen(BaseScreen *screen){
+    if(activeScreens_map.find(screen->key) != activeScreens_map.end()){
+    }else{
+        ScreenItem *screenItem = new ScreenItem();
+        screenItem->key = screen->key;
+        screenItem->screen = screen;
+        // struct screenItem st = {screen.key, screen};
+        activeScreens.push_back(screenItem);
+        // activeScreens_map[screen.key] = 1;
+    }
 };
 
 void ScreenManager::createScreen(std::string key){
@@ -42,7 +41,13 @@ void ScreenManager::createScreen(std::string key){
 }
 
 void ScreenManager::removeScreen(std::string key){
-    activeScreens.erase(std::remove_if(std::begin(activeScreens), std::end(activeScreens), [key](screenItem const& s){
-        return s.key == key;
+    activeScreens.erase(std::remove_if(std::begin(activeScreens), std::end(activeScreens), [key](ScreenItem* const& s){
+        return s->key == key;
     }), std::end(activeScreens));
+
+    activeScreens_map.erase(key);
+}
+
+void ScreenManager::getSize(){
+    std::cout << "activeScreens size: " << activeScreens.size() << std::endl;
 }

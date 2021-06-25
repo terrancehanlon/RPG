@@ -27,6 +27,7 @@ target/HumanPod.o \
 target/Constraint.o \
 target/BaseScreen.o \
 target/InteractionScreen.o \
+target/ScreenItem.o \
 target/Zone.o \
 target/ZoneBase.o \
 target/Obstacle.o \
@@ -43,6 +44,9 @@ all:
 	$(g) Lib/Imports.cpp -o target/Imports.o
 	$(g) Lib/TextureManager.cpp -o target/TextureManager.o
 	$(g) Lib/TextManager.cpp -o target/TextManager.o
+	$(g) Entities/BaseScreen.cpp -o target/BaseScreen.o
+	$(g) Entities/InteractionScreen.cpp -o target/InteractionScreen.o
+	$(g) Lib/ScreenItem.cpp -o target/ScreenItem.o
 	$(g) Lib/ScreenManager.cpp -o target/ScreenManager.o 
 	$(g) Lib/Animation.cpp -o target/Animation.o
 	$(g) Lib/AnimatedSprite.cpp -o target/AnimatedSprite.o
@@ -58,8 +62,6 @@ all:
 	$(g) Entities/ComputerScreen.cpp -o target/ComputerScreen.o
 	$(g) Entities/BloodCase.cpp -o target/BloodCase.o
 	$(g) Entities/HumanPod.cpp -o target/HumanPod.o
-	$(g) Entities/BaseScreen.cpp -o target/BaseScreen.o
-	$(g) Entities/InteractionScreen.cpp -o target/InteractionScreen.o
 	$(g) Zones/constraints/Constraint.cpp -o target/Constraint.o
 	$(g) Zones/Zone.cpp -o target/Zone.o
 	$(g) Zones/ZoneBase.cpp -o target/ZoneBase.o

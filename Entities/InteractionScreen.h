@@ -7,9 +7,10 @@ class InteractionScreen : public BaseScreen {
 
     public:
         InteractionScreen(TextureManager *tm, TextManager *ttm) : BaseScreen(tm, ttm){
-            printf("Init of interaction screen");
             init("interaction-screen", tm, ttm);
         }
+
+        void update(TextureManager *tm);
 
 };
 
