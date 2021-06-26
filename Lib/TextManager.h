@@ -15,7 +15,7 @@ class TextManager {
 
     public:
         void addText(const std::string& key, const std::string& text);
-        const std::string& getText(const std::string& key);
+        const std::string& getText(const std::string& key); //get text
 
 
         TextManager();
