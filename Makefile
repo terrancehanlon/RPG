@@ -5,7 +5,7 @@ sfmlFlags = -lsfml-graphics -lsfml-window -lsfml-system
 luaFlags = -llua -ldl -lm
 # luaflags = -l-I/usr/include/lua5.3
 
-g = g++ -std=c++17 -c -g
+g = g++ -std=c++17 -c
 
 link = target/Imports.o \
 target/TextureManager.o \
@@ -44,9 +44,9 @@ all:
 	$(g) Lib/Imports.cpp -o target/Imports.o
 	$(g) Lib/TextureManager.cpp -o target/TextureManager.o
 	$(g) Lib/TextManager.cpp -o target/TextManager.o
-	$(g) Entities/BaseScreen.cpp -o target/BaseScreen.o
-	$(g) Entities/InteractionScreen.cpp -o target/InteractionScreen.o
-	$(g) Lib/ScreenItem.cpp -o target/ScreenItem.o
+	$(g) Screens/BaseScreen.cpp -o target/BaseScreen.o
+	$(g) Screens/InteractionScreen.cpp -o target/InteractionScreen.o
+	$(g) Screens/ScreenItem.cpp -o target/ScreenItem.o
 	$(g) Lib/ScreenManager.cpp -o target/ScreenManager.o 
 	$(g) Lib/Animation.cpp -o target/Animation.o
 	$(g) Lib/AnimatedSprite.cpp -o target/AnimatedSprite.o
@@ -89,15 +89,13 @@ ent:
 	$(g) Entities/ComputerScreen.cpp -o target/ComputerScreen.o
 	$(g) Entities/BloodCase.cpp -o target/BloodCase.o
 	$(g) Entities/HumanPod.cpp -o target/HumanPod.o
-	$(g) Entities/BaseScreen.cpp -o target/BaseScreen.o
-	$(g) Entities/InteractionScreen.cpp -o target/InteractionScreen.o
 	$(g) Entities/Entity.cpp -o target/Entity.o 
 	$(g) Entities/Npc.cpp -o target/Npc.o
 	g++ $(link) -o $(exeName) $(sfmlFlags) $(luaFlags) ;
 
 screens:
-	$(g) Entities/BaseScreen.cpp -o target/BaseScreen.o
-	$(g) Entities/InteractionScreen.cpp -o target/InteractionScreen.o
+	$(g) Screens/BaseScreen.cpp -o target/BaseScreen.o
+	$(g) Screen/InteractionScreen.cpp -o target/InteractionScreen.o
 	g++ $(link) -o $(exeName) $(sfmlFlags) $(luaFlags) ;
 
 states:
@@ -123,8 +121,6 @@ lib:
 game:
 	$(g) Game.cpp -o target/Game.o
 	g++ $(link) -o $(exeName) $(sfmlFlags) $(luaFlags) ;
-
-
 
 clean:
 	rm -rf target/*/

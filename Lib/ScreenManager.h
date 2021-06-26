@@ -3,7 +3,7 @@
 
 
 // #include "../Entities/BaseScreen.h"
-#include "../Entities/InteractionScreen.h"
+#include "../Screens/InteractionScreen.h"
 // #include "./TextureManager.h"
 // #include "./TextManager.h"
 #include <string>
@@ -11,7 +11,7 @@
 
 #include<unordered_map>
 #include<map>
-#include "ScreenItem.h"
+#include "../Screens/ScreenItem.h"
 
 class ScreenManager {
 

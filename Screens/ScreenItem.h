@@ -2,7 +2,7 @@
 #define SCREENITEM_H
 
 
-#include "../Entities/BaseScreen.h"
+#include "BaseScreen.h"
 #include <string>
 
 class ScreenItem {
