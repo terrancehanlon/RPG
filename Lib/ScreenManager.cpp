@@ -28,9 +28,7 @@ void ScreenManager::addScreen(BaseScreen *screen){
         ScreenItem *screenItem = new ScreenItem();
         screenItem->key = screen->key;
         screenItem->screen = screen;
-        // struct screenItem st = {screen.key, screen};
         activeScreens.push_back(screenItem);
-        // activeScreens_map[screen.key] = 1;
     }
 };
 

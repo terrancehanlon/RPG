@@ -27,6 +27,7 @@ target/HumanPod.o \
 target/Constraint.o \
 target/BaseScreen.o \
 target/InteractionScreen.o \
+target/DialogScreen.o \
 target/ScreenItem.o \
 target/Zone.o \
 target/ZoneBase.o \
@@ -46,6 +47,7 @@ all:
 	$(g) Lib/TextManager.cpp -o target/TextManager.o
 	$(g) Screens/BaseScreen.cpp -o target/BaseScreen.o
 	$(g) Screens/InteractionScreen.cpp -o target/InteractionScreen.o
+	$(g) Screens/DialogScreen.cpp -o target/DialogScreen.o
 	$(g) Screens/ScreenItem.cpp -o target/ScreenItem.o
 	$(g) Lib/ScreenManager.cpp -o target/ScreenManager.o 
 	$(g) Lib/Animation.cpp -o target/Animation.o
@@ -95,7 +97,8 @@ ent:
 
 screens:
 	$(g) Screens/BaseScreen.cpp -o target/BaseScreen.o
-	$(g) Screen/InteractionScreen.cpp -o target/InteractionScreen.o
+	$(g) Screens/InteractionScreen.cpp -o target/InteractionScreen.o
+	$(g) Screens/DialogScreen.cpp -o target/DialogScreen.o
 	g++ $(link) -o $(exeName) $(sfmlFlags) $(luaFlags) ;
 
 states:

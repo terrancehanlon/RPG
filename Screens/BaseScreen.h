@@ -4,6 +4,7 @@
 #include "../Lib/Imports.h"
 #include "../Lib/TextManager.h"
 #include "../Lib/TextureManager.h"
+// #include "../Lib/ScreenManager.h"
 #include <vector>
 #include <string>
 #include <iostream>
@@ -19,6 +20,7 @@ class BaseScreen {
         sf::Text txt;
 
     public:
+        std::vector<sf::Sprite> images;
         std::string key;
         BaseScreen(TextureManager *tm, TextManager *ttm);
         BaseScreen();
@@ -28,6 +30,9 @@ class BaseScreen {
 
         void init(std::string key, TextureManager *texturem, TextManager *textm);
         void setPosition(float x, float y);
+
+        std::vector<std::string> needsToBeMade;
+
 
 
 

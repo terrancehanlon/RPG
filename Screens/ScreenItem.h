@@ -13,6 +13,9 @@ class ScreenItem {
         ScreenItem();
         std::string key;
         BaseScreen *screen;
+        
+        bool isVisible = true;
+        bool toMake = false; //flag is set to true when a screen needs to be created
 
 
 };

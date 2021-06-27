@@ -12,6 +12,7 @@ Game::Game(){
     tm.addTexture("stream", "Assets/water.png");
     tm.addTexture("bridge", "Assets/bridge.png");
     tm.addTexture("blood-levels", "Assets/blood-levels.png");
+    tm.addTexture("dialog1", "Assets/dialog1.png");
     // tm.getSize();
     this->states.push(new ActiveState(&tm));
     this->states.push(new Menu(&tm));

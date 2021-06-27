@@ -28,7 +28,27 @@ const sf::Texture& TextureManager::getTexture(const std::string& key) const{
             return x.texture;
         }
     }
+
+    // printf("Cant find\n");
+    std::cout << "cant find: " << key << std::endl;
 }
+
+void TextureManager::removeTexture(const std::string& key) const{
+    // textures.erase(std::remove_if(std::begin(textures), std::end(textures), [key](TextureItem t){
+    //     return t.key == key;
+    // }), std::end(textures));
+}
+
+void TextureManager::updateTexture(const std::string& key, std::string newPath){
+    for(auto& t : textures){
+        if(t.key == key){
+            sf::Texture newTexture;
+            newTexture.loadFromFile(newPath);
+            t.texture = newTexture;
+        }
+    }
+}
+
 
 int TextureManager::addTexture(const std::string& id, const std::string& texturePath)
 {

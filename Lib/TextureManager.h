@@ -22,8 +22,12 @@ class TextureManager {
 
         void getSize();
 
+        void updateTexture(const std::string& key, std::string newPath);
+        void removeTexture(const std::string& key) const;
+
         TextureManager();   
         ~TextureManager();
+
     private:
         std::vector<TextureItem> textures;
         // std::unordered_map<std::string, sf::Texture> textureMap;
