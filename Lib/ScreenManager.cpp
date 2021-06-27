@@ -35,6 +35,7 @@ void ScreenManager::addScreen(BaseScreen *screen){
 void ScreenManager::createScreen(std::string key){
     if(key == "interaction screen"){
         InteractionScreen *sc = new InteractionScreen(this->tm, this->ttm);
+
     }
 }
 
@@ -48,4 +49,12 @@ void ScreenManager::removeScreen(std::string key){
 
 void ScreenManager::getSize(){
     std::cout << "activeScreens size: " << activeScreens.size() << std::endl;
+}
+
+bool ScreenManager::checkIfExists(std::string key){
+    for(auto& s : activeScreens){
+        if(s->key == key) return true;
+    }
+
+    return false;
 }

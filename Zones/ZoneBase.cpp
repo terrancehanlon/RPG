@@ -67,13 +67,16 @@ bool ZoneBase::checkNPCCollision(AnimatedSprite* ani){
 
     if(setColor){
         npc.ani.setColor(sf::Color::Red);
-        InteractionScreen *is = new InteractionScreen(this->tm, this->ttm);
-        is->setPosition(npc.ani.getPosition().x - 8, npc.ani.getPosition().y - 3);
-        sm->addScreen(is);
+        if(!tm->sw.diaglogActive){
+            InteractionScreen *is = new InteractionScreen(this->tm, this->ttm);
+            is->setPosition(npc.ani.getPosition().x - 8, npc.ani.getPosition().y - 3);
+            sm->addScreen(is);    
+        }
         return true;
     }else{
         npc.ani.setColor(sf::Color::White);
         sm->removeScreen("interaction-screen");
+        tm->sw.diaglogActive = false;
         return false;
     }
 }

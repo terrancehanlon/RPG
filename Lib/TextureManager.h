@@ -5,6 +5,7 @@
 // #include <unordered_map>
 #include <vector>
 #include "./Imports.h"
+#include "../Screens/ScreenWatcher.h"
 
 struct TextureItem {
     sf::Texture texture;
@@ -24,6 +25,7 @@ class TextureManager {
 
         void updateTexture(const std::string& key, std::string newPath);
         void removeTexture(const std::string& key) const;
+        ScreenWatcher sw;
 
         TextureManager();   
         ~TextureManager();

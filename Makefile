@@ -11,6 +11,7 @@ link = target/Imports.o \
 target/TextureManager.o \
 target/TextManager.o \
 target/ScreenManager.o \
+target/ScreenWatcher.o \
 target/Animation.o \
 target/AnimatedSprite.o \
 target/Movement.o \
@@ -50,6 +51,7 @@ all:
 	$(g) Screens/DialogScreen.cpp -o target/DialogScreen.o
 	$(g) Screens/ScreenItem.cpp -o target/ScreenItem.o
 	$(g) Lib/ScreenManager.cpp -o target/ScreenManager.o 
+	$(g) Screens/ScreenWatcher.cpp -o target/ScreenWatcher.o
 	$(g) Lib/Animation.cpp -o target/Animation.o
 	$(g) Lib/AnimatedSprite.cpp -o target/AnimatedSprite.o
 	$(g) Entities/Rock.cpp -o target/Rock.o
@@ -99,6 +101,7 @@ screens:
 	$(g) Screens/BaseScreen.cpp -o target/BaseScreen.o
 	$(g) Screens/InteractionScreen.cpp -o target/InteractionScreen.o
 	$(g) Screens/DialogScreen.cpp -o target/DialogScreen.o
+	$(g) Screens/ScreenWatcher.cpp -o target/ScreenWatcher.o
 	g++ $(link) -o $(exeName) $(sfmlFlags) $(luaFlags) ;
 
 states:

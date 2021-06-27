@@ -9,6 +9,7 @@ void InteractionScreen::update(TextureManager *tm){
         s.setPosition(baseImage.getPosition());
         s.setScale(0.15f, 0.15f);
         baseImage = s;
+        tm->sw.diaglogActive = true;
     }
 
 }

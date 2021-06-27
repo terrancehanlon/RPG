@@ -13,6 +13,7 @@
 #include<map>
 #include "../Screens/ScreenItem.h"
 
+
 class ScreenManager {
 
     protected:
@@ -23,6 +24,9 @@ class ScreenManager {
 
 
     public:
+
+        bool dialogScreenActive = false;
+
         ScreenManager(TextureManager* tm, TextManager *ttm);
         void render(sf::RenderWindow *window);
         void update(TextureManager *tm);
@@ -34,6 +38,8 @@ class ScreenManager {
         void removeScreen(std::string key);
 
         void getSize();
+
+        bool checkIfExists(std::string key);
         
 };
 
