@@ -13,8 +13,10 @@ Game::Game(){
     tm.addTexture("bridge", "Assets/bridge.png");
     tm.addTexture("blood-levels", "Assets/blood-levels.png");
     tm.addTexture("dialog1", "Assets/dialog1.png");
+    ttm.addText("dialog1", "This is sample text that will be used for sampling\nNew lines will be added occasionally and i hope it looks okay sad");
+
     // tm.getSize();
-    this->states.push(new ActiveState(&tm));
+    this->states.push(new ActiveState(&tm, &ttm));
     this->states.push(new Menu(&tm));
 };
 

@@ -19,7 +19,7 @@ class ActiveState : public BaseState{
         Entity *player;
         lua_State *L;
         std::stack<ZoneBase*> zones;
-        ActiveState(TextureManager *tm);
+        ActiveState(TextureManager *tm, TextManager *ttm);
         TextureManager *tm;
         ScreenManager *sm;
         TextManager *ttm;

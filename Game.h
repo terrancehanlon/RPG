@@ -6,6 +6,7 @@
 #include "States/Menu.h"
 // #include "Lib/Imports.h"
 #include "Lib/TextureManager.h"
+// #include "Lib/TextManager.h"
 
 
 class Game {
@@ -15,6 +16,7 @@ class Game {
         sf::RenderWindow *window;
         std::stack<BaseState*> states;
         TextureManager tm;
+        TextManager ttm;
         sf::View *view;
 
         Game();

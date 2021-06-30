@@ -1,5 +1,5 @@
 #include "TextManager.h"
-
+#include <iostream>
 TextManager::TextManager(){}
 
 void TextManager::addText(const std::string& key, const std::string& text){

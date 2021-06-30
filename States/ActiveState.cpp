@@ -1,12 +1,14 @@
 #include "ActiveState.h"
 #include <iostream>
 
-ActiveState::ActiveState(TextureManager *tm){
+ActiveState::ActiveState(TextureManager *tm, TextManager *ttm){
     printf("Creating active state\n");
     printf("Adding instances\n");
 
     this->tm = tm;
-    this->ttm = new TextManager();
+    this->ttm = ttm;
+    // this->ttm->addText("dialog1", "This is sample text that will be used for sampling\nNew lines will be added occasionally and i hope it looks okay sad");
+    // this->ttm = new TextManager();
     this->sm = new ScreenManager(tm, ttm);
     // tm.addTexture("pixel", "/home/terrance/Desktop/games/RPG/Assets/pixel.png");
     // tm.addTexture("new-walk", "Assets/new-walk.png");

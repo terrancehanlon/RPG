@@ -43,8 +43,11 @@ void ScreenManager::removeScreen(std::string key){
     activeScreens.erase(std::remove_if(std::begin(activeScreens), std::end(activeScreens), [key](ScreenItem* const& s){
         return s->key == key;
     }), std::end(activeScreens));
-
+    
+    std::cout << "sizze of map: " << activeScreens_map.size() << std::endl;
     activeScreens_map.erase(key);
+    std::cout << "sizze of map: " << activeScreens_map.size() << std::endl;
+
 }
 
 void ScreenManager::getSize(){

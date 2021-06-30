@@ -11,13 +11,6 @@ ZoneBase::ZoneBase(TextureManager *tm, TextManager* ttm, ScreenManager *sm){
 ZoneBase::~ZoneBase(){}
 
 void ZoneBase::update(sf::Time dt, float x, float y){
-    
-    //update background
-    // backgroundSprite.update(dt);
-
-    //update interactable objects
-
-    //update obstacles that are not interactable
     for(auto o : obstacles){
         o->update(dt);
     }
@@ -25,23 +18,12 @@ void ZoneBase::update(sf::Time dt, float x, float y){
 }
 
 void ZoneBase::draw(sf::RenderWindow *window){
-
-    //draw background
     window->draw(backgroundSprite);
-    // window->draw(npc);
     npc.render(window, this->tm);
-
-    //draw interactable objects
-
-    //draw obstacles
-    // for(auto o : obstacles){
-    //     o->render(window);
-    // }
 }
 
 void ZoneBase::drawObstacles(AnimatedSprite *ani, sf::RenderWindow *window, TextureManager *tm){
     obstaclesInView(ani, 5, tm);
-    //draw obstacles
     for(auto o : obstacles){
         if(o->visible){
             o->render(window);
@@ -60,7 +42,6 @@ bool ZoneBase::checkNPCCollision(AnimatedSprite* ani){
     bool setColor = false;
      if( std::abs(this->npc.ani.getPosition().x - x) < 15 ){
         if(std::abs(this->npc.ani.getPosition().y - y) < 15){
-            // npc.ani.setColor(sf::Color::Red);
             setColor = true;
         }
     }
@@ -68,6 +49,7 @@ bool ZoneBase::checkNPCCollision(AnimatedSprite* ani){
     if(setColor){
         npc.ani.setColor(sf::Color::Red);
         if(!tm->sw.diaglogActive){
+            printf("creating screen\n");
             InteractionScreen *is = new InteractionScreen(this->tm, this->ttm);
             is->setPosition(npc.ani.getPosition().x - 8, npc.ani.getPosition().y - 3);
             sm->addScreen(is);    
@@ -82,7 +64,6 @@ bool ZoneBase::checkNPCCollision(AnimatedSprite* ani){
 }
 
 bool ZoneBase::checkObstacleCollisin(AnimatedSprite* ani){
-    //check for water and bridge obstacle
     bool onBridge = false;
     bool result = false;
     for(auto o : obstacles){
@@ -90,17 +71,14 @@ bool ZoneBase::checkObstacleCollisin(AnimatedSprite* ani){
             if(!o->isHard){
                 return false;
             }
-            // std::cout << "collision with " << o->name << std::endl;
             if(o->name == "bridge"){
                 onBridge = true;
                 result = false;
-                // return false;
             }else{
                 result = true;
             }
         }
     }
-    // onBridge = false;
     return result;
 }
 
@@ -116,10 +94,4 @@ void ZoneBase::obstaclesInView(AnimatedSprite *ani, float size, TextureManager *
             o->visible = false;
         }
     }
-
-    /* 
-
-        abs( (obstacle.x + obstacle.size.x) - (ani.getPosition.x + size)) 
-    
-    */
 }
