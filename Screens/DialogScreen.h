@@ -4,14 +4,18 @@
 #include "BaseScreen.h"
 
 
-class DialogScreen : public BaseScreen {
+class DialogScreen : public BaseScreen{
 
     public:
-        DialogScreen(TextureManager *tm, TextManager *ttm) : BaseScreen(tm, ttm){
-            init("dialog-screen", tm, ttm);
-        }
+        sf::View *view;
+        sf::Sprite sprite;
 
+        DialogScreen(TextureManager *tm, TextManager *ttm, sf::View *view) : BaseScreen(tm, ttm, view){
+            // printf("")
+            this->sprite.setTexture(tm->getTexture("dialogBox"));
+        };
         void update(TextureManager *tm);
+        // void render(sf::RenderWindow *window);
     
 
 };

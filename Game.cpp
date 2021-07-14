@@ -13,6 +13,7 @@ Game::Game(){
     tm.addTexture("bridge", "Assets/bridge.png");
     tm.addTexture("blood-levels", "Assets/blood-levels.png");
     tm.addTexture("dialog1", "Assets/dialog1.png");
+    tm.addTexture("dialogBox", "Assets/dialogbox1.png");
     ttm.addText("dialog1", "This is sample text that will be used for sampling\nNew lines will be added occasionally and i hope it looks okay sad");
 
     // tm.getSize();
@@ -22,12 +23,9 @@ Game::Game(){
 
 Game::~Game(){}
 
-
 void Game::init(){
     printf("Creating Window and initializing Game object now\n");
     this->window = new sf::RenderWindow(sf::VideoMode(1024, 1024), "RPG", sf::Style::Close | sf::Style::Resize);
-    // this->window = new sf::RenderWindow(sf::VideoMode(1024, 1024), "RPG", sf::Style::Fullscreen);
-    // this->view = new sf::View(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(1024.0f, 512.0f));
 };
 
 

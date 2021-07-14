@@ -3,14 +3,14 @@
 #include <iterator>
 
 
-ScreenManager::ScreenManager(TextureManager* tm, TextManager *ttm){
+ScreenManager::ScreenManager(TextureManager* tm, TextManager *ttm, sf::View *view){
     this->tm = tm;
     this->ttm = ttm;
-    printf("creating screenamanger\n");
+    this->view = view;
 }
 
 void ScreenManager::render(sf::RenderWindow *window){
-    // std::cout << activeScreens.size() << std::endl;
+    // printf("rendering screns\n");
     for(auto& s : activeScreens){
         s->screen->render(window);
     }
@@ -23,20 +23,31 @@ void ScreenManager::update(TextureManager *tm){
 };
 
 void ScreenManager::addScreen(BaseScreen *screen){
+    // std::cout << screen->key << std::endl;
+    // std::cout << "in add screen " << activeScreens_map.size() << std::endl;
     if(activeScreens_map.find(screen->key) != activeScreens_map.end()){
+        if(screen->key == "dialog-screen"){
+            // printf("in else\n");
+        printf("in if\n");
+        }
     }else{
+        // if(screen->key == "dialog-screen"){
+        //     printf("in else\n");
+        // }
+        std::cout << screen->key << std::endl;
         ScreenItem *screenItem = new ScreenItem();
         screenItem->key = screen->key;
         screenItem->screen = screen;
         activeScreens.push_back(screenItem);
+        this->activeScreens_map.insert(std::make_pair<std::string,int>(std::move(screen->key), 1));
     }
 };
 
 void ScreenManager::createScreen(std::string key){
-    if(key == "interaction screen"){
-        InteractionScreen *sc = new InteractionScreen(this->tm, this->ttm);
+    // if(key == "interaction screen"){
+    //     InteractionScreen *sc = new InteractionScreen(this->tm, this->ttm, this->view);
 
-    }
+    // }
 }
 
 void ScreenManager::removeScreen(std::string key){
@@ -44,10 +55,7 @@ void ScreenManager::removeScreen(std::string key){
         return s->key == key;
     }), std::end(activeScreens));
     
-    std::cout << "sizze of map: " << activeScreens_map.size() << std::endl;
     activeScreens_map.erase(key);
-    std::cout << "sizze of map: " << activeScreens_map.size() << std::endl;
-
 }
 
 void ScreenManager::getSize(){

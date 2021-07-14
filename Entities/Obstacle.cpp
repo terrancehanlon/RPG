@@ -27,6 +27,8 @@ void Obstacle::bridge(){
     name.assign("bridge");
 }
 
+// make individual classes
+
 void Obstacle::show(TextureManager *tm){
     // texture = sf::Texture();
     // printf("name: %s", name);

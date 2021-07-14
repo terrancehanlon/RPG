@@ -5,7 +5,7 @@ sfmlFlags = -lsfml-graphics -lsfml-window -lsfml-system
 luaFlags = -llua -ldl -lm
 # luaflags = -l-I/usr/include/lua5.3
 
-g = g++ -std=c++17 -c
+g = g++ -g -std=c++17 -c
 
 link = target/Imports.o \
 target/TextureManager.o \
@@ -47,11 +47,11 @@ all:
 	$(g) Lib/TextureManager.cpp -o target/TextureManager.o
 	$(g) Lib/TextManager.cpp -o target/TextManager.o
 	$(g) Screens/BaseScreen.cpp -o target/BaseScreen.o
-	$(g) Screens/InteractionScreen.cpp -o target/InteractionScreen.o
 	$(g) Screens/DialogScreen.cpp -o target/DialogScreen.o
 	$(g) Screens/ScreenItem.cpp -o target/ScreenItem.o
 	$(g) Lib/ScreenManager.cpp -o target/ScreenManager.o 
 	$(g) Screens/ScreenWatcher.cpp -o target/ScreenWatcher.o
+	$(g) Screens/InteractionScreen.cpp -o target/InteractionScreen.o
 	$(g) Lib/Animation.cpp -o target/Animation.o
 	$(g) Lib/AnimatedSprite.cpp -o target/AnimatedSprite.o
 	$(g) Entities/Rock.cpp -o target/Rock.o

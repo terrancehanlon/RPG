@@ -6,9 +6,11 @@
 // #include "../Lib/Imports.h"
 // #include "../Lib/TextureManager.h"
 #include "../Lib/ScreenManager.h"
+#include "../Screens/DialogScreen.h"
 // #include "../Lib/TextManager.h"
 #include "../Entities/Obstacle.h"
 #include "../Entities/Npc.h"
+#include "../Screens/InteractionScreen.h"
 
 
 class ZoneBase {
@@ -26,9 +28,10 @@ class ZoneBase {
         TextureManager *tm;
         TextManager *ttm;
         ScreenManager *sm;
+        sf::View *view;
 
     public:
-        ZoneBase(TextureManager *tm, TextManager* ttm, ScreenManager *sm);
+        ZoneBase(TextureManager *tm, TextManager* ttm, ScreenManager *sm, sf::View *view);
         ~ZoneBase();
 
         void update(sf::Time deltaTime, float x, float y);

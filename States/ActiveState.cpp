@@ -7,9 +7,11 @@ ActiveState::ActiveState(TextureManager *tm, TextManager *ttm){
 
     this->tm = tm;
     this->ttm = ttm;
+    this->sm = new ScreenManager(tm, ttm, this->view);
+    this->view = new sf::View(sf::Vector2f(1024.0f, 1024.0f), sf::Vector2f(VIEW_SIZE, VIEW_SIZE)); ///124 x124
     // this->ttm->addText("dialog1", "This is sample text that will be used for sampling\nNew lines will be added occasionally and i hope it looks okay sad");
     // this->ttm = new TextManager();
-    this->sm = new ScreenManager(tm, ttm);
+
     // tm.addTexture("pixel", "/home/terrance/Desktop/games/RPG/Assets/pixel.png");
     // tm.addTexture("new-walk", "Assets/new-walk.png");
     // tm.addTexture("npc1", "Assets/base-walk.png");
@@ -21,7 +23,6 @@ ActiveState::ActiveState(TextureManager *tm, TextManager *ttm){
     // TextureManager::getInstance().addTexture("tree", "Assets/obst-tree.png");
     // TextureManager::getInstance().addTexture("stream", "Assets/water.png");
     // TextureManager::getInstance().addTexture("bridge", "Assets/bridge.png");
-
     // printf("adding zones\n");
     // this->zones.push(new Zone(tm, ttm, sm));
     // this->player = new Entity(tm);
@@ -29,29 +30,26 @@ ActiveState::ActiveState(TextureManager *tm, TextManager *ttm){
     // this->view = new sf::View(sf::Vector2f(1024.0f, 1024.0f), sf::Vector2f(VIEW_SIZE, VIEW_SIZE)); ///124 x124
     // this->movementComp = new Movement(0.055f);
     // this->creatorComp = new Creator();
-
     // this->L = luaL_newstate();
     // luaL_loadfile(L, "Zones/constraints/zone1.lua");
     // lua_pcall(L, 0, 0, 0);
     // lua_getglobal(L, "zone1");
- 
     // printf("Lua loading\n");
     // int width = getIntField(L, "startX");
     // int height = getIntField(L, "startY");
-    
     // this->player->ani.setPosition(150, 150);
     // this->view->setCenter(getPlayerX(), getPlayerY());
     // this->resources->ani.setPosition(view->getCenter().x - 60, getPlayerY() - 60);
-    
     // lua_close(L);
 };
 
 void ActiveState::init(){
     printf("adding zones\n");
-    this->zones.push(new Zone(tm, ttm, sm));
+    this->view = new sf::View(sf::Vector2f(1024.0f, 1024.0f), sf::Vector2f(VIEW_SIZE, VIEW_SIZE)); ///124 x124
+    this->zones.push(new Zone(tm, ttm, sm, this->view));
+    
     this->player = new Entity(tm);
     this->resources = new Blood(tm);
-    this->view = new sf::View(sf::Vector2f(1024.0f, 1024.0f), sf::Vector2f(VIEW_SIZE, VIEW_SIZE)); ///124 x124
     this->movementComp = new Movement(0.055f);
     this->creatorComp = new Creator();
 

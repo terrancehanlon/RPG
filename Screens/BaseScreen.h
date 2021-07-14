@@ -18,12 +18,14 @@ class BaseScreen {
         std::vector<sf::Text> texts;
         sf::Font font;
         sf::Text text;
+        sf::View *view;
 
     public:
         TextManager *ttm;
+        TextureManager *tm;
         std::vector<sf::Sprite> images;
         std::string key;
-        BaseScreen(TextureManager *tm, TextManager *ttm);
+        BaseScreen(TextureManager *tm, TextManager *ttm, sf::View *view);
         BaseScreen();
 
         virtual void update(TextureManager *tm);

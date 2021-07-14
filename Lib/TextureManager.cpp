@@ -81,8 +81,6 @@ int TextureManager::addTexture(const std::string& id, const std::string& texture
 
 TextureManager& TextureManager::getInstance()
 {   
-    // printf()
-    printf("returning instance\n");
     static TextureManager instance;
     return instance;
 }

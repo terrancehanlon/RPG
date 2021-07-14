@@ -2,11 +2,12 @@
 #include <iostream>
 #include <cmath>
 
-ZoneBase::ZoneBase(TextureManager *tm, TextManager* ttm, ScreenManager *sm){
+ZoneBase::ZoneBase(TextureManager *tm, TextManager* ttm, ScreenManager *sm, sf::View *view){
     this->tm = tm;
     npc.init(tm);
     this->sm = sm;
     this->ttm = ttm;
+    this->view = view;
 }
 ZoneBase::~ZoneBase(){}
 
@@ -46,13 +47,16 @@ bool ZoneBase::checkNPCCollision(AnimatedSprite* ani){
         }
     }
 
+    //collision happened
     if(setColor){
         npc.ani.setColor(sf::Color::Red);
         if(!tm->sw.diaglogActive){
-            printf("creating screen\n");
-            InteractionScreen *is = new InteractionScreen(this->tm, this->ttm);
+            InteractionScreen *is = new InteractionScreen(this->tm, this->ttm, this->view, this->sm);
+            // is->sm = this->sm;
             is->setPosition(npc.ani.getPosition().x - 8, npc.ani.getPosition().y - 3);
             sm->addScreen(is);    
+        }else{
+            DialogScreen *ds = new DialogScreen(this->tm, this->ttm, this->view);
         }
         return true;
     }else{

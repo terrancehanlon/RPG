@@ -1,27 +1,13 @@
 #include "BaseScreen.h"
 
-BaseScreen::BaseScreen(TextureManager *tm, TextManager *ttm){
-    // this->key = key;
+BaseScreen::BaseScreen(TextureManager *tm, TextManager *ttm, sf::View *view){
     this->ttm = ttm;
-    //std::string key, TextureManager *texturem, TextManager *textm
-    // baseImage.setTexture(texturem->getTexture(key));
-
-
-    // txt.setString(textm->getText(key));
-
-    // text.push_back(txt);
-
+    this->view = view;
 };
 
 void BaseScreen::render(sf::RenderWindow *window){
-    // std::cout << "rendering screen" << std::endl;
-    // baseImage.setPosition(160, 150); 
-    // std::cout << baseImage.getPosition().y << std::endl;
     window->draw(baseImage);
     window->draw(text);
-    // for(auto& s : images){
-    //     window->draw(s);
-    // }
 }
 
 void BaseScreen::update(TextureManager *tm){

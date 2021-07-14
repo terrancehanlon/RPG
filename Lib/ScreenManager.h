@@ -3,7 +3,7 @@
 
 
 // #include "../Entities/BaseScreen.h"
-#include "../Screens/InteractionScreen.h"
+// #include "../Screens/InteractionScreen.h"
 // #include "./TextureManager.h"
 // #include "./TextManager.h"
 #include <string>
@@ -21,13 +21,13 @@ class ScreenManager {
         TextManager *ttm;
         std::vector<ScreenItem*> activeScreens;
         std::unordered_map<std::string, int> activeScreens_map;
-
+        sf::View *view;
 
     public:
 
         bool dialogScreenActive = false;
 
-        ScreenManager(TextureManager* tm, TextManager *ttm);
+        ScreenManager(TextureManager* tm, TextManager *ttm, sf::View *view);
         void render(sf::RenderWindow *window);
         void update(TextureManager *tm);
 
