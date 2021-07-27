@@ -50,14 +50,16 @@ bool ZoneBase::checkNPCCollision(AnimatedSprite* ani){
     //collision happened
     if(setColor){
         npc.ani.setColor(sf::Color::Red);
-        if(!tm->sw.diaglogActive){
+        if(!tm->sw.diaglogActive){ //the screen after the interaction screen is NOT active
             InteractionScreen *is = new InteractionScreen(this->tm, this->ttm, this->view, this->sm);
-            // is->sm = this->sm;
             is->setPosition(npc.ani.getPosition().x - 8, npc.ani.getPosition().y - 3);
-            sm->addScreen(is);    
-        }else{
-            DialogScreen *ds = new DialogScreen(this->tm, this->ttm, this->view);
-        }
+            sm->addScreen(is);  
+        }  
+        // }else{
+        //     //screen watcher on the texture manager has the diaglog screen active flag set to true.. so the interaction screen is done, now create the dialog screen
+        //     DialogScreen *ds = new DialogScreen(this->tm, this->ttm, this->view);
+        //     sm->addScreen(ds);
+        // }
         return true;
     }else{
         npc.ani.setColor(sf::Color::White);

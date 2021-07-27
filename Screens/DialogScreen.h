@@ -8,15 +8,13 @@ class DialogScreen : public BaseScreen{
 
     public:
         sf::View *view;
-        sf::Sprite sprite;
-
+        
         DialogScreen(TextureManager *tm, TextManager *ttm, sf::View *view) : BaseScreen(tm, ttm, view){
-            // printf("")
-            this->sprite.setTexture(tm->getTexture("dialogBox"));
+            init(tm, ttm);
         };
         void update(TextureManager *tm);
-        // void render(sf::RenderWindow *window);
-    
+
+        void init(TextureManager *tm, TextManager *ttm);
 
 };
 

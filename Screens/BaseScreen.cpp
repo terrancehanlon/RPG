@@ -6,6 +6,7 @@ BaseScreen::BaseScreen(TextureManager *tm, TextManager *ttm, sf::View *view){
 };
 
 void BaseScreen::render(sf::RenderWindow *window){
+    std::cout << "drawing from base: " << this->key << std::endl;
     window->draw(baseImage);
     window->draw(text);
 }
@@ -22,4 +23,10 @@ void BaseScreen::setPosition(float x, float y){
     baseImage.setPosition(sf::Vector2f(x,y));
 }
 
+void BaseScreen::printPosition(){
+    std::cout << "X: " <<  baseImage.getPosition().x << std::endl << "Y: " << baseImage.getPosition().y << std::endl; 
+}
+
 BaseScreen::BaseScreen(){}
+
+

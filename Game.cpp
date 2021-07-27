@@ -14,6 +14,7 @@ Game::Game(){
     tm.addTexture("blood-levels", "Assets/blood-levels.png");
     tm.addTexture("dialog1", "Assets/dialog1.png");
     tm.addTexture("dialogBox", "Assets/dialogbox1.png");
+    tm.addTexture("dialogBox1", "Assets/tb-dialog1.png");
     ttm.addText("dialog1", "This is sample text that will be used for sampling\nNew lines will be added occasionally and i hope it looks okay sad");
 
     // tm.getSize();

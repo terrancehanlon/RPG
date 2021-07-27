@@ -21,6 +21,7 @@ class BaseScreen {
         sf::View *view;
 
     public:
+        void printPosition();
         TextManager *ttm;
         TextureManager *tm;
         std::vector<sf::Sprite> images;
