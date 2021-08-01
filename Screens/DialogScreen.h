@@ -6,9 +6,7 @@
 
 class DialogScreen : public BaseScreen{
 
-    public:
-        sf::View *view;
-        
+    public:    
         DialogScreen(TextureManager *tm, TextManager *ttm, sf::View *view) : BaseScreen(tm, ttm, view){
             init(tm, ttm);
         };

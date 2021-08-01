@@ -106,7 +106,8 @@ void ActiveState::update(sf::Time dt){
         this->movementComp->backPeddle(&this->player->ani, &this->resources->ani, this->view);
 
     }else{
-        this->movementComp->move(dt, &this->player->ani, &this->resources->ani, this->view);   
+        if(!this->stopPlayer)
+            this->movementComp->move(dt, &this->player->ani, &this->resources->ani, this->view);   
     }
     this->creatorComp->update(dt);
 

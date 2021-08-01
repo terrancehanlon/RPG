@@ -24,7 +24,7 @@ const sf::Texture& TextureManager::getTexture(const std::string& key) const{
     for(auto& x : textures){
         if(x.key == key){
             // printf("key found\n");
-            std::cout << key << " Found " << std::endl;
+            // std::cout << key << " Found " << std::endl;
             return x.texture;
         }
     }

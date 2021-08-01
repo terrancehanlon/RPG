@@ -6,7 +6,6 @@ BaseScreen::BaseScreen(TextureManager *tm, TextManager *ttm, sf::View *view){
 };
 
 void BaseScreen::render(sf::RenderWindow *window){
-    std::cout << "drawing from base: " << this->key << std::endl;
     window->draw(baseImage);
     window->draw(text);
 }

@@ -11,7 +11,6 @@ ScreenManager::ScreenManager(TextureManager* tm, TextManager *ttm, sf::View *vie
 
 void ScreenManager::render(sf::RenderWindow *window){
     for(auto& s : activeScreens){
-        s->screen->printPosition();
          s->screen->render(window);
     }
 };
@@ -24,7 +23,7 @@ void ScreenManager::update(TextureManager *tm){
 
 void ScreenManager::addScreen(BaseScreen *screen){
     if(activeScreens_map.find(screen->key) != activeScreens_map.end()){
-        printf("screen already active\n");
+        // printf("screen already active\n");
     }else{
         ScreenItem *screenItem = new ScreenItem(screen->key, screen);
         activeScreens.push_back(screenItem);

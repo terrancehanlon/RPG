@@ -28,6 +28,8 @@ class ActiveState : public BaseState{
 
         Storage inventory;
 
+        bool stopPlayer = false;
+
 
         Blood *resources;
         // TextureManager tm;
