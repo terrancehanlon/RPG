@@ -17,7 +17,11 @@ void ScreenManager::render(sf::RenderWindow *window){
 
 void ScreenManager::update(TextureManager *tm){
     for(auto& s : activeScreens){
-        s->screen->update(tm);
+        if(s->screen->remove){
+            this->removeScreen(s->key);
+        }else{
+            s->screen->update(tm);
+        }
     }
 };
 

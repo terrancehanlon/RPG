@@ -21,6 +21,7 @@ class BaseScreen {
         sf::View *view;
 
     public:
+        bool remove = false;
         void printPosition();
         TextManager *ttm;
         TextureManager *tm;

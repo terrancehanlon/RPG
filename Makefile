@@ -2,8 +2,8 @@ exeName = mainp
 
 sfmlFlags = -lsfml-graphics -lsfml-window -lsfml-system
 luaFlags =  -llua5.3 -ldl -lm -I/usr/include/lua5.3
-# luaFlags = -llua -ldl -lm
-luaflags = -l-I/usr/include/lua5.3
+luaFlags = -llua -ldl -lm
+# luaflags = -l-I/usr/include/lua5.3
 
 g = g++ -g -std=c++17 -c
 

@@ -14,6 +14,17 @@ class DialogScreen : public BaseScreen{
 
         void init(TextureManager *tm, TextManager *ttm);
 
+
+        int lastViewX;
+        int lastViewY;
+        int viewSizeX;
+        int viewSizeY;
+
+        float incrementSize = 1 ;
+    
+    
+
+
 };
 
 #endif

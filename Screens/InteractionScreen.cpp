@@ -10,6 +10,9 @@ void InteractionScreen::update(TextureManager *tm){
         this->sm->addScreen(ds);
         tm->sw.diaglogActive = true;        
     }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
+        this->remove = true;
+    }
 }
 
 void InteractionScreen::init(TextureManager *tm, TextManager *ttm){

@@ -27,6 +27,7 @@ Game::~Game(){}
 void Game::init(){
     printf("Creating Window and initializing Game object now\n");
     this->window = new sf::RenderWindow(sf::VideoMode(1024, 1024), "RPG", sf::Style::Close | sf::Style::Resize);
+    this->window->setVerticalSyncEnabled(true);
 };
 
 
