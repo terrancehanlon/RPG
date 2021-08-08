@@ -35,6 +35,7 @@ target/ZoneBase.o \
 target/Obstacle.o \
 target/Entity.o \
 target/Npc.o \
+target/StaticNpc.o \
 target/BaseState.o \
 target/Menu.o \
 target/ActiveState.o \
@@ -71,7 +72,8 @@ all:
 	$(g) Zones/ZoneBase.cpp -o target/ZoneBase.o
 	$(g) Entities/Obstacle.cpp -o target/Obstacle.o
 	$(g) Entities/Entity.cpp -o target/Entity.o
-	$(g) Entities/Npc.cpp -o target/Npc.o
+	$(g) Entities/NPC/Npc.cpp -o target/Npc.o
+	$(g) Entities/NPC/StaticNpc.cpp -o target/StaticNpc.o
 	$(g) States/BaseState.cpp -o target/BaseState.o
 	$(g) States/Menu.cpp -o target/Menu.o
 	$(g) States/ActiveState.cpp -o target/ActiveState.o
@@ -94,7 +96,8 @@ ent:
 	$(g) Entities/BloodCase.cpp -o target/BloodCase.o
 	$(g) Entities/HumanPod.cpp -o target/HumanPod.o
 	$(g) Entities/Entity.cpp -o target/Entity.o 
-	$(g) Entities/Npc.cpp -o target/Npc.o
+	$(g) Entities/NPC/Npc.cpp -o target/Npc.o
+	$(g) Entities/NPC/StaticNpc.cpp -o target/StaticNpc.o
 	g++ $(link) -o $(exeName) $(sfmlFlags) $(luaFlags) ;
 
 screens:

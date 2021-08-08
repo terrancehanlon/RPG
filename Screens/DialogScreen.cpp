@@ -14,7 +14,7 @@ void DialogScreen::update(TextureManager *tm){
 
 void DialogScreen::init(TextureManager *tm, TextManager *ttm){
     baseImage.setTexture(tm->getTexture("dialogBox1"));
-    baseImage.setPosition(160.0f, 120.0f);
+    // baseImage.setPosition(160.0f, 120.0f);
     baseImage.setScale(0.12, 0.12);
 
     this->lastViewX = this->view->getCenter().x;

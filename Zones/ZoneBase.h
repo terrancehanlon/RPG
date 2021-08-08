@@ -9,8 +9,9 @@
 #include "../Screens/DialogScreen.h"
 // #include "../Lib/TextManager.h"
 #include "../Entities/Obstacle.h"
-#include "../Entities/Npc.h"
+#include "../Entities/NPC/Npc.h"
 #include "../Screens/InteractionScreen.h"
+#include <vector>
 
 
 class ZoneBase {
@@ -47,7 +48,7 @@ class ZoneBase {
         virtual bool renderObjectFirst(float playerX, float playerY) = 0;
         virtual bool checkPlayerConstraint(float x, float y) = 0;
 
-        Npc npc;
+        std::vector<Npc> npc_list;
 
 };
 

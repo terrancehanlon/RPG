@@ -4,7 +4,10 @@
 
 ZoneBase::ZoneBase(TextureManager *tm, TextManager* ttm, ScreenManager *sm, sf::View *view){
     this->tm = tm;
-    npc.init(tm);
+    // npc.init(tm);
+    for(auto& npc : npc_list){
+        npc.init(tm);
+    }
     this->sm = sm;
     this->ttm = ttm;
     this->view = view;
@@ -15,12 +18,18 @@ void ZoneBase::update(sf::Time dt, float x, float y){
     for(auto o : obstacles){
         o->update(dt);
     }
-    npc.update(dt, this->tm);
+    // npc.update(dt, this->tm);
+    for(auto& npc : npc_list){
+        npc.update(dt, this->tm);
+    }
 }
 
 void ZoneBase::draw(sf::RenderWindow *window){
     window->draw(backgroundSprite);
-    npc.render(window, this->tm);
+    // npc.render(window, this->tm);
+    for(auto& npc : npc_list){
+        npc.render(window, this->tm);
+    }
 }
 
 void ZoneBase::drawObstacles(AnimatedSprite *ani, sf::RenderWindow *window, TextureManager *tm){
@@ -41,28 +50,39 @@ bool ZoneBase::checkNPCCollision(AnimatedSprite* ani){
     float y = ani->getPosition().y;
     
     bool setColor = false;
-     if( std::abs(this->npc.ani.getPosition().x - x) < 15 ){
-        if(std::abs(this->npc.ani.getPosition().y - y) < 15){
-            setColor = true;
+    for(auto& npc : npc_list){
+        if( std::abs(npc.ani.getPosition().x - x) < 15 ){
+            if(std::abs(npc.ani.getPosition().y - y) < 15){
+                setColor = true;
+            }
         }
     }
 
     //collision happened
     if(setColor){
-        npc.ani.setColor(sf::Color::Red);
-        if(!tm->sw.diaglogActive){ //the screen after the interaction screen is NOT active
-            InteractionScreen *is = new InteractionScreen(this->tm, this->ttm, this->view, this->sm);
-            is->setPosition(npc.ani.getPosition().x - 8, npc.ani.getPosition().y - 3);
-            sm->addScreen(is);  
-        }  
-        // }else{
-        //     //screen watcher on the texture manager has the diaglog screen active flag set to true.. so the interaction screen is done, now create the dialog screen
-        //     DialogScreen *ds = new DialogScreen(this->tm, this->ttm, this->view);
-        //     sm->addScreen(ds);
-        // }
+        for(auto& npc : npc_list){
+            if(npc.hit){
+                npc.ani.setColor(sf::Color::Red);
+            }
+        
+            if(!tm->sw.diaglogActive){ //the screen after the interaction screen is NOT active
+                InteractionScreen *is = new InteractionScreen(this->tm, this->ttm, this->view, this->sm);
+                is->setPosition(npc.ani.getPosition().x - 8, npc.ani.getPosition().y - 3);
+                sm->addScreen(is);  
+            }  
+            else{
+                //dialog is active so remove interaction screen
+                sm->removeScreen("interaction-screen");
+            }
+    }
         return true;
     }else{
-        npc.ani.setColor(sf::Color::White);
+        for(auto& npc : npc_list){
+            if(npc.hit){
+                npc.ani.setColor(sf::Color::White);
+                npc.hit = false;
+            }
+        }
         sm->removeScreen("interaction-screen");
         tm->sw.diaglogActive = false;
         return false;

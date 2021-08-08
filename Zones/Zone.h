@@ -7,6 +7,7 @@
 #include "ZoneBase.h"
 #include <vector>
 #include <string>
+#include "../Entities/NPC/StaticNpc.h"
 
 class Zone : public ZoneBase {
 
@@ -35,6 +36,10 @@ class Zone : public ZoneBase {
                 Obstacle *o3 = new Obstacle;
                 o3->bridge();
                 obstacles.push_back(o3);
+
+                StaticNpc npc1;
+
+
         }
         ~Zone();
         int getIntField(lua_State *L, const char* key);
